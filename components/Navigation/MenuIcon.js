@@ -25,7 +25,7 @@ const StyledMenu = styled(Menu)`
     margin-right: 10px;
     width: 25px;
     height: 25px;
-    fill: #000;
+    fill: var(--white);
   }
 `;
 

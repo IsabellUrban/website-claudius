@@ -77,15 +77,15 @@ const LogoWrapper = styled.div`
 const StyledLogo = styled(Logo)`
   width: 14vh;
   height: auto;
-  color: #000;
+  color: var(--white);
 
-  &:hover {
+/*   &:hover {
     transform: scale(1.02);
     color: var(--yellow);
-  }
+  } */
 
   @media (min-width: 768px) {
-    width: 9vh;
+    width: 18vh;
     height: auto;
   }
 `;

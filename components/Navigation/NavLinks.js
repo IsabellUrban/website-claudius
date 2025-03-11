@@ -32,7 +32,7 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
           REELS
         </StyledLink>
         <StyledLink href="" onClick={handleLinkClick} role="menuitem">
-          FILOGRAPHY
+          FILMOGRAPHY
         </StyledLink>
         <StyledLink href="" onClick={handleLinkClick} role="menuitem">
           CONTACT
@@ -46,14 +46,13 @@ const StyledBackground = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 200px;
-  height: 250px;
-  background-color: var(--yellow);
-  border-radius: 0 0 50% 50%;
+  width: 150px;
+  height: 350px;
+  background-color: var(--black);
   opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? 0.95 : 0)};
   transform: ${({ $isMenuOpen }) =>
-    $isMenuOpen ? "translateY(0)" : "translateY(-100%)"};
-  transition: transform 0.3s ease, opacity 0.5s ease;
+    $isMenuOpen ? "translateX(0)" : "translateX(100%)"};
+  transition: transform 0.75s ease, opacity 0.5s ease;
   z-index: 3;
 `;
 
@@ -62,8 +61,8 @@ const StyledNavLinks = styled.nav`
   flex-direction: column;
   gap: 1rem;
   position: fixed;
-  top: 75px;
-  right: 23px;
+  top: 90px;
+  right: 38px;
   z-index: 4;
   
 
@@ -92,9 +91,12 @@ const StyledLink = styled(Link)`
     font-size: 1rem;
 
     &:hover {
-      text-decoration: underline 2px var(--yellow);
-      text-underline-position: under;
+      text-decoration: underline 0.2rem var(--yellow);
       transform: scale(1.02);
+    }
+
+    &:active {
+      text-decoration: underline 0.2rem var(--yellow);
     }
   }
 `;

@@ -21,5 +21,5 @@ const StyledCloseIcon = styled(X)`
     margin-right: 10px;
     width: 22px;
     height: 22px;
-    fill: #000;
+    fill: var(--white);
 `;
