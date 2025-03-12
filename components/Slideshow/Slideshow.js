@@ -17,22 +17,34 @@ return () => clearInterval(interval);
 
 
     return (
-      <SlideshowContainer>
-        <AnimatePresence mode="easeIn">
-          {projects.length > 0 && projects[index].still && (
-            <StyledImage
-              key={projects[index].id}
-              src={projects[index].still}
-              alt={projects[index].title}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 2, ease: "easeOut" }}
-            />
-          )}
-          ;
-        </AnimatePresence>
-      </SlideshowContainer>
+      <>
+        <TextContainer>
+          <StyledText
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            Animator I Supervisor I Head of Animation
+          </StyledText>
+        </TextContainer>
+         <SlideshowContainer>
+          <AnimatePresence mode="easeIn">
+            {projects.length > 0 && projects[index].still && (
+              <StyledImage
+                key={projects[index].id}
+                src={projects[index].still}
+                alt={projects[index].title}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 2, ease: "easeOut" }}
+              />
+            )}
+            ;
+          </AnimatePresence>
+        </SlideshowContainer>
+      </>
     );
 };
 
@@ -55,4 +67,16 @@ position: absolute;
 width: 100%;
 height: 100%;
 object-fit: cover;
+`;
+
+const TextContainer = styled.div`
+display: flex;
+position:absolute;
+padding: 500 50 50 50;
+`;
+
+const StyledText = styled(motion.h2) `
+font-size: 5vh;
+font-weight: 700;
+color: var(--yellow);
 `;
