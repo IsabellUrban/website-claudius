@@ -48,7 +48,7 @@ const StyledHeader = styled.header`
   position: fixed;
   width: 100%;
   height: 12vh;
-  background-color: #000;
+  background-color: var(--black);
   top: 0px;
   left: 0;
   z-index: 10;
