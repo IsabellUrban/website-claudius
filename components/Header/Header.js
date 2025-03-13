@@ -35,7 +35,7 @@ export default function Header() {
         <NavLinks isMenuOpen={isMenuOpen} handleLinkClick={handleLinkClick} />
       </StyledHeader>
 
-      <HiddenHeadline>Isabell Urban</HiddenHeadline>
+      <HiddenHeadline>Claudius Urban</HiddenHeadline>
     </>
   );
 }
@@ -79,13 +79,8 @@ const StyledLogo = styled(Logo)`
   height: auto;
   color: var(--white);
 
-/*   &:hover {
-    transform: scale(1.02);
-    color: var(--yellow);
-  } */
-
   @media (min-width: 768px) {
-    width: 18vh;
+    width: 16vh;
     height: auto;
   }
 `;
@@ -93,6 +88,6 @@ const StyledLogo = styled(Logo)`
 
 const HiddenHeadline = styled.h1`
   position: fixed;
-  color: #fff;
+  color: var(--black);
   visibility: hidden;
 `;

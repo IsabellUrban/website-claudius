@@ -1,12 +1,12 @@
 import Header from "@/components/Header/Header.js";
-import Slideshow from "@/components/Slideshow/Slideshow.js";
+import Herosection from "@/components/Herosection/Herosection.js";
 
 export default function HomePage() {
   return (
     <div>
       
       <Header />
-      <Slideshow />
+      <Herosection />
     </div>
   );
 }
