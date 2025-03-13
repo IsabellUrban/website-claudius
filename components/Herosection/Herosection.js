@@ -25,6 +25,6 @@ const HeroContainer = styled.div`
   padding-top: 12vh;
 
   @media (min-width: 768px) {
-    height: 75vh;
+    height: 80vh;
   }
 `;
