@@ -7,25 +7,25 @@ import { useEffect } from "react";
 export default function Slideshow () {
 
 const [index, setIndex] = useState(0);
+const projectsWithStills = projects.filter (project => project.still )
 
 useEffect (() => {
 const interval = setInterval(() => {
-setIndex((prevIndex) => (prevIndex + 1) % projects.length);
-}, 3000);
+setIndex((prevIndex) => (prevIndex + 1) % projectsWithStills.length);
+}, 8000);
 
 return () => 
 clearInterval(interval);
-
-}, []);
+}, [projectsWithStills.length]);
 
 
     return (
-          <AnimatePresence mode="easeIn">
-            {projects.length > 0 && projects[index].still && (
+          <AnimatePresence initial={false}>
+            {projectsWithStills.length > 0 && (
               <StyledImage
-                key={projects[index].id}
-                src={projects[index].still}
-                alt={projects[index].title}
+                key={projectsWithStills[index].id}
+                src={projectsWithStills[index].still}
+                alt={projectsWithStills[index].title}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
