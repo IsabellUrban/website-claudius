@@ -29,4 +29,8 @@ export default createGlobalStyle`
     padding: 0;
     font-family: ${antonio.style.fontFamily}, system-ui;
   }
+
+  input, select, button {
+  font-family: inherit;
+}
 `;
