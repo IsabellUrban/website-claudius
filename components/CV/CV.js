@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import DropDown from "./DropDown";
-import Headline from "@/components/Headline/Headline";;
+import Headline from "@/components/Headline/Headline";
 
 export default function CV() {
     return (
-        <CVSection>
+      <CVSection>
         <StyledContainer>
-            <Headline headline={"cv"} />
-            <DropDown />
+          <Headline headline={"cv"} />
+          <DropDown />
         </StyledContainer>
-        </CVSection>
+      </CVSection>
     );
     }
 
 
  const CVSection = styled.section`
-          background-color: var(--black);
+          background-color: darkgrey;
           padding: 4rem 0rem 4rem 0rem;
           width: 100%;
         `;
@@ -25,5 +25,4 @@ export default function CV() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: var(--yellow);
         `;
