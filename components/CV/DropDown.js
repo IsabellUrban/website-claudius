@@ -122,7 +122,7 @@ export default function DropDown() {
             <br /> Yager Productions GmbH, Berlin, Germany
           </StyledText>
           <StyledList>
-            <li>Cinematic character animation for the game “Dead Island 2”</li>
+            <li>Cinematic character animation for the game Dead Island 2</li>
             <li>Working with MOCAP-data</li>
           </StyledList>
 
@@ -132,7 +132,7 @@ export default function DropDown() {
             <br /> Trixter Film GmbH, Munich, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the Feature Film “Iron Man 3”</li>
+            <li>Character animation for the Feature Film Iron Man 3</li>
             <li>Leading animators</li>
           </StyledList>
 
@@ -144,7 +144,7 @@ export default function DropDown() {
           <StyledList>
             <li>
               Hardsurface animation and Digital Doubles for the Feature Film
-              “Star Trek into Darkness”
+              Star Trek into Darkness
             </li>
           </StyledList>
 
@@ -153,7 +153,7 @@ export default function DropDown() {
             <br /> Pixomondo, Hamburg, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the commercial “Lidl Sinnesreise”</li>
+            <li>Character animation for the commercial Lidl Sinnesreise</li>
             <li>Character development</li>
           </StyledList>
 
@@ -164,7 +164,7 @@ export default function DropDown() {
           </StyledText>
           <StyledList>
             <li>
-              Cinematic character animation for the game “Spec Ops: The Line”
+              Cinematic character animation for the game Spec Ops: The Line
             </li>
             <li>Working with MOCAP-data</li>
           </StyledList>
@@ -174,7 +174,7 @@ export default function DropDown() {
             <br /> Double Negative, London, UK
           </StyledText>
           <StyledList>
-            <li>Character animation for the Feature Film “John Carter” </li>
+            <li>Character animation for the Feature Film John Carter </li>
             <li>Leading animators</li>
             <li>Working with MOCAP-data</li>
           </StyledList>
@@ -185,15 +185,15 @@ export default function DropDown() {
             <br /> Animationsfabrik GmbH, Hamburg, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the commercial “DFA Zocken”</li>
-            <li>Character animation for the commercial “Ferrero Eieruhr”</li>
+            <li>Character animation for the commercial DFA Zocken</li>
+            <li>Character animation for the commercial Ferrero Eieruhr</li>
             <li>
-              Character animation for the commercial “Ferrero
-              Basiskommunikation”
+              Character animation for the commercial Ferrero
+              Basiskommunikation
             </li>
             <li>
-              Character animation for the commercial “Mueller, Der Joghurt mit
-              der Ecke, Ecki und Eckhard”
+              Character animation for the commercial Mueller, Der Joghurt mit
+              der Ecke, Ecki und Eckhard
             </li>
           </StyledList>
 
@@ -203,8 +203,8 @@ export default function DropDown() {
           </StyledText>
           <StyledList>
             <li>
-              Character animation for the animated Feature Film “Legend of the
-              Guardians - The Owls of Ga`hoole”
+              Character animation for the animated Feature Film Legend of the
+              Guardians - The Owls of Ga`hoole
             </li>
           </StyledList>
 
@@ -216,8 +216,8 @@ export default function DropDown() {
           </StyledText>
           <StyledList>
             <li>
-              Ingame and sequence character animation for the game “Spec Ops:
-              The Line”
+              Ingame and sequence character animation for the game Spec Ops:
+              The Line
             </li>
             <li>Leading animators</li>
             <li>Directing ingame MoCap shots</li>
@@ -233,8 +233,8 @@ export default function DropDown() {
           </StyledText>
           <StyledList>
             <li>
-              Character animation for the commercial “Schluss mit billigen
-              Tricks”
+              Character animation for the commercial Schluss mit billigen
+              Tricks
             </li>
           </StyledList>
 
@@ -246,7 +246,7 @@ export default function DropDown() {
           </StyledText>
           <StyledList>
             <li>
-              Ingame character animation for the game “Spec Ops: The Line”
+              Ingame character animation for the game Spec Ops: The Line
             </li>
             <li>Working with MOCAP-data</li>
           </StyledList>
@@ -257,8 +257,8 @@ export default function DropDown() {
             Unexpected GmbH, Stuttgart, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the Image Film “Bosch ESP8T&VAF”</li>
-            <li>Character animation for the Image Film “Blum-Servodrive”</li>
+            <li>Character animation for the Image Film Bosch ESP8T&VAF</li>
+            <li>Character animation for the Image Film Blum-Servodrive</li>
           </StyledList>
 
           <TextWrapper
@@ -403,7 +403,7 @@ export default function DropDown() {
           <StyledText>2004-2006</StyledText>
           <StyledList>
             <li>
-              Teaching children at the "Kinderfilmhaus Ludwigsburg" in animation
+              Teaching children at the Kinderfilmhaus Ludwigsburg in animation
               and vfx
             </li>
           </StyledList>
@@ -411,7 +411,7 @@ export default function DropDown() {
           <StyledText>2001</StyledText>
           <StyledList>
             <li>
-              Visiting lecture at the "HFF Potsdam Babelsberg" about interactive
+              Visiting lecture at the HFF Potsdam Babelsberg about interactive
               animation in games
             </li>
           </StyledList>
