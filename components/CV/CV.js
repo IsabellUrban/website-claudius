@@ -2,6 +2,7 @@ import styled from "styled-components";
 import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
 
+
 export default function CV() {
     return (
       <CVSection>

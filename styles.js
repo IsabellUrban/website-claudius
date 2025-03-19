@@ -37,6 +37,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${antonio.style.fontFamily}, ${roboto.style.fontFamily}, system-ui;
+    background-color: var(--black);
   }
 
   input, select, button {
