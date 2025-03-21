@@ -2,13 +2,28 @@ import styled from "styled-components";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { projects } from "@/lib/data-projects";
+import PosterModal from "./PosterModal";
 
 export default function DropDown() {
-  const [isActiveSection, setIsActiveSection] = useState(null);
+const [isActiveSection, setIsActiveSection] = useState(null);
+const [selectedProject, setSelectedProject] = useState(null);
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+
 
   function handleToggleSection(section) {
     setIsActiveSection(isActiveSection === section ? null : section);
   }
+
+function handleProjectClick(company, role) {
+  const filteredProjects = projects.filter(
+    (project) => project.company === company && project.jobrole.role === role
+  );
+  console.log("Filtered Projects:", filteredProjects);
+  setSelectedProject(filteredProjects);
+  setIsModalOpen(true);
+}
 
   return (
     <>
@@ -33,7 +48,11 @@ export default function DropDown() {
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <StyledYear>SINCE 2025</StyledYear>
-          <StyledText>
+          <StyledText
+            onClick={() =>
+              handleProjectClick("Trixter", "Animation Supervisor")
+            }
+          >
             Animation Supervisor <br />
             Trixter Film GmbH, Berlin, Germany
           </StyledText>
@@ -51,7 +70,9 @@ export default function DropDown() {
           </StyledList>
 
           <StyledYear>2022-2025</StyledYear>
-          <StyledText>
+          <StyledText
+            onClick={() => handleProjectClick("Trixter", "Head of Animation")}
+          >
             Head of Animation <br /> Trixter Film GmbH, Berlin, Germany
           </StyledText>
           <StyledList>
@@ -385,7 +406,7 @@ export default function DropDown() {
           <StyledList>
             <li>Intermediate Diploma</li>
             <li>
-              foundation courses in film and media: scriptwriting,
+              Foundation courses in film and media: scriptwriting,
               cinematography, editing, directing, production
             </li>
             <li>working on set (lighting, grip, assistent VFX-supervisor)</li>
@@ -446,16 +467,16 @@ export default function DropDown() {
         >
           <StyledYear>PUBLIC RELATION</StyledYear>
 
-          <TextWrapperLink>
-            <StyledLink href="https://www.trixter.de/the-3-working-lives-of-claudius-urban/">
-              Article &quot;The 3 Working Lives of Claudius Urban&quot;
-            </StyledLink>
+          <TextWrapperLink href="https://www.trixter.de/the-3-working-lives-of-claudius-urban/">
+            <StyledList style={{ marginBottom: "0" }}>
+              <li>Article &quot;The 3 Working Lives of Claudius Urban&quot;</li>
+            </StyledList>
           </TextWrapperLink>
 
-          <TextWrapperLink>
-            <StyledLink href="https://projektzukunft.berlin.de/blog/news-detail/claudius-urban-animation-supervisor-bei-trixter-film-gmbh/">
-              Short interview with Claudius Urban
-            </StyledLink>
+          <TextWrapperLink href="https://projektzukunft.berlin.de/blog/news-detail/claudius-urban-animation-supervisor-bei-trixter-film-gmbh/">
+            <StyledList style={{ paddingTop: "0" }}>
+              <li> Short interview with Claudius Urban</li>
+            </StyledList>
           </TextWrapperLink>
 
           <StyledText>2024</StyledText>
@@ -493,8 +514,10 @@ export default function DropDown() {
           <StyledText>2020</StyledText>
           <StyledList>
             <li>
-              Winner German Film Award in Gold in the categorie Best Visual
-              Effects and Animation for &quot;Die Känguru Chroniken&quot;
+              Winner{" "}
+              <span style={{ color: "gold" }}>German Film Award in Gold</span>{" "}
+              in the categorie Best Visual Effects and Animation for &quot;Die
+              Känguru Chroniken&quot;
             </li>
           </StyledList>
 
@@ -555,6 +578,11 @@ export default function DropDown() {
           </StyledList>
         </StyledBackground>
       </Container>
+      <PosterModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={selectedProject}
+      />
     </>
   );
 }
@@ -653,29 +681,12 @@ const StyledList = styled.ul`
   }
 `;
 
-const TextWrapperLink = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: 2rem;
-  padding: 1.75rem 0rem 1.75rem 0rem;
-  `;
-
-const StyledLink = styled(Link)`
-  font: var(--subheadline);
-  color: var(--white);
-  line-height: 1.5;
-  text-align: left;
-  padding: 1rem 0rem 2rem 0rem;
-  text-decoration: none;
+const TextWrapperLink = styled(Link)`
+  text-decoration: underline var(--yellow);
 
   &:hover {
     cursor: pointer;
     color: var(--yellow);
   }
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
 `;
+
