@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function DropDown() {
   const [isActiveSection, setIsActiveSection] = useState(null);
@@ -43,8 +44,10 @@ export default function DropDown() {
             <li>Rig, Tool and Pipeline Development</li>
             <li>Animation Training</li>
             <li>Recruitment</li>
-            <li>Character animation and Previs for Feature Films and Series</li>
-            <li>Client Calls</li>
+            <li>
+              Animation, Previs and Supervision for Feature Films and Series
+            </li>
+            <li>Motion Capture acting and directing</li>
           </StyledList>
 
           <StyledYear>2022-2025</StyledYear>
@@ -62,10 +65,10 @@ export default function DropDown() {
             <li>Animation Training</li>
             <li>Recruitment</li>
             <li>
-              Character animation, Previs and Supervision for Feature Films and
-              Series
+              Animation, Previs and Supervision for Feature Films and Series
             </li>
             <li>Client Calls</li>
+            <li>Motion Capture acting and directing</li>
           </StyledList>
 
           <StyledYear>2018-2022</StyledYear>
@@ -76,14 +79,14 @@ export default function DropDown() {
             <li>
               Leading animators, providing creative input and technical support
             </li>
+            <li>Client Calls</li>
             <li>Rig, Tool and Pipeline Development</li>
             <li>Animation Training</li>
             <li>Recruitment</li>
             <li>
-              Character animation and Previs for Feature Films, Series and
-              Commercials
+              Animation, Previs and Supervision for Feature Films and Series
             </li>
-            <li>Client Calls</li>
+            <li>Motion Capture acting and directing</li>
           </StyledList>
 
           <StyledYear>2017-2018</StyledYear>
@@ -94,36 +97,43 @@ export default function DropDown() {
           <StyledList>
             <li>Leading animators</li>
             <li>Rig, Tool and Pipeline Development</li>
-            <li>Character animation for Feature Films</li>
             <li>Client Calls</li>
+            <li>Animation for Feature Films</li>
           </StyledList>
 
           <StyledYear>2016-2017</StyledYear>
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br /> Method Studios, Vancouver BC, Canada
           </StyledText>
           <StyledList>
-            <li>Character animation for Feature Films</li>
+            <li>Animation for Feature Films</li>
           </StyledList>
 
           <StyledYear>2013-2016</StyledYear>
           <StyledText>
-            Character Animator and Previs Artist
+            Animator and Previs Artist
             <br /> Weta Digital, Wellington, NZ
           </StyledText>
           <StyledList>
-            <li>Character animation for Feature Films</li>
+            <li>Animation and Previs for Feature Films</li>
           </StyledList>
 
           <StyledYear>2013</StyledYear>
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br /> Yager Productions GmbH, Berlin, Germany
           </StyledText>
           <StyledList>
-            <li>Cinematic character animation for the game Dead Island 2</li>
-            <li>Working with MOCAP-data</li>
+            <li>Cinematic Animation for Games</li>
+          </StyledList>
+
+          <StyledText>
+            Senior Animator
+            <br /> Trixter Film GmbH, Munich, Germany
+          </StyledText>
+          <StyledList>
+            <li>Animation for Feature Films</li>
           </StyledList>
 
           <StyledYear>2012-2013</StyledYear>
@@ -132,7 +142,7 @@ export default function DropDown() {
             <br /> Trixter Film GmbH, Munich, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the Feature Film Iron Man 3</li>
+            <li>Animation for Feature Films</li>
             <li>Leading animators</li>
           </StyledList>
 
@@ -142,123 +152,158 @@ export default function DropDown() {
             <br /> Pixomondo, Berlin, Germany
           </StyledText>
           <StyledList>
-            <li>
-              Hardsurface animation and Digital Doubles for the Feature Film
-              Star Trek into Darkness
-            </li>
+            <li>Animation for Feature Films</li>
           </StyledList>
 
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br /> Pixomondo, Hamburg, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the commercial Lidl Sinnesreise</li>
+            <li>Animation for Commercials</li>
             <li>Character development</li>
           </StyledList>
 
           <StyledYear>2011</StyledYear>
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br /> Yager Development GmbH, Berlin, Germany
           </StyledText>
           <StyledList>
-            <li>
-              Cinematic character animation for the game Spec Ops: The Line
-            </li>
-            <li>Working with MOCAP-data</li>
+            <li>Cinematic animation for Games</li>
           </StyledList>
 
           <StyledText>
-            Character Animator
+            Animator
             <br /> Double Negative, London, UK
           </StyledText>
           <StyledList>
-            <li>Character animation for the Feature Film John Carter </li>
+            <li>Animation for Feature Films</li>
             <li>Leading animators</li>
-            <li>Working with MOCAP-data</li>
           </StyledList>
 
           <StyledYear>2010</StyledYear>
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br /> Animationsfabrik GmbH, Hamburg, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the commercial DFA Zocken</li>
-            <li>Character animation for the commercial Ferrero Eieruhr</li>
-            <li>
-              Character animation for the commercial Ferrero
-              Basiskommunikation
-            </li>
-            <li>
-              Character animation for the commercial Mueller, Der Joghurt mit
-              der Ecke, Ecki und Eckhard
-            </li>
+            <li>Animation for Commercials</li>
           </StyledList>
 
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br /> Animal Logic, Sydney, Australia
           </StyledText>
           <StyledList>
-            <li>
-              Character animation for the animated Feature Film Legend of the
-              Guardians - The Owls of Ga`hoole
-            </li>
+            <li>Animation for Feature Films</li>
           </StyledList>
 
           <StyledYear>2009-2010</StyledYear>
           <StyledText>
-            Senior Character Animator
+            Senior Animator
             <br />
             Yager Development GmbH, Berlin, Germany
           </StyledText>
           <StyledList>
-            <li>
-              Ingame and sequence character animation for the game Spec Ops:
-              The Line
-            </li>
+            <li>Ingame and cinematic animation for games</li>
             <li>Leading animators</li>
-            <li>Directing ingame MoCap shots</li>
+            <li>Motion Capture directing</li>
             <li>Development of sequence production pipeline</li>
-            <li>Working with MOCAP-data</li>
           </StyledList>
 
           <StyledYear>2009</StyledYear>
           <StyledText>
-            Character Animator
+            Animator
             <br />
             Kingz Entertainment Gbr, Cologne, Germany
           </StyledText>
           <StyledList>
-            <li>
-              Character animation for the commercial Schluss mit billigen
-              Tricks
-            </li>
+            <li>Animation for Commercials </li>
           </StyledList>
 
           <StyledYear>2008</StyledYear>
           <StyledText>
-            Character Animator
+            Animator
             <br />
             Yager Development GmbH, Berlin, Germany
           </StyledText>
           <StyledList>
-            <li>
-              Ingame character animation for the game Spec Ops: The Line
-            </li>
-            <li>Working with MOCAP-data</li>
+            <li>Ingame animation for games</li>
           </StyledList>
 
+          <StyledYear>2007-2008</StyledYear>
           <StyledText>
-            Character Animator
+            Animator
             <br />
             Unexpected GmbH, Stuttgart, Germany
           </StyledText>
           <StyledList>
-            <li>Character animation for the Image Film Bosch ESP8T&VAF</li>
-            <li>Character animation for the Image Film Blum-Servodrive</li>
+            <li>Animation for Commercials and Corporate Videos</li>
+            <li>Motion Capture directing</li>
+          </StyledList>
+
+          <StyledYear>2007</StyledYear>
+          <StyledText>
+            CG-Artist
+            <br />
+            Die Acht Frankfurt, Frankfurt, Germany
+          </StyledText>
+          <StyledList>
+            <li>Particle-Effects for Corporate Videos</li>
+          </StyledList>
+
+          <StyledYear>2006-2007</StyledYear>
+          <StyledText>
+            Animator
+            <br />
+            Unexpected GmbH, Stuttgart, Germany
+          </StyledText>
+          <StyledList>
+            <li>Animation for TV series and Corporate Videos</li>
+            <li>Motion Capture directing</li>
+            <li>Cloth and Hair Simulation</li>
+          </StyledList>
+
+          <StyledYear>2006</StyledYear>
+          <StyledText>
+            CG-Artist
+            <br />
+            Schokolade Film GmbH, Stuttgart, Germany
+          </StyledText>
+          <StyledList>
+            <li>VFX for Educational Films</li>
+          </StyledList>
+
+          <StyledText>
+            CG-Artist
+            <br />
+            Filmakademie B.-W., Ludwigsburg, Germany
+          </StyledText>
+          <StyledList>
+            <li>VFX for Commercials</li>
+          </StyledList>
+
+          <StyledYear>2005</StyledYear>
+          <StyledText>
+            CG-Artist
+            <br />
+            Filmakademie B.-W., Ludwigsburg, Germany
+          </StyledText>
+          <StyledList>
+            <li>VFX and Animation for Feature Films</li>
+          </StyledList>
+
+          <StyledYear>2000-2002</StyledYear>
+          <StyledText>
+            CG-Artist
+            <br />
+            Yager Development GmbH, Berlin, Germany
+          </StyledText>
+          <StyledList>
+            <li>Cinematic VFX and animation for games</li>
+            <li>Modelling of landscapes</li>
+            <li>Levellogic-scripting</li>
           </StyledList>
 
           <TextWrapper
@@ -399,7 +444,60 @@ export default function DropDown() {
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          <StyledYear>TEACHING</StyledYear>
+          <StyledYear>PUBLIC RELATION</StyledYear>
+
+          <TextWrapperLink>
+            <StyledLink href="https://www.trixter.de/the-3-working-lives-of-claudius-urban/">
+              Article &quot;The 3 Working Lives of Claudius Urban&quot;
+            </StyledLink>
+          </TextWrapperLink>
+
+          <TextWrapperLink>
+            <StyledLink href="https://projektzukunft.berlin.de/blog/news-detail/claudius-urban-animation-supervisor-bei-trixter-film-gmbh/">
+              Short interview with Claudius Urban
+            </StyledLink>
+          </TextWrapperLink>
+
+          <StyledText>2024</StyledText>
+          <StyledList>
+            <li>
+              Speaker at FMX Stuttgart, Germany: Animation & Mocap Pipeline
+              Secrets by Xsens
+            </li>
+          </StyledList>
+
+          <StyledText>2023</StyledText>
+          <StyledList>
+            <li>
+              Speaker at FMX Stuttgart, Germany: The Marsupial, The Myth, The
+              Legend
+            </li>
+          </StyledList>
+
+          <StyledText>2021</StyledText>
+          <StyledList>
+            <li>
+              Speaker at FMX Stuttgart, Germany: Hopping for the Best: Die
+              Känguru-Chroniken
+            </li>
+          </StyledList>
+
+          <StyledText>2021</StyledText>
+          <StyledList>
+            <li>
+              VES Award Nominee in the categorie Outstanding Animated Character
+              in a Photoreal Feature for &quot;Die Känguru Chroniken&quot;
+            </li>
+          </StyledList>
+
+          <StyledText>2020</StyledText>
+          <StyledList>
+            <li>
+              Winner German Film Award in Gold in the categorie Best Visual
+              Effects and Animation for &quot;Die Känguru Chroniken&quot;
+            </li>
+          </StyledList>
+
           <StyledText>2004-2006</StyledText>
           <StyledList>
             <li>
@@ -441,20 +539,20 @@ export default function DropDown() {
             <li>Softimage XSI</li>
             <li>Photoshop</li>
             <li>Premiere</li>
-            </StyledList>
+          </StyledList>
 
           <StyledYear>LANGUAGES</StyledYear>
           <StyledList>
             <li>German (native)</li>
             <li>English (fluent)</li>
-            </StyledList>
+          </StyledList>
 
           <StyledYear>INTERESTS</StyledYear>
           <StyledList>
             <li>Film</li>
             <li>Sports: martial arts, soccer, basketball </li>
             <li>Music: drums, guitar</li>
-            </StyledList>
+          </StyledList>
         </StyledBackground>
       </Container>
     </>
@@ -555,3 +653,29 @@ const StyledList = styled.ul`
   }
 `;
 
+const TextWrapperLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 2rem;
+  padding: 1.75rem 0rem 1.75rem 0rem;
+  `;
+
+const StyledLink = styled(Link)`
+  font: var(--subheadline);
+  color: var(--white);
+  line-height: 1.5;
+  text-align: left;
+  padding: 1rem 0rem 2rem 0rem;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--yellow);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
