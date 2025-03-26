@@ -11,26 +11,29 @@ const sortedProjects = [...project].sort(
 
     return (
       <ModalOverlay onClick={onClose}>
-        <ModalContent onClick={(event) => event.stopPropagation()}>
+        <ModalContent
+          postersCount={sortedProjects.length}
+          onClick={(event) => event.stopPropagation()}
+        >
           <IconWrapper onClick={onClose}>
             <StyledCloseIcon />
           </IconWrapper>
           <Wrapper>
-          {sortedProjects.map((project) => (
-            <StyledGallery key={project.id}>
-              <ImageWrapper>
-                <StyledPoster
-                  src={project.poster}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </ImageWrapper>
-              <StyledTitle>
-                {project.title} ({project.releasedate})
-              </StyledTitle>
-            </StyledGallery>
-          ))}
+            {sortedProjects.map((project) => (
+              <StyledGallery key={project.id}>
+                <ImageWrapper>
+                  <StyledPoster
+                    src={project.poster}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </ImageWrapper>
+                <StyledTitle>
+                  {project.title} ({project.releasedate})
+                </StyledTitle>
+              </StyledGallery>
+            ))}
           </Wrapper>
         </ModalContent>
       </ModalOverlay>
@@ -54,9 +57,10 @@ const ModalContent = styled.div`
   background: var(--black);
   padding: 20px;
   top: 9vh;
-  width: 75%;
+  min-width: 40%;
+  max-width: 80%;
+  width: 70%;
   height: auto;
-  max-width: 1200px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
