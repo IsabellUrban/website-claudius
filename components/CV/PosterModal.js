@@ -5,15 +5,20 @@ import X from "@/public/icons/X.svg";
 export default function PosterModal({ project, onClose, isOpen }) {
 if (!isOpen || !project) return null;
 
+const sortedProjects = [...project].sort(
+  (a, b) => new Date(a.releasedate) - new Date(b.releasedate)
+);
+
     return (
       <ModalOverlay onClick={onClose}>
         <ModalContent onClick={(event) => event.stopPropagation()}>
           <IconWrapper onClick={onClose}>
             <StyledCloseIcon />
           </IconWrapper>
-          <StyledGallery>
-            {project.map((project) => (
-              <ImageWrapper key={project.id}>
+          <Wrapper>
+          {sortedProjects.map((project) => (
+            <StyledGallery key={project.id}>
+              <ImageWrapper>
                 <StyledPoster
                   src={project.poster}
                   alt={project.title}
@@ -21,8 +26,12 @@ if (!isOpen || !project) return null;
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </ImageWrapper>
-            ))}
-          </StyledGallery>
+              <StyledTitle>
+                {project.title} ({project.releasedate})
+              </StyledTitle>
+            </StyledGallery>
+          ))}
+          </Wrapper>
         </ModalContent>
       </ModalOverlay>
     );
@@ -45,7 +54,7 @@ const ModalContent = styled.div`
   background: var(--black);
   padding: 20px;
   top: 9vh;
-  width: 50%;
+  width: 75%;
   height: auto;
   max-width: 1200px;
   max-height: 90vh;
@@ -73,10 +82,18 @@ const StyledCloseIcon = styled(X)`
   fill: var(--yellow);
 `;
 
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
 const StyledGallery = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
 `;
 
 const ImageWrapper = styled.div`
@@ -88,11 +105,6 @@ const ImageWrapper = styled.div`
   justify-content: center;
   background-color: var(--black);
   border: 2px solid var(--yellow);
-
-   &:hover {
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-  }
 `;
 
 const StyledPoster = styled(Image)`
@@ -100,4 +112,17 @@ const StyledPoster = styled(Image)`
   width: 100%;
   height: 100%;
   
+`;
+
+const StyledTitle = styled.p`
+  font: var(--subheadline);
+  color: var(--white);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+  padding-top: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;

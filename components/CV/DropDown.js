@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { projects } from "@/lib/data-projects";
+import { experience } from "@/lib/data-experience";
+import Link from "next/link";
+import ExperienceSection from "./ExperienceSection";
 import PosterModal from "./PosterModal";
 
 export default function DropDown() {
@@ -17,10 +19,17 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   }
 
 function handleProjectClick(company, role) {
-  const filteredProjects = projects.filter(
-    (project) => project.company === company && project.jobrole.role === role
-  );
-  console.log("Filtered Projects:", filteredProjects);
+  const rolesToMatch = role.split(", ").map((role) => role.trim());
+
+  const filteredProjects = projects.filter((project) => {
+  const projectRoles = project.jobrole.role.split(", ").map((role) => role.trim());
+
+    return (
+      project.company === company &&
+      rolesToMatch.some((role) => projectRoles.includes(role))
+    );
+  });
+console.log("Filtered Projects:", filteredProjects);
   setSelectedProject(filteredProjects);
   setIsModalOpen(true);
 }
@@ -47,285 +56,10 @@ function handleProjectClick(company, role) {
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          <StyledYear>SINCE 2025</StyledYear>
-          <StyledText
-            onClick={() =>
-              handleProjectClick("Trixter", "Animation Supervisor")
-            }
-          >
-            Animation Supervisor <br />
-            Trixter Film GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>
-              Leading animators, providing creative input and technical support
-            </li>
-            <li>Rig, Tool and Pipeline Development</li>
-            <li>Animation Training</li>
-            <li>Recruitment</li>
-            <li>
-              Animation, Previs and Supervision for Feature Films and Series
-            </li>
-            <li>Motion Capture acting and directing</li>
-          </StyledList>
-
-          <StyledYear>2022-2025</StyledYear>
-          <StyledText
-            onClick={() => handleProjectClick("Trixter", "Head of Animation")}
-          >
-            Head of Animation <br /> Trixter Film GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation Team Management</li>
-            <li>Bidding</li>
-            <li>
-              Leading animators, Leads and Supervisors, providing creative input
-              and technical support
-            </li>
-            <li>Rig, Tool and Pipeline Development</li>
-            <li>Animation Training</li>
-            <li>Recruitment</li>
-            <li>
-              Animation, Previs and Supervision for Feature Films and Series
-            </li>
-            <li>Client Calls</li>
-            <li>Motion Capture acting and directing</li>
-          </StyledList>
-
-          <StyledYear>2018-2022</StyledYear>
-          <StyledText>
-            Animation Supervisor <br /> Trixter Film GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>
-              Leading animators, providing creative input and technical support
-            </li>
-            <li>Client Calls</li>
-            <li>Rig, Tool and Pipeline Development</li>
-            <li>Animation Training</li>
-            <li>Recruitment</li>
-            <li>
-              Animation, Previs and Supervision for Feature Films and Series
-            </li>
-            <li>Motion Capture acting and directing</li>
-          </StyledList>
-
-          <StyledYear>2017-2018</StyledYear>
-          <StyledText>
-            Lead Animator <br />
-            Trixter Film GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Leading animators</li>
-            <li>Rig, Tool and Pipeline Development</li>
-            <li>Client Calls</li>
-            <li>Animation for Feature Films</li>
-          </StyledList>
-
-          <StyledYear>2016-2017</StyledYear>
-          <StyledText>
-            Senior Animator
-            <br /> Method Studios, Vancouver BC, Canada
-          </StyledText>
-          <StyledList>
-            <li>Animation for Feature Films</li>
-          </StyledList>
-
-          <StyledYear>2013-2016</StyledYear>
-          <StyledText>
-            Animator and Previs Artist
-            <br /> Weta Digital, Wellington, NZ
-          </StyledText>
-          <StyledList>
-            <li>Animation and Previs for Feature Films</li>
-          </StyledList>
-
-          <StyledYear>2013</StyledYear>
-          <StyledText>
-            Senior Animator
-            <br /> Yager Productions GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Cinematic Animation for Games</li>
-          </StyledList>
-
-          <StyledText>
-            Senior Animator
-            <br /> Trixter Film GmbH, Munich, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Feature Films</li>
-          </StyledList>
-
-          <StyledYear>2012-2013</StyledYear>
-          <StyledText>
-            Lead Animator
-            <br /> Trixter Film GmbH, Munich, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Feature Films</li>
-            <li>Leading animators</li>
-          </StyledList>
-
-          <StyledYear>2012</StyledYear>
-          <StyledText>
-            Senior Animator
-            <br /> Pixomondo, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Feature Films</li>
-          </StyledList>
-
-          <StyledText>
-            Senior Animator
-            <br /> Pixomondo, Hamburg, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Commercials</li>
-            <li>Character development</li>
-          </StyledList>
-
-          <StyledYear>2011</StyledYear>
-          <StyledText>
-            Senior Animator
-            <br /> Yager Development GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Cinematic animation for Games</li>
-          </StyledList>
-
-          <StyledText>
-            Animator
-            <br /> Double Negative, London, UK
-          </StyledText>
-          <StyledList>
-            <li>Animation for Feature Films</li>
-            <li>Leading animators</li>
-          </StyledList>
-
-          <StyledYear>2010</StyledYear>
-          <StyledText>
-            Senior Animator
-            <br /> Animationsfabrik GmbH, Hamburg, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Commercials</li>
-          </StyledList>
-
-          <StyledText>
-            Senior Animator
-            <br /> Animal Logic, Sydney, Australia
-          </StyledText>
-          <StyledList>
-            <li>Animation for Feature Films</li>
-          </StyledList>
-
-          <StyledYear>2009-2010</StyledYear>
-          <StyledText>
-            Senior Animator
-            <br />
-            Yager Development GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Ingame and cinematic animation for games</li>
-            <li>Leading animators</li>
-            <li>Motion Capture directing</li>
-            <li>Development of sequence production pipeline</li>
-          </StyledList>
-
-          <StyledYear>2009</StyledYear>
-          <StyledText>
-            Animator
-            <br />
-            Kingz Entertainment Gbr, Cologne, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Commercials </li>
-          </StyledList>
-
-          <StyledYear>2008</StyledYear>
-          <StyledText>
-            Animator
-            <br />
-            Yager Development GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Ingame animation for games</li>
-          </StyledList>
-
-          <StyledYear>2007-2008</StyledYear>
-          <StyledText>
-            Animator
-            <br />
-            Unexpected GmbH, Stuttgart, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for Commercials and Corporate Videos</li>
-            <li>Motion Capture directing</li>
-          </StyledList>
-
-          <StyledYear>2007</StyledYear>
-          <StyledText>
-            CG-Artist
-            <br />
-            Die Acht Frankfurt, Frankfurt, Germany
-          </StyledText>
-          <StyledList>
-            <li>Particle-Effects for Corporate Videos</li>
-          </StyledList>
-
-          <StyledYear>2006-2007</StyledYear>
-          <StyledText>
-            Animator
-            <br />
-            Unexpected GmbH, Stuttgart, Germany
-          </StyledText>
-          <StyledList>
-            <li>Animation for TV series and Corporate Videos</li>
-            <li>Motion Capture directing</li>
-            <li>Cloth and Hair Simulation</li>
-          </StyledList>
-
-          <StyledYear>2006</StyledYear>
-          <StyledText>
-            CG-Artist
-            <br />
-            Schokolade Film GmbH, Stuttgart, Germany
-          </StyledText>
-          <StyledList>
-            <li>VFX for Educational Films</li>
-          </StyledList>
-
-          <StyledText>
-            CG-Artist
-            <br />
-            Filmakademie B.-W., Ludwigsburg, Germany
-          </StyledText>
-          <StyledList>
-            <li>VFX for Commercials</li>
-          </StyledList>
-
-          <StyledYear>2005</StyledYear>
-          <StyledText>
-            CG-Artist
-            <br />
-            Filmakademie B.-W., Ludwigsburg, Germany
-          </StyledText>
-          <StyledList>
-            <li>VFX and Animation for Feature Films</li>
-          </StyledList>
-
-          <StyledYear>2000-2002</StyledYear>
-          <StyledText>
-            CG-Artist
-            <br />
-            Yager Development GmbH, Berlin, Germany
-          </StyledText>
-          <StyledList>
-            <li>Cinematic VFX and animation for games</li>
-            <li>Modelling of landscapes</li>
-            <li>Levellogic-scripting</li>
-          </StyledList>
+          <ExperienceSection
+            experience={experience}
+            onProjectClick={handleProjectClick}
+          />
 
           <TextWrapper
             style={{
@@ -358,6 +92,11 @@ function handleProjectClick(company, role) {
             </StyledButton>
           </TextWrapper>
         </StyledBackground>
+        <PosterModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          project={selectedProject}
+        />
       </Container>
       <Container>
         <TextWrapper style={{ borderBottom: "2px solid var(--yellow)" }}>
@@ -578,11 +317,6 @@ function handleProjectClick(company, role) {
           </StyledList>
         </StyledBackground>
       </Container>
-      <PosterModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        project={selectedProject}
-      />
     </>
   );
 }
