@@ -16,6 +16,8 @@ export default function Aboutsection() {
                 <StyledImage
                   src={Claudius_500x500}
                   alt="Picture of Claudius Urban"
+                  width={500}
+                  height={500}
                 />
               </ImageWrapper>
             </StyledBackground>

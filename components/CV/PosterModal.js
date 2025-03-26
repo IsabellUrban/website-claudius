@@ -12,7 +12,6 @@ const sortedProjects = [...project].sort(
     return (
       <ModalOverlay onClick={onClose}>
         <ModalContent
-          postersCount={sortedProjects.length}
           onClick={(event) => event.stopPropagation()}
         >
           <IconWrapper onClick={onClose}>
