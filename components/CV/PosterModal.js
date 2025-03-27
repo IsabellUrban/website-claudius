@@ -91,9 +91,20 @@ const StyledCloseIcon = styled(X)`
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: ${({ $postersCount }) =>
-    $postersCount === 1 ? "1fr" : "repeat(auto-fill, minmax(140px, 1fr))"};
+    $postersCount === 1
+      ? "1fr"
+      : $postersCount === 2
+      ? "repeat(2, 1fr)"
+      : "repeat(3, 1fr)"};
   gap: 1rem;
-  justify-items: center;
+  justify-content: center;
+  align-items: start;
+  padding-top: 3rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const StyledGallery = styled.div`

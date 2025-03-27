@@ -37,11 +37,6 @@ export default function EducationSection() {
       color: var(--white);
       line-height: 1.5;
       text-align: left;
-      cursor: pointer;
-    
-      &:hover {
-        color: var(--yellow);
-      }
     
       @media (min-width: 768px) {
         font-size: 1rem;
