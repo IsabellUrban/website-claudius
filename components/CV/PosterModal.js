@@ -19,7 +19,7 @@ const sortedProjects = [...filteredProjects].sort(
           <IconWrapper onClick={onClose}>
             <StyledCloseIcon />
           </IconWrapper>
-          <Wrapper>
+          <Wrapper $postersCount={sortedProjects.length}>
             {sortedProjects.map((project) => (
               <StyledGallery key={project.id}>
                 <ImageWrapper>
@@ -57,27 +57,27 @@ const ModalOverlay = styled.div`
 const ModalContent = styled.div`
   background: var(--black);
   padding: 20px;
-  top: 9vh;
   min-width: 40%;
   max-width: 80%;
-  width: ${({ $postersCount }) => ($postersCount === 1 ? "50%" : "70%")};
+  width: ${({ $postersCount }) =>
+    $postersCount === 1 ? "40%" : $postersCount === 2 ? "50%" : "70%"};
   height: auto;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
 
   @media (min-width: 768px) {
-    top: 9vh;
-    width: ${({ $postersCount }) => ($postersCount === 1 ? "40%" : "80%")};
+    width: ${({ $postersCount }) =>
+      $postersCount === 1 ? "30%" : $postersCount === 2 ? "45%" : "60%"};
   }
 `;
 
 const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
-  z-index: 35;
+  z-index: 10;
 `;
 
 const StyledCloseIcon = styled(X)`
@@ -90,9 +90,10 @@ const StyledCloseIcon = styled(X)`
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: ${({ $postersCount }) =>
+    $postersCount === 1 ? "1fr" : "repeat(auto-fill, minmax(140px, 1fr))"};
   gap: 1rem;
-  flex-wrap: wrap;
+  justify-items: center;
 `;
 
 const StyledGallery = styled.div`
