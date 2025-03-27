@@ -81,7 +81,7 @@ export default function Aboutsection() {
 
       @media (min-width: 768px) {
       flex-direction: row;
-      background-color: var(--yellow);
+      
       }
     `;
 
@@ -91,8 +91,9 @@ export default function Aboutsection() {
 
       @media (min-width: 768px) {
         width: 50%;
+        background-color: var(--yellow);
       }
-`;
+    `;
     const ImageWrapper = styled.div`
       position: relative;
       width: 100%;

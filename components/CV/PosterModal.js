@@ -56,7 +56,6 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
   background: var(--black);
-  padding: 20px;
   width: 60%;
   height: auto;
   max-height: 90vh;
@@ -65,8 +64,8 @@ const ModalContent = styled.div`
 
   @media (min-width: 768px) {
     width: ${({ $postersCount }) =>
-      $postersCount === 1 ? "20%" : $postersCount === 2 ? "35%" : "60%"};
-      max-width: 700px;
+      $postersCount === 1 ? "15%" : $postersCount === 2 ? "25%" : $postersCount === 3 ? "35%" : $postersCount === 4 ? "55%" : "70%"};
+      max-width: 800px;
   }
 `;
 
@@ -93,11 +92,15 @@ const Wrapper = styled.div`
       ? "1fr"
       : $postersCount === 2
       ? "repeat(2, 1fr)"
-      : "repeat(3, 1fr)"};
+      : $postersCount === 3
+      ? "repeat(3, 1fr)"
+      : $postersCount === 4
+      ? "repeat(4, 1fr)"
+      : "repeat(5, 1fr)"};
   gap: 1rem;
   justify-content: center;
   align-items: start;
-  padding-top: 3rem;
+  padding-top: 2rem;
   width: 100%;
 
   @media (max-width: 768px) {
