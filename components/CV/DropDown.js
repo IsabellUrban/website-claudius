@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { projects } from "@/lib/data-projects";
+import { projects } from "@/lib/data-projects-02";
 import { experience } from "@/lib/data-experience";
 import ExperienceSection from "./ExperienceSection";
 import PosterModal from "./PosterModal";
@@ -19,15 +19,18 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     setIsActiveSection(isActiveSection === section ? null : section);
   }
 
-function handleProjectClick(company, role) {
-  const rolesToMatch = role.split(", ").map((role) => role.trim());
+function handleProjectClick(company, cvRole) {
+  const rolesToMatch = cvRole.split(", ").map((cvRole) => cvRole.trim());
 
   const filteredProjects = projects.filter((project) => {
-  const projectRoles = project.jobrole.role.split(", ").map((role) => role.trim());
+   const projectCvRoles =
+     project.jobrole && project.jobrole.cvRole
+       ? project.jobrole.cvRole.split(", ").map((cvRole) => cvRole.trim())
+       : [];
 
     return (
       project.company === company &&
-      rolesToMatch.some((role) => projectRoles.includes(role))
+      rolesToMatch.some((cvRole) => projectCvRoles.includes(cvRole))
     );
   });
 console.log("Filtered Projects:", filteredProjects);
@@ -167,7 +170,7 @@ console.log("Filtered Projects:", filteredProjects);
 
 const Container = styled.div`
   position: relative;
-  width: 80%;
+  width: 60%;
   background-color: var(--black);
 `;
 

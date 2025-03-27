@@ -57,10 +57,7 @@ const ModalOverlay = styled.div`
 const ModalContent = styled.div`
   background: var(--black);
   padding: 20px;
-  min-width: 40%;
-  max-width: 80%;
-  width: ${({ $postersCount }) =>
-    $postersCount === 1 ? "40%" : $postersCount === 2 ? "50%" : "70%"};
+  width: 60%;
   height: auto;
   max-height: 90vh;
   overflow-y: auto;
@@ -68,7 +65,8 @@ const ModalContent = styled.div`
 
   @media (min-width: 768px) {
     width: ${({ $postersCount }) =>
-      $postersCount === 1 ? "30%" : $postersCount === 2 ? "45%" : "60%"};
+      $postersCount === 1 ? "20%" : $postersCount === 2 ? "35%" : "60%"};
+      max-width: 700px;
   }
 `;
 
