@@ -106,6 +106,7 @@ export default function Aboutsection() {
 
     const StyledImage = styled(Image)`
       width: 100%;
+      height: auto;
       max-height: 200px;
       object-fit: contain;
 

@@ -5,14 +5,16 @@ import X from "@/public/icons/X.svg";
 export default function PosterModal({ project, onClose, isOpen }) {
 if (!isOpen || !project) return null;
 
-const sortedProjects = [...project].sort(
-  (a, b) => new Date(a.releasedate) - new Date(b.releasedate)
+const filteredProjects = project.filter((project) => !project.studentShow);
+const sortedProjects = [...filteredProjects].sort(
+  (a, b) => new Date(b.releasedate) - new Date(a.releasedate)
 );
 
     return (
       <ModalOverlay onClick={onClose}>
         <ModalContent
           onClick={(event) => event.stopPropagation()}
+          $postersCount={sortedProjects.length}
         >
           <IconWrapper onClick={onClose}>
             <StyledCloseIcon />
@@ -58,7 +60,7 @@ const ModalContent = styled.div`
   top: 9vh;
   min-width: 40%;
   max-width: 80%;
-  width: 70%;
+  width: ${({ $postersCount }) => ($postersCount === 1 ? "50%" : "70%")};
   height: auto;
   max-height: 90vh;
   overflow-y: auto;
@@ -66,6 +68,7 @@ const ModalContent = styled.div`
 
   @media (min-width: 768px) {
     top: 9vh;
+    width: ${({ $postersCount }) => ($postersCount === 1 ? "40%" : "80%")};
   }
 `;
 
