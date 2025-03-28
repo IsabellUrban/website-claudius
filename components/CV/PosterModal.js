@@ -56,7 +56,7 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
   background: var(--black);
-  width: 60%;
+  width: 55%;
   height: auto;
   max-height: 90vh;
   overflow-y: auto;
@@ -64,8 +64,16 @@ const ModalContent = styled.div`
 
   @media (min-width: 768px) {
     width: ${({ $postersCount }) =>
-      $postersCount === 1 ? "15%" : $postersCount === 2 ? "25%" : $postersCount === 3 ? "35%" : $postersCount === 4 ? "55%" : "70%"};
-      max-width: 800px;
+      $postersCount === 1 ? "20%" : $postersCount === 2 ? "35%" : $postersCount === 3 ? "35%" : $postersCount === 4 ? "60%" : "70%"};
+      max-width: 900px;
+      padding: 0rem 1rem;
+  }
+
+@media (min-width: 1024px) {
+    width: ${({ $postersCount }) =>
+      $postersCount === 1 ? "18%" : $postersCount === 2 ? "22%" : $postersCount === 3 ? "45%" : $postersCount === 4 ? "66%" : "80%"};
+      max-width: 900px;
+      padding: 0rem 1rem;
   }
 `;
 
@@ -87,24 +95,32 @@ const StyledCloseIcon = styled(X)`
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: ${({ $postersCount }) =>
-    $postersCount === 1
-      ? "1fr"
-      : $postersCount === 2
-      ? "repeat(2, 1fr)"
-      : $postersCount === 3
-      ? "repeat(3, 1fr)"
-      : $postersCount === 4
-      ? "repeat(4, 1fr)"
-      : "repeat(5, 1fr)"};
-  gap: 1rem;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: start;
   padding-top: 2rem;
   width: 100%;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: ${({ $postersCount }) =>
+      $postersCount === 1
+        ? "1fr"
+        : $postersCount === 2
+        ? "repeat(2, 1fr)"
+        : "repeat(3, 1fr)"};
+}
+
+  @media (min-width: 1024px) {
+    grid-template-columns: ${({ $postersCount }) =>
+      $postersCount === 1
+        ? "1fr"
+        : $postersCount === 2
+        ? "repeat(2, 1fr)"
+        : $postersCount === 3
+        ? "repeat(3, 1fr)"
+        : $postersCount === 4
+        ? "repeat(4, 1fr)"
+        : "repeat(5, 1fr)"};
   }
 `;
 
