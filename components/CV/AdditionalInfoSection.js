@@ -6,13 +6,21 @@ export default function AdditionalInfoSection() {
       <>
         <StyledYear>PUBLIC RELATION</StyledYear>
 
-        <TextWrapperLink href="https://www.trixter.de/the-3-working-lives-of-claudius-urban/">
+        <TextWrapperLink
+          href="https://www.trixter.de/the-3-working-lives-of-claudius-urban/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <StyledList style={{ marginBottom: "0" }}>
             <li>Article &quot;The 3 Working Lives of Claudius Urban&quot;</li>
           </StyledList>
         </TextWrapperLink>
 
-        <TextWrapperLink href="https://projektzukunft.berlin.de/blog/news-detail/claudius-urban-animation-supervisor-bei-trixter-film-gmbh/">
+        <TextWrapperLink
+          href="https://projektzukunft.berlin.de/blog/news-detail/claudius-urban-animation-supervisor-bei-trixter-film-gmbh/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <StyledList style={{ paddingTop: "0" }}>
             <li> Short interview with Claudius Urban</li>
           </StyledList>
