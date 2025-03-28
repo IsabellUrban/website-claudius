@@ -16,6 +16,8 @@ export default function Aboutsection() {
                 <StyledImage
                   src={Claudius_500x500}
                   alt="Picture of Claudius Urban"
+                  width={500}
+                  height={500}
                 />
               </ImageWrapper>
             </StyledBackground>
@@ -79,7 +81,7 @@ export default function Aboutsection() {
 
       @media (min-width: 768px) {
       flex-direction: row;
-      background-color: var(--yellow);
+      
       }
     `;
 
@@ -89,8 +91,9 @@ export default function Aboutsection() {
 
       @media (min-width: 768px) {
         width: 50%;
+        background-color: var(--yellow);
       }
-`;
+    `;
     const ImageWrapper = styled.div`
       position: relative;
       width: 100%;
@@ -104,6 +107,7 @@ export default function Aboutsection() {
 
     const StyledImage = styled(Image)`
       width: 100%;
+      height: auto;
       max-height: 200px;
       object-fit: contain;
 
