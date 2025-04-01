@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data-projects-02";
 import { experience } from "@/lib/data-experience";
@@ -13,11 +13,19 @@ const [isActiveSection, setIsActiveSection] = useState(null);
 const [selectedProject, setSelectedProject] = useState(null);
 const [isModalOpen, setIsModalOpen] = useState(false);
 
+const professionalExperienceRef = useRef(null);
+const educationRef = useRef(null);
+const additionalInfoRef = useRef(null);
 
+function handleToggleSection(reference) {
+  setIsActiveSection(isActiveSection === reference ? null : reference);
 
-  function handleToggleSection(section) {
-    setIsActiveSection(isActiveSection === section ? null : section);
+  if (reference && reference.current && isActiveSection !== reference) {
+    console.log("Scrolling to:", reference.current); // Debugging
+    reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
   }
+}
+  
 
 function handleProjectClick(company, cvRole) {
   const rolesToMatch = cvRole.split(", ").map((cvRole) => cvRole.trim());
@@ -33,7 +41,6 @@ function handleProjectClick(company, cvRole) {
       rolesToMatch.some((cvRole) => projectCvRoles.includes(cvRole))
     );
   });
-console.log("Filtered Projects:", filteredProjects);
   setSelectedProject(filteredProjects);
   setIsModalOpen(true);
 }
@@ -41,9 +48,9 @@ console.log("Filtered Projects:", filteredProjects);
   return (
     <>
       <Container>
-        <TextWrapper style={{ borderBottom: "2px solid var(--yellow)" }}>
+        <TextWrapper ref={professionalExperienceRef}>
           <StyledButton
-            onClick={() => handleToggleSection("Professional experience")}
+            onClick={() => handleToggleSection(professionalExperienceRef)}
             aria-label="Open Section"
             role="button"
           >
@@ -53,7 +60,7 @@ console.log("Filtered Projects:", filteredProjects);
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
-            isActiveSection === "Professional experience"
+            isActiveSection === professionalExperienceRef
               ? { height: "auto", opacity: 1 }
               : { height: 0, opacity: 0 }
           }
@@ -64,37 +71,6 @@ console.log("Filtered Projects:", filteredProjects);
             experience={experience}
             onProjectClick={handleProjectClick}
           />
-
-          <TextWrapper
-            style={{
-              borderTop: "2px solid var(--yellow)",
-              marginLeft: "-2rem",
-              width: "calc(100% + 4rem)",
-            }}
-          >
-            <StyledButton
-              onClick={() => handleToggleSection("Education")}
-              aria-label="Open Section"
-              role="button"
-            >
-              Education
-            </StyledButton>
-          </TextWrapper>
-          <TextWrapper
-            style={{
-              borderTop: "2px solid var(--yellow)",
-              marginLeft: "-2rem",
-              width: "calc(100% + 4rem)",
-            }}
-          >
-            <StyledButton
-              onClick={() => handleToggleSection("Additional Information")}
-              aria-label="Open Section"
-              role="button"
-            >
-              Additional Information
-            </StyledButton>
-          </TextWrapper>
         </StyledBackground>
         <PosterModal
           isOpen={isModalOpen}
@@ -102,10 +78,14 @@ console.log("Filtered Projects:", filteredProjects);
           project={selectedProject}
         />
       </Container>
+
       <Container>
-        <TextWrapper style={{ borderBottom: "2px solid var(--yellow)" }}>
+        <TextWrapper
+          ref={educationRef}
+          style={{ borderTop: "2px solid var(--yellow)" }}
+        >
           <StyledButton
-            onClick={() => handleToggleSection("Education")}
+            onClick={() => handleToggleSection(educationRef)}
             aria-label="Open Section"
             role="button"
           >
@@ -115,7 +95,7 @@ console.log("Filtered Projects:", filteredProjects);
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
-            isActiveSection === "Education"
+            isActiveSection === educationRef
               ? { height: "auto", opacity: 1 }
               : { height: 0, opacity: 0 }
           }
@@ -123,28 +103,16 @@ console.log("Filtered Projects:", filteredProjects);
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <EducationSection />
-        
-          <TextWrapper
-            style={{
-              borderTop: "2px solid var(--yellow)",
-              marginLeft: "-2rem",
-              width: "calc(100% + 4rem)",
-            }}
-          >
-            <StyledButton
-              onClick={() => handleToggleSection("Additional Information")}
-              aria-label="Open Section"
-              role="button"
-            >
-              Additional Information
-            </StyledButton>
-          </TextWrapper>
         </StyledBackground>
       </Container>
+
       <Container>
-        <TextWrapper>
+        <TextWrapper
+          ref={additionalInfoRef}
+          style={{ borderTop: "2px solid var(--yellow)" }}
+        >
           <StyledButton
-            onClick={() => handleToggleSection("Additional Information")}
+            onClick={() => handleToggleSection(additionalInfoRef)}
             aria-label="Open Section"
             role="button"
           >
@@ -154,14 +122,14 @@ console.log("Filtered Projects:", filteredProjects);
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
-            isActiveSection === "Additional Information"
+            isActiveSection === additionalInfoRef
               ? { height: "auto", opacity: 1 }
               : { height: 0, opacity: 0 }
           }
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-<AdditionalInfoSection />
+          <AdditionalInfoSection />
         </StyledBackground>
       </Container>
     </>
@@ -183,6 +151,7 @@ const TextWrapper = styled.div`
   font-size: 1rem;
   text-align: left;
   padding: 0.5rem;
+
  
 
   @media (min-width: 768px) {
@@ -209,7 +178,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledBackground = styled(motion.div)`
-  position: absolute;
+  position: relative;
   top: 100%;
   left: 0;
   width: 100%;

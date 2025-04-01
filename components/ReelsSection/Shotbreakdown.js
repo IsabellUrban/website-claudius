@@ -91,7 +91,7 @@ font-size: 1.25rem;
 `;
 
 const StyledBackground = styled(motion.div)`
-position: absolute;
+position: relative;
 top: 100%;
 left: 0;
 width: 100%;
