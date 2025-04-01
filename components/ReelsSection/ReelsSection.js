@@ -5,51 +5,39 @@ import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
 export default function ReelsSection() {
   return (
     <>
-     
       <SectionWrapper>
-        
         <StyledContainer>
           <Headline headline={"reels"} />
           <ReelsContent>
-            
             <ContentContainer>
-              
               <VideoWrapper>
-                
-                <StyledIframe
-                  src="https://player.vimeo.com/video/101153912?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&dnt=1&sidedock=0&loop=1"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                ></StyledIframe>
-                
+                <StyledVideo controls loop>
+                  <source
+                    src="https://www.claudiusurban.com/reels/claudius_urban_showreel%20(720p).mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </StyledVideo>
               </VideoWrapper>
-             <Shotbreakdown />
+              <Shotbreakdown />
             </ContentContainer>
-           
           </ReelsContent>
-         
+
           <ReelsContent>
-            
             <ContentContainer>
-              
               <VideoWrapper>
-                
-                <StyledIframe
-                  src="https://player.vimeo.com/video/768554163?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&dnt=1&sidedock=0&loop=1"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                ></StyledIframe>
-                
+                <StyledVideo controls loop>
+                  <source
+                    src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel%20(720p).mp4"
+                    type="video/mp4"
+                  />
+                  Dein Browser unterstützt kein Video-Tag.
+                </StyledVideo>
               </VideoWrapper>
-              
             </ContentContainer>
-            
           </ReelsContent>
-          
         </StyledContainer>
-        
       </SectionWrapper>
-     
     </>
   );
 }
@@ -96,17 +84,17 @@ margin-bottom: 0;
 display: block;
 `;
 
-const StyledIframe = styled.iframe`
-width: 100%;
-display: block;
-border: none;
-aspect-ratio: 16/9;
+const StyledVideo = styled.video`
+  width: 100%;
+  display: block;
+  border: none;
+  aspect-ratio: 16/9;
 
-@media (min-width: 768px) {
-height: 400px;
-}
+  @media (min-width: 768px) {
+    height: 400px;
+  }
 
-@media (min-width: 1200px) {
-height: 675px;
-}
+  @media (min-width: 1200px) {
+    height: 675px;
+  }
 `;

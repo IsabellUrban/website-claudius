@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <LayoutWrapper>
       <StyledBackgroundImage
-        src="/images/background2.jpg"
+        src="/images/background-texture.jpg"
         alt="Background Image"
         fill
         priority
