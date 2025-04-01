@@ -12,11 +12,8 @@ export default function Shotbreakdown() {
 
   return (
     <>
-      
       <Container>
-       
         <TextWrapper style={{ borderTop: "2px solid var(--yellow)" }}>
-          
           <StyledButton
             onClick={() => handleToggleSection("Shot Breakdown")}
             aria-label="Open Section"
@@ -24,9 +21,7 @@ export default function Shotbreakdown() {
           >
             Shot Breakdown
           </StyledButton>
-          
         </TextWrapper>
-       
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
@@ -39,24 +34,18 @@ export default function Shotbreakdown() {
         >
           
           <Content>
-           
             {animation.map((animationItem, animationIndex) => (
               <div key={animationIndex}>
                 <StyledText>{animationItem.timecode}</StyledText> 
-                
                 <StyledList>
                  <li>{animationItem.owntask}</li>
                 </StyledList>
-                
               </div>
             ))}
             
           </Content>
-          
         </StyledBackground>
-        
       </Container>
-      
     </>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
-import Shotbreakdown from "@/components/Reels/Shotbreakdown";
+import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
 
 export default function ReelsSection() {
   return (

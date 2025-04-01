@@ -16,14 +16,14 @@ export default function CV() {
 
 
  const CVSection = styled.section`
-          background-color: darkgrey;
-          padding: 4rem 0rem 4rem 0rem;
-          width: 100%;
-        `;
+ background-color: transparent;
+ padding: 4rem 0rem 4rem 0rem;
+ width: 100%;
+ `;
 
  const StyledContainer = styled.div`
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        `;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+`;
