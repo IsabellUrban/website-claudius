@@ -1,19 +1,17 @@
 import styled from "styled-components";
 import ParallaxBackground from "../ParallaxBackground/ParallaxBackground";
-import Header from "../Header/Header";
 import Image from "next/image";
 
 export default function Layout({ children }) {
   return (
     <LayoutWrapper>
       <StyledBackgroundImage
-        src="/images/background-texture.jpg"
+        src="/images/background2.jpg"
         alt="Background Image"
         fill
         priority
       />
       <ParallaxBackground />
-      <Header />
       <MainContent>{children}</MainContent>
     </LayoutWrapper>
   );

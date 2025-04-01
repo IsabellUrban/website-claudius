@@ -138,7 +138,7 @@ function handleProjectClick(company, cvRole) {
 
 const Container = styled.div`
   position: relative;
-  width: 60%;
+  width: 50%;
   background-color: var(--black);
 `;
 
@@ -151,7 +151,6 @@ const TextWrapper = styled.div`
   font-size: 1rem;
   text-align: left;
   padding: 0.5rem;
-
  
 
   @media (min-width: 768px) {

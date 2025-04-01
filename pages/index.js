@@ -8,7 +8,6 @@ import ReelsSection from "@/components/ReelsSection/ReelsSection";
 export default function HomePage() {
   return (
     <>
-    
       <Header />
       <Herosection />
       <Aboutsection />
