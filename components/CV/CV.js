@@ -3,12 +3,15 @@ import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
 
 
-export default function CV() {
+export default function CV({onToggleSection, isActiveSection}) {
     return (
       <CVSection>
         <StyledContainer>
           <Headline headline={"cv"} />
-          <DropDown />
+          <DropDown
+            onToggleSection={onToggleSection}
+            isActiveSection={isActiveSection}
+          />
         </StyledContainer>
       </CVSection>
     );

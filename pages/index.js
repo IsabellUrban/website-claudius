@@ -5,14 +5,17 @@ import Aboutsection from "@/components/Aboutsection/Aboutsection.js";
 import CV from "@/components/CV/CV";
 import ReelsSection from "@/components/ReelsSection/ReelsSection";
 
-export default function HomePage() {
+export default function HomePage({onToggleSection, isActiveSection}) {
   return (
     <>
       <Header />
       <Herosection />
       <Aboutsection />
-      <CV />
-      <ReelsSection />
+      <CV onToggleSection={onToggleSection} isActiveSection={isActiveSection} />
+      <ReelsSection
+        onToggleSection={onToggleSection}
+        isActiveSection={isActiveSection}
+      />
     </>
   );
 };

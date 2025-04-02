@@ -2,7 +2,10 @@ import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
 
-export default function ReelsSection() {
+export default function ReelsSection({onToggleSection, isActiveSection}) {
+
+  console.log("onToggleSection in ReelsSection:", onToggleSection);
+  
   return (
     <>
       <SectionWrapper>
@@ -13,13 +16,16 @@ export default function ReelsSection() {
               <VideoWrapper>
                 <StyledVideo controls loop>
                   <source
-                    src="https://www.claudiusurban.com/reels/claudius_urban_showreel%20(720p).mp4"
+                    src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
                 </StyledVideo>
               </VideoWrapper>
-              <Shotbreakdown />
+              <Shotbreakdown
+                onToggleSection={onToggleSection}
+                isActiveSection={isActiveSection}
+              />
             </ContentContainer>
           </ReelsContent>
 
@@ -28,7 +34,7 @@ export default function ReelsSection() {
               <VideoWrapper>
                 <StyledVideo controls loop>
                   <source
-                    src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel%20(720p).mp4"
+                    src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4"
                     type="video/mp4"
                   />
                   Dein Browser unterstützt kein Video-Tag.

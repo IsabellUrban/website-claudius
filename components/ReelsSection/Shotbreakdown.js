@@ -1,21 +1,15 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { animation } from "@/lib/data-shotbreakdown";
 
-export default function Shotbreakdown() {
-  const [isActiveSection, setIsActiveSection] = useState(null);
-
-  function handleToggleSection(section) {
-    setIsActiveSection(isActiveSection === section ? null : section);
-  }
+export default function Shotbreakdown({onToggleSection, isActiveSection}) {
 
   return (
     <>
       <Container>
         <TextWrapper style={{ borderTop: "2px solid var(--yellow)" }}>
           <StyledButton
-            onClick={() => handleToggleSection("Shot Breakdown")}
+            onClick={() => onToggleSection("Shot Breakdown")}
             aria-label="Open Section"
             role="button"
           >

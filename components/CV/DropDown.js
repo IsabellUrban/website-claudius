@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data-projects-02";
 import { experience } from "@/lib/data-experience";
@@ -8,23 +8,18 @@ import PosterModal from "./PosterModal";
 import EducationSection from "./EducationSection";
 import AdditionalInfoSection from "./AdditionalInfoSection";
 
-export default function DropDown() {
-const [isActiveSection, setIsActiveSection] = useState(null);
+export default function DropDown({onToggleSection, isActiveSection}) {
 const [selectedProject, setSelectedProject] = useState(null);
 const [isModalOpen, setIsModalOpen] = useState(false);
 
-const professionalExperienceRef = useRef(null);
-const educationRef = useRef(null);
-const additionalInfoRef = useRef(null);
 
-function handleToggleSection(reference) {
-  setIsActiveSection(isActiveSection === reference ? null : reference);
 
-  if (reference && reference.current && isActiveSection !== reference) {
-    console.log("Scrolling to:", reference.current); // Debugging
-    reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
+/* function handleToggleSection(section) {
+  const isOpening = isActiveSection !== section;
+
+  setIsActiveSection(isOpening ? section : null);
+} */
+
   
 
 function handleProjectClick(company, cvRole) {
@@ -48,9 +43,9 @@ function handleProjectClick(company, cvRole) {
   return (
     <>
       <Container>
-        <TextWrapper ref={professionalExperienceRef}>
+        <TextWrapper>
           <StyledButton
-            onClick={() => handleToggleSection(professionalExperienceRef)}
+            onClick={() => onToggleSection("Professional Experience")}
             aria-label="Open Section"
             role="button"
           >
@@ -60,7 +55,7 @@ function handleProjectClick(company, cvRole) {
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
-            isActiveSection === professionalExperienceRef
+            isActiveSection === "Professional Experience"
               ? { height: "auto", opacity: 1 }
               : { height: 0, opacity: 0 }
           }
@@ -81,11 +76,10 @@ function handleProjectClick(company, cvRole) {
 
       <Container>
         <TextWrapper
-          ref={educationRef}
           style={{ borderTop: "2px solid var(--yellow)" }}
         >
           <StyledButton
-            onClick={() => handleToggleSection(educationRef)}
+            onClick={() => onToggleSection("Education")}
             aria-label="Open Section"
             role="button"
           >
@@ -95,7 +89,7 @@ function handleProjectClick(company, cvRole) {
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
-            isActiveSection === educationRef
+            isActiveSection === "Education"
               ? { height: "auto", opacity: 1 }
               : { height: 0, opacity: 0 }
           }
@@ -108,11 +102,10 @@ function handleProjectClick(company, cvRole) {
 
       <Container>
         <TextWrapper
-          ref={additionalInfoRef}
           style={{ borderTop: "2px solid var(--yellow)" }}
         >
           <StyledButton
-            onClick={() => handleToggleSection(additionalInfoRef)}
+            onClick={() => onToggleSection("Additional Information")}
             aria-label="Open Section"
             role="button"
           >
@@ -122,7 +115,7 @@ function handleProjectClick(company, cvRole) {
         <StyledBackground
           initial={{ height: 0, opacity: 0 }}
           animate={
-            isActiveSection === additionalInfoRef
+            isActiveSection === "Additional Information"
               ? { height: "auto", opacity: 1 }
               : { height: 0, opacity: 0 }
           }
