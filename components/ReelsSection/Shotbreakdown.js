@@ -92,25 +92,29 @@ const StyledButton = styled.button`
 `;
 
 const StyledBackground = styled(motion.div)`
-position: relative;
-top: 100%;
-left: 0;
-width: 100%;
-overflow: hidden;
-background-color: var(--black);
-opacity: 0;
-z-index: 3;
-padding: 0rem 2rem;
+  position: relative;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--black);
+  opacity: 0;
+  z-index: 3;
+  padding: 0rem 0.5rem;
+
+  @media (min-width: 768px) {
+    padding: 0rem 2rem;
+  }
 `;
 
 const Content = styled.div`
-color: var(--white);
-padding: 1rem;
-font-size: 1rem;
+  color: var(--white);
+  padding-bottom: 1rem;
+  font-size: 1rem;
 
-@media (min-width: 768px) {
-font-size: 1.25rem;
-}
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const TimecodeLink = styled(Link)`
@@ -120,11 +124,6 @@ const TimecodeLink = styled(Link)`
   :hover {
     color: var(--yellow);
     font-weight: 900;
-    font-size: 0.8rem;
-
-    @media (min-width: 768px) {
-      font-size: 0.9rem;
-    }
   }
 `;
 const StyledList = styled.ul`
@@ -134,9 +133,8 @@ font-size: 0.75rem;
 line-height: 1.5;
 text-align: left;
 padding-top: 1rem;
-list-style-type: disc;
-margin-left: 1rem;
-margin-bottom: 1.75rem;
+list-style-type: none;
+
 
 @media (min-width: 768px) {
 font-size: 0.8rem;
