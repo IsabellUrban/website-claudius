@@ -100,10 +100,10 @@ const StyledBackground = styled(motion.div)`
   background-color: var(--black);
   opacity: 0;
   z-index: 3;
-  padding: 0rem 0.5rem;
+  /* padding: 0rem 0.5rem; */
 
   @media (min-width: 768px) {
-    padding: 0rem 2rem;
+    padding: 0rem 1rem;
   }
 `;
 
@@ -132,12 +132,12 @@ color: var(--white);
 font-size: 0.75rem;
 line-height: 1.5;
 text-align: left;
-padding-top: 1rem;
-list-style-type: none;
+padding: 0.5rem 1.5rem;
+list-style-type: disc;
 
 
 @media (min-width: 768px) {
 font-size: 0.8rem;
-padding-top: 0.5rem;
+padding: 0.5rem 2rem;
 }
 `;
