@@ -119,7 +119,12 @@ const TimecodeLink = styled(Link)`
 
   :hover {
     color: var(--yellow);
-    transform: scale(1.02);
+    font-weight: 900;
+    font-size: 0.8rem;
+
+    @media (min-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 const StyledList = styled.ul`
