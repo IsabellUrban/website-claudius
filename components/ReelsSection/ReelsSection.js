@@ -1,10 +1,18 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
+import { useRef } from "react";
 
 export default function ReelsSection({onToggleSection, isActiveSection}) {
 
-  console.log("onToggleSection in ReelsSection:", onToggleSection);
+  const videoRef = useRef(null);
+
+  function handleJumpToTime(time) {
+    if (videoRef.current) {
+      videoRef.current.currentTime = time;
+      videoRef.current.play();
+    }
+  }
   
   return (
     <>
@@ -14,7 +22,7 @@ export default function ReelsSection({onToggleSection, isActiveSection}) {
           <ReelsContent>
             <ContentContainer>
               <VideoWrapper>
-                <StyledVideo controls loop>
+                <StyledVideo ref={videoRef} controls loop>
                   <source
                     src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
                     type="video/mp4"
@@ -25,6 +33,8 @@ export default function ReelsSection({onToggleSection, isActiveSection}) {
               <Shotbreakdown
                 onToggleSection={onToggleSection}
                 isActiveSection={isActiveSection}
+                handleJumpToTime={handleJumpToTime}
+                
               />
             </ContentContainer>
           </ReelsContent>

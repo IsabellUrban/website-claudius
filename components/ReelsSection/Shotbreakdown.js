@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { animation } from "@/lib/data-shotbreakdown";
+import Link from "next/link";
 
-export default function Shotbreakdown({onToggleSection, isActiveSection}) {
+export default function Shotbreakdown({onToggleSection, isActiveSection, handleJumpToTime}) {
 
   return (
     <>
@@ -26,17 +27,22 @@ export default function Shotbreakdown({onToggleSection, isActiveSection}) {
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          
           <Content>
             {animation.map((animationItem, animationIndex) => (
               <div key={animationIndex}>
-                <StyledText>{animationItem.timecode}</StyledText> 
-                <StyledList>
-                 <li>{animationItem.owntask}</li>
-                </StyledList>
+                <TimecodeLink
+                  href="#"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleJumpToTime(animationItem.timecode);
+                  }}
+                >
+                  <StyledList>
+                    <li>{animationItem.owntask}</li>
+                  </StyledList>
+                </TimecodeLink>
               </div>
             ))}
-            
           </Content>
         </StyledBackground>
       </Container>
@@ -68,20 +74,21 @@ padding: 2rem;
 `;
 
 const StyledButton = styled.button`
-font-size: 1rem;
-background-color: var(--black);
-color: var(--white);
-border: none;
-text-transform: uppercase;
+  font-size: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  text-transform: uppercase;
 
-&:hover {
-cursor: pointer;
-color: var(--yellow);
-}
+  &:hover {
+    cursor: pointer;
+    color: var(--yellow);
+    transform: scale(1.02);
+  }
 
-@media (min-width: 768px) {
-font-size: 1.25rem;
-}
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const StyledBackground = styled(motion.div)`
@@ -106,15 +113,14 @@ font-size: 1.25rem;
 }
 `;
 
-const StyledText = styled.p`
-font: var(--subheadline);
-color: var(--white);
-line-height: 1.5;
-text-align: left;
+const TimecodeLink = styled(Link)`
+  text-decoration: none;
+  color: var(--white);
 
-@media (min-width: 768px) {
-font-size: 1rem;
-}
+  :hover {
+    color: var(--yellow);
+    transform: scale(1.02);
+  }
 `;
 const StyledList = styled.ul`
 font: var(--bodytext);
@@ -126,6 +132,7 @@ padding-top: 1rem;
 list-style-type: disc;
 margin-left: 1rem;
 margin-bottom: 1.75rem;
+
 @media (min-width: 768px) {
 font-size: 0.8rem;
 padding-top: 0.5rem;

@@ -159,9 +159,10 @@ const StyledButton = styled.button`
   border: none;
   text-transform: uppercase;
 
-  &:hover {	
-    cursor: pointer;	
-    color: var(--yellow);	
+  &:hover {
+    cursor: pointer;
+    color: var(--yellow);
+    transform: scale(1.02);
   }
 
   @media (min-width: 768px) {
