@@ -47,11 +47,11 @@ const ModalOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
 `;
 
 const ModalContent = styled.div`
@@ -61,6 +61,8 @@ const ModalContent = styled.div`
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  margin-top: 2rem;
+  z-index: 10000;
 
   @media (min-width: 768px) {
     width: ${({ $postersCount }) =>

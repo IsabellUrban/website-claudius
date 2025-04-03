@@ -51,7 +51,7 @@ const StyledHeader = styled.header`
   background-color: var(--black);
   top: 0px;
   left: 0;
-  z-index: 10;
+  z-index: 5;
 
   @media (min-width: 768px) {
     flex-direction: row;
