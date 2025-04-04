@@ -8,7 +8,7 @@ export default function Shotbreakdown({onToggleSection, isActiveSection, handleJ
   return (
     <>
       <Container>
-        <TextWrapper style={{ borderTop: "2px solid var(--yellow)" }}>
+        <TextWrapper>
           <StyledButton
             onClick={() => onToggleSection("Shot Breakdown")}
             aria-label="Open Section"
@@ -66,6 +66,7 @@ height: 2rem;
 font-size: 1rem;
 text-align: left;
 padding: 0.5rem;
+border-top: 2px solid var(--yellow);
 
 @media (min-width: 768px) {
 height: 4rem;

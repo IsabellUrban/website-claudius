@@ -7,11 +7,12 @@ export default function App({ Component, pageProps }) {
 const [isActiveSection, setIsActiveSection] = useState(null);
 
 function handleToggleSection(section) {
-  setIsActiveSection((prevSection) =>
-    prevSection === section ? null : section
-  );
-  console.log("onToggleSection in _app.js:", handleToggleSection);
-  }
+  setIsActiveSection((prevSection) => {
+    const newSection = prevSection === section ? null : section;
+    console.log("Neuer Zustand:", newSection);
+    return newSection;
+  });
+}
 
 
   return (

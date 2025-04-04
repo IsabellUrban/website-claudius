@@ -12,15 +12,7 @@ export default function DropDown({onToggleSection, isActiveSection}) {
 const [selectedProject, setSelectedProject] = useState(null);
 const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-
-/* function handleToggleSection(section) {
-  const isOpening = isActiveSection !== section;
-
-  setIsActiveSection(isOpening ? section : null);
-} */
-
-  
+ 
 
 function handleProjectClick(company, cvRole) {
   const rolesToMatch = cvRole.split(", ").map((cvRole) => cvRole.trim());
@@ -178,7 +170,7 @@ const StyledBackground = styled(motion.div)`
   overflow: hidden;
   background-color: var(--black);
   opacity: 0;
-  z-index: 3;
+  z-index: 10;
   padding: 0rem 2rem;
 `;
 
