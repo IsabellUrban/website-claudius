@@ -3,7 +3,7 @@ import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
 import { useRef } from "react";
 
-export default function ReelsSection({onToggleSection, isActiveSection}) {
+export default function ReelsSection({handleToggleSection, isActiveSection}) {
 
   const videoRef = useRef(null);
 
@@ -31,7 +31,7 @@ export default function ReelsSection({onToggleSection, isActiveSection}) {
                 </StyledVideo>
               </VideoWrapper>
               <Shotbreakdown
-                onToggleSection={onToggleSection}
+                onToggleSection={handleToggleSection}
                 isActiveSection={isActiveSection}
                 handleJumpToTime={handleJumpToTime}
                 

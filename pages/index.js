@@ -5,15 +5,19 @@ import Aboutsection from "@/components/Aboutsection/Aboutsection.js";
 import CV from "@/components/CV/CV";
 import ReelsSection from "@/components/ReelsSection/ReelsSection";
 
-export default function HomePage({onToggleSection, isActiveSection}) {
+export default function HomePage({handleToggleSection, isActiveSection, handleCloseActiveSection}) {
   return (
     <>
       <Header />
       <Herosection />
       <Aboutsection />
-      <CV onToggleSection={onToggleSection} isActiveSection={isActiveSection} />
+      <CV
+        handleToggleSection={handleToggleSection}
+        isActiveSection={isActiveSection}
+        handleCloseActiveSection={handleCloseActiveSection}
+      />
       <ReelsSection
-        onToggleSection={onToggleSection}
+        handleToggleSection={handleToggleSection}
         isActiveSection={isActiveSection}
       />
     </>

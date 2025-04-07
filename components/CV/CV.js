@@ -2,25 +2,27 @@ import styled from "styled-components";
 import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
 
-export default function CV({ onToggleSection, isActiveSection }) {
-
-    function handleCloseActiveSection() {
-      onToggleSection(null);
-    }
+export default function CV({ handleToggleSection, isActiveSection, handleCloseActiveSection }) {
 
   return (
-    <CVSection>
-      {isActiveSection && 
-      <Overlay onClick={handleCloseActiveSection} />}
-
-      <StyledContainer>
-        <Headline headline={"cv"} />
-        <DropDown
-          onToggleSection={onToggleSection}
-          isActiveSection={isActiveSection}
-        />
-      </StyledContainer>
-    </CVSection>
+    <>
+      <CVSection>
+        <StyledContainer>
+          <Headline headline={"cv"} />
+          {isActiveSection && (
+            <Overlay
+              onClick={handleCloseActiveSection}
+              aria-label="Close Section"
+              role="button"
+            />
+          )}
+          <DropDown
+            onToggleSection={handleToggleSection}
+            isActiveSection={isActiveSection}
+          />
+        </StyledContainer>
+      </CVSection>
+    </>
   );
 }
 
@@ -33,7 +35,6 @@ const CVSection = styled.section`
 
 const StyledContainer = styled.div`
   position: relative;
-  /* z-index: 4; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,8 +44,8 @@ const StyledContainer = styled.div`
 const Overlay = styled.div`
   position: fixed;
   inset: 0;
-  background: transparent;
-  z-index: 1;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: 5;
   cursor: pointer;
-  pointer-events: ${({ isActive }) => (isActive ? "auto" : "none")};
+  pointer-events: all;
 `;

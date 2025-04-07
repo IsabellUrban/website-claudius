@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ParallaxBackground from "../ParallaxBackground/ParallaxBackground";
 import Image from "next/image";
 
-export default function Layout({ children }) {
+export default function Layout({ children, isActiveSection, handleCloseActiveSection }) {
   return (
     <LayoutWrapper>
       <StyledBackgroundImage
@@ -13,6 +13,8 @@ export default function Layout({ children }) {
       />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
+           {/* {isActiveSection && 
+            <Overlay onClick={handleCloseActiveSection} />} */}
     </LayoutWrapper>
   );
 }
@@ -24,6 +26,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 width: 100%;
+z-index: auto;
 `;
 
 const MainContent = styled.div`
@@ -45,4 +48,13 @@ height: 100%;
 object-fit: contain; 
 background-repeat: repeat;
 z-index: -1; 
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: 5;
+  cursor: pointer;
+  pointer-events: all;
 `;

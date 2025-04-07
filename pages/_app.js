@@ -9,20 +9,31 @@ const [isActiveSection, setIsActiveSection] = useState(null);
 function handleToggleSection(section) {
   setIsActiveSection((prevSection) => {
     const newSection = prevSection === section ? null : section;
-    console.log("Neuer Zustand:", newSection);
     return newSection;
   });
 }
 
+function handleCloseActiveSection() {
+  console.log("Closing active section:", isActiveSection);
+  setIsActiveSection(null);
+}
+
+
 
   return (
     <>
-    <Layout>
-      <GlobalStyle />
-      <Component {...pageProps}
-      onToggleSection={handleToggleSection}
-      isActiveSection={isActiveSection} />
-    </Layout>
+      <Layout
+        handleCloseActiveSection={handleCloseActiveSection}
+        isActiveSection={isActiveSection}
+      >
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          handleToggleSection={handleToggleSection}
+          handleCloseActiveSection={handleCloseActiveSection}
+          isActiveSection={isActiveSection}
+        />
+      </Layout>
     </>
   );
 }
