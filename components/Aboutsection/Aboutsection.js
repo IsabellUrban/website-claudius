@@ -59,7 +59,7 @@ export default function Aboutsection() {
     }
 
     const AboutSection = styled.section`
-      background-color: var(--black);
+      background-color: transparent;
       padding: 4rem 0rem 4rem 0rem;
       width: 100%;
     `;
@@ -73,7 +73,7 @@ export default function Aboutsection() {
 
     const AboutContent = styled.div`
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       flex-direction: column;
       background-color: var(--black);
@@ -88,6 +88,8 @@ export default function Aboutsection() {
     const StyledBackground = styled.div`
       display: flex;
       width: 100%;
+      justify-content: center;
+      align-items: center;
 
       @media (min-width: 768px) {
         width: 50%;

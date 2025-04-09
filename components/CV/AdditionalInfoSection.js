@@ -170,10 +170,11 @@ const StyledList = styled.ul`
 `;
 
 const TextWrapperLink = styled(Link)`
-  text-decoration: underline var(--yellow);
+  text-decoration: none;
+  color: var(--white);
 
-  &:hover {
-    cursor: pointer;
+  :hover {
     color: var(--yellow);
+    font-weight: 900;
   }
 `;
