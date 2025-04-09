@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
-import { useState, useRef, useEffect} from "react";
+import { useState, useRef} from "react";
 
 export default function CV() {
   const [isActiveSection, setIsActiveSection] = useState(null);

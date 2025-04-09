@@ -13,30 +13,39 @@ export default function ReelsSection() {
       videoRef.current.play();
     }
   }
+  const [isActiveSection, setIsActiveSection] = useState(null);
+  const containerRef = useRef(null);
 
-    const [isActiveSection, setIsActiveSection] = useState(null);
-  
-    function handleToggleSection(section) {
-      setIsActiveSection((prevSection) => {
-        const newSection = prevSection === section ? null : section;
-        return newSection;
-      });
-    }
-  
-    function handleCloseActiveSection() {
-      console.log("Closing active section:", isActiveSection);
-      setIsActiveSection(null);
-    }
-  
-    function handleClose() {
-      handleCloseActiveSection();
-      handleToggleSection(null);
-    }
+  function handleToggleSection(section) {
+    setIsActiveSection((prevSection) => {
+      const newSection = prevSection === section ? null : section;
+      return newSection;
+    });
+  }
+
+  function handleCloseActiveSection() {
+    console.log("Closing active section:", isActiveSection);
+    setIsActiveSection(null);
+  }
+
+  function handleClose() {
+    handleCloseActiveSection();
+    handleToggleSection(null);
+
+    setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 600);
+  }
   
   return (
     <>
       <SectionWrapper>
-        <StyledContainer>
+        <StyledContainer ref={containerRef}>
           <Headline headline={"reels"} />
           <ReelsContent>
             <ContentContainer>
