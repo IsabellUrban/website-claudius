@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 
-export default function ReelsSection({handleToggleSection, isActiveSection}) {
+export default function ReelsSection() {
 
   const videoRef = useRef(null);
 
@@ -13,6 +13,25 @@ export default function ReelsSection({handleToggleSection, isActiveSection}) {
       videoRef.current.play();
     }
   }
+
+    const [isActiveSection, setIsActiveSection] = useState(null);
+  
+    function handleToggleSection(section) {
+      setIsActiveSection((prevSection) => {
+        const newSection = prevSection === section ? null : section;
+        return newSection;
+      });
+    }
+  
+    function handleCloseActiveSection() {
+      console.log("Closing active section:", isActiveSection);
+      setIsActiveSection(null);
+    }
+  
+    function handleClose() {
+      handleCloseActiveSection();
+      handleToggleSection(null);
+    }
   
   return (
     <>
@@ -30,13 +49,20 @@ export default function ReelsSection({handleToggleSection, isActiveSection}) {
                   Your browser does not support the video tag.
                 </StyledVideo>
               </VideoWrapper>
+
               <Shotbreakdown
                 onToggleSection={handleToggleSection}
                 isActiveSection={isActiveSection}
                 handleJumpToTime={handleJumpToTime}
-                
               />
             </ContentContainer>
+            {isActiveSection && (
+              <Overlay
+                onClick={handleClose}
+                aria-label="Close Section"
+                role="button"
+              />
+            )}
           </ReelsContent>
 
           <ReelsContent>
@@ -113,4 +139,13 @@ const StyledVideo = styled.video`
   @media (min-width: 1200px) {
     height: 675px;
   }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: all;
 `;

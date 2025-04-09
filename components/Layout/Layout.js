@@ -13,8 +13,6 @@ export default function Layout({ children, isActiveSection, handleCloseActiveSec
       />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
-           {/* {isActiveSection && 
-            <Overlay onClick={handleCloseActiveSection} />} */}
     </LayoutWrapper>
   );
 }
@@ -50,11 +48,3 @@ background-repeat: repeat;
 z-index: -1; 
 `;
 
-const Overlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background-color: rgba(255, 0, 0, 0.5);
-  z-index: 5;
-  cursor: pointer;
-  pointer-events: all;
-`;

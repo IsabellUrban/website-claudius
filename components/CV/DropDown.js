@@ -8,30 +8,27 @@ import PosterModal from "./PosterModal";
 import EducationSection from "./EducationSection";
 import AdditionalInfoSection from "./AdditionalInfoSection";
 
-export default function DropDown({onToggleSection, isActiveSection}) {
-const [selectedProject, setSelectedProject] = useState(null);
-const [isModalOpen, setIsModalOpen] = useState(false);
+export default function DropDown({ onToggleSection, isActiveSection, isOverlayActive }) {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
- 
+  function handleProjectClick(company, cvRole) {
+    const rolesToMatch = cvRole.split(", ").map((cvRole) => cvRole.trim());
 
-function handleProjectClick(company, cvRole) {
-  const rolesToMatch = cvRole.split(", ").map((cvRole) => cvRole.trim());
+    const filteredProjects = projects.filter((project) => {
+      const projectCvRoles =
+        project.jobrole && project.jobrole.cvRole
+          ? project.jobrole.cvRole.split(", ").map((cvRole) => cvRole.trim())
+          : [];
 
-  const filteredProjects = projects.filter((project) => {
-   const projectCvRoles =
-     project.jobrole && project.jobrole.cvRole
-       ? project.jobrole.cvRole.split(", ").map((cvRole) => cvRole.trim())
-       : [];
-
-    return (
-      project.company === company &&
-      rolesToMatch.some((cvRole) => projectCvRoles.includes(cvRole))
-    );
-  });
-  setSelectedProject(filteredProjects);
-  setIsModalOpen(true);
-}
-
+      return (
+        project.company === company &&
+        rolesToMatch.some((cvRole) => projectCvRoles.includes(cvRole))
+      );
+    });
+    setSelectedProject(filteredProjects);
+    setIsModalOpen(true);
+  }
   return (
     <>
       <Container>
@@ -40,6 +37,7 @@ function handleProjectClick(company, cvRole) {
             onClick={() => onToggleSection("Professional Experience")}
             aria-label="Open Section"
             role="button"
+            $isOverlayActive={isOverlayActive}
           >
             Professional experience
           </StyledButton>
@@ -67,13 +65,12 @@ function handleProjectClick(company, cvRole) {
       </Container>
 
       <Container>
-        <TextWrapper
-          style={{ borderTop: "2px solid var(--yellow)" }}
-        >
+        <TextWrapper style={{ borderTop: "2px solid var(--yellow)" }}>
           <StyledButton
             onClick={() => onToggleSection("Education")}
             aria-label="Open Section"
             role="button"
+            $isOverlayActive={isOverlayActive}
           >
             Education
           </StyledButton>
@@ -93,13 +90,12 @@ function handleProjectClick(company, cvRole) {
       </Container>
 
       <Container>
-        <TextWrapper
-          style={{ borderTop: "2px solid var(--yellow)" }}
-        >
+        <TextWrapper style={{ borderTop: "2px solid var(--yellow)" }}>
           <StyledButton
             onClick={() => onToggleSection("Additional Information")}
             aria-label="Open Section"
             role="button"
+            $isOverlayActive={isOverlayActive}
           >
             Additional Information
           </StyledButton>
@@ -150,6 +146,8 @@ const StyledButton = styled.button`
   color: var(--white);
   border: none;
   text-transform: uppercase;
+  pointer-events: ${({ $isOverlayActive }) =>
+    $isOverlayActive ? "none" : "auto"};
 
   &:hover {
     cursor: pointer;

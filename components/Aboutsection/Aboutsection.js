@@ -88,6 +88,8 @@ export default function Aboutsection() {
     const StyledBackground = styled.div`
       display: flex;
       width: 100%;
+      justify-content: center;
+      align-items: center;
 
       @media (min-width: 768px) {
         width: 50%;
