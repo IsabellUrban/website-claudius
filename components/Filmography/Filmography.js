@@ -8,7 +8,7 @@ export default function Filmography() {
   const [selectedJobRole, setSelectedJobRole] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
 
-  function handleToggleFilter(filter, setFilterState, isAll = false) {
+  /* function handleToggleFilter(filter, setFilterState, isAll = false) {
     setFilterState((prevFilters) => {
       if (isAll) {
         // "All"-Button: Setze den Filter auf leer
@@ -23,7 +23,17 @@ export default function Filmography() {
         }
       }
     });
+  } */
+
+function handleToggleFilter(filter, setFilterState, isAll = false) {
+  if (isAll) {
+    // "All"-Button: Setze den Filter auf leer
+    setFilterState([]);
+  } else {
+    // Setze den Filter auf den neuen Wert (nur ein Wert erlaubt)
+    setFilterState([filter]);
   }
+}
 
   const filteredProjects = projects.filter((project) => {
     const matchesJobRole =
@@ -45,107 +55,139 @@ export default function Filmography() {
         <Headline headline={"filmography"} />
         {/* Job Role Buttons */}
         <ButtonWrapper>
-          <StyledButton
-            onClick={() => handleToggleFilter("Animator", setSelectedJobRole)}
-            $isActive={selectedJobRole.includes("Animator")}
-            aria-label="Button Animator"
-          >
-            Animator
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("Lead", setSelectedJobRole)}
-            $isActive={selectedJobRole.includes("Lead")}
-            aria-label="Button Lead"
-          >
-            Lead Animator
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("Supervisor", setSelectedJobRole)}
-            $isActive={selectedJobRole.includes("Supervisor")}
-            aria-label="Button Supervisor"
-          >
-            Supervisor
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("HOD", setSelectedJobRole)}
-            $isActive={selectedJobRole.includes("HOD")}
-            aria-label="Button HOD"
-          >
-            HOD
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("Misc", setSelectedJobRole)}
-            $isActive={selectedJobRole.includes("Misc")}
-            aria-label="Button Misc"
-          >
-            Misc
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("All", setSelectedJobRole, true)}
-            $isActive={selectedJobRole.length === 0} // Aktiv, wenn keine Filter gesetzt sind
-            aria-label="Button All Job Roles"
-          >
-            All
-          </StyledButton>
-        </ButtonWrapper>
-
-        {/* Genre Buttons */}
-        <ButtonWrapper>
-          <StyledButton
-            onClick={() => handleToggleFilter("Film", setSelectedGenre)}
-            $isActive={selectedGenre.includes("Film")}
-            aria-label="Button Film"
-          >
-            Film
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("Commercial", setSelectedGenre)}
-            $isActive={selectedGenre.includes("Commercial")}
-            aria-label="Button Commercial"
-          >
-            Commercial
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("Games", setSelectedGenre)}
-            $isActive={selectedGenre.includes("Games")}
-            aria-label="Button Games"
-          >
-            Games
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("Series", setSelectedGenre)}
-            $isActive={selectedGenre.includes("Series")}
-            aria-label="Button Series"
-          >
-            Series
-          </StyledButton>
-          <StyledButton
-            onClick={() => handleToggleFilter("All", setSelectedGenre, true)}
-            $isActive={selectedGenre.length === 0} // Aktiv, wenn keine Filter gesetzt sind
-            aria-label="Button All Genres"
-          >
-            All
-          </StyledButton>
+          <ButtonWrapperJobRole>
+            <TextWrapper>
+              <StyledHeadline>JOB ROLE</StyledHeadline>
+            </TextWrapper>
+            <ButtonWrapper>
+              <StyledButton
+                onClick={() =>
+                  handleToggleFilter("Animator", setSelectedJobRole)
+                }
+                $isActive={selectedJobRole.includes("Animator")}
+                aria-label="Button Animator"
+              >
+                Animator
+              </StyledButton>
+              <StyledButton
+                onClick={() => handleToggleFilter("Lead", setSelectedJobRole)}
+                $isActive={selectedJobRole.includes("Lead")}
+                aria-label="Button Lead"
+              >
+                Lead
+              </StyledButton>
+              <StyledButton
+                onClick={() =>
+                  handleToggleFilter("Supervisor", setSelectedJobRole)
+                }
+                $isActive={selectedJobRole.includes("Supervisor")}
+                aria-label="Button Supervisor"
+              >
+                Supervisor
+              </StyledButton>
+              <StyledButton
+                onClick={() => handleToggleFilter("HOD", setSelectedJobRole)}
+                $isActive={selectedJobRole.includes("HOD")}
+                aria-label="Button HOD"
+              >
+                HOD
+              </StyledButton>
+              <StyledButton
+                onClick={() => handleToggleFilter("Misc", setSelectedJobRole)}
+                $isActive={selectedJobRole.includes("Misc")}
+                aria-label="Button Misc"
+              >
+                Misc
+              </StyledButton>
+              <StyledButton
+                onClick={() =>
+                  handleToggleFilter("All", setSelectedJobRole, true)
+                }
+                $isActive={selectedJobRole.length === 0}
+                aria-label="Button All Job Roles"
+              >
+                All
+              </StyledButton>
+            </ButtonWrapper>
+          </ButtonWrapperJobRole>
+          {/* Genre Buttons */}
+          <ButtonWrapperGenre>
+            <TextWrapper>
+              <StyledHeadline>GENRE</StyledHeadline>
+            </TextWrapper>
+            <ButtonWrapper>
+              <StyledButton
+                onClick={() => handleToggleFilter("Film", setSelectedGenre)}
+                $isActive={selectedGenre.includes("Film")}
+                aria-label="Button Film"
+              >
+                Film
+              </StyledButton>
+              <StyledButton
+                onClick={() =>
+                  handleToggleFilter("Commercial", setSelectedGenre)
+                }
+                $isActive={selectedGenre.includes("Commercial")}
+                aria-label="Button Commercial"
+              >
+                Commercial
+              </StyledButton>
+              <StyledButton
+                onClick={() => handleToggleFilter("Game", setSelectedGenre)}
+                $isActive={selectedGenre.includes("Game")}
+                aria-label="Button Games"
+              >
+                Games
+              </StyledButton>
+              <StyledButton
+                onClick={() => handleToggleFilter("Series", setSelectedGenre)}
+                $isActive={selectedGenre.includes("Series")}
+                aria-label="Button Series"
+              >
+                Series
+              </StyledButton>
+              <StyledButton
+                onClick={() => handleToggleFilter("Misc", setSelectedGenre)}
+                $isActive={selectedGenre.includes("Misc")}
+                aria-label="Button Misc"
+              >
+                Misc
+              </StyledButton>
+              <StyledButton
+                onClick={() =>
+                  handleToggleFilter("All", setSelectedGenre, true)
+                }
+                $isActive={selectedGenre.length === 0}
+                aria-label="Button All Genres"
+              >
+                All
+              </StyledButton>
+            </ButtonWrapper>
+          </ButtonWrapperGenre>
         </ButtonWrapper>
 
         {/* Poster Display */}
         <PosterWrapper $posterCount={sortedProjects.length}>
-          {sortedProjects.map((project) => (
-            <StyledGallery key={project.id}>
-              <ImageWrapper>
-                <StyledPoster
-                  src={project.poster}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </ImageWrapper>
-              <StyledTitle>
-                {project.title} ({project.releasedate})
-              </StyledTitle>
-              <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
-            </StyledGallery>
-          ))}
+          {sortedProjects.length > 0 ? (
+            sortedProjects.map((project) => (
+              <StyledGallery key={project.id}>
+                <ImageWrapper>
+                  <StyledPoster
+                    src={project.poster}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </ImageWrapper>
+                <StyledTitle>
+                  {project.title} ({project.releasedate})
+                </StyledTitle>
+                <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
+              </StyledGallery>
+            ))
+          ) : (
+            <NoPosterMessage>N/A</NoPosterMessage>
+          )}
         </PosterWrapper>
       </StyledContainer>
     </FilmographySection>
@@ -167,31 +209,72 @@ const StyledContainer = styled.div`
   background-color: var(--black);
 `;
 
+
+const TextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  background-color: var(--yellow);
+  padding: 0.25rem;
+`;
+
+const StyledHeadline = styled.p`
+  font-weight: 900;
+  color: var(--black);
+  font-size: 1rem;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap; /* Ermöglicht das Umbrechen der Buttons */
+  justify-content: center; /* Zentriert die Buttons */
   align-items: center;
   width: 100%;
-  padding: 1rem 0;
+`;
+
+const ButtonWrapperJobRole = styled.div`
+  display: flex;
+  flex-wrap: wrap; /* Ermöglicht das Umbrechen der Buttons */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+`;
+
+const ButtonWrapperGenre = styled.div`
+  display: flex;
+  flex-wrap: wrap; /* Ermöglicht das Umbrechen der Buttons */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
 `;
 
 const StyledButton = styled.button`
-  font: var(--button);
-  background-color: ${({ $isActive }) =>
-    $isActive ? "var(--yellow)" : "var(--white)"};
-  color: ${({ $isActive }) => ($isActive ? "var(--black)" : "var(--black)")};
+  background-color: transparent;
+  color: var(--white);
   border: none;
   text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+  text-decoration: ${({ $isActive }) =>
+    $isActive ? "underline 0.2rem var(--yellow)" : "none"};
 
   &:hover {
-    cursor: pointer;
-    background-color: var(--yellow);
+    text-decoration: underline 0.2rem var(--yellow);
     transform: scale(1.02);
   }
 
   @media (min-width: 768px) {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 `;
 
@@ -223,7 +306,7 @@ const PosterWrapper = styled.div`
         ? "repeat(3, 1fr)"
         : $postersCount === 4
         ? "repeat(4, 1fr)"
-        : "repeat(5, 1fr)"};
+        : "repeat(6, 1fr)"};
   }
 `;
 
@@ -273,5 +356,17 @@ const StyledJobtitle = styled.p`
 
   @media (min-width: 768px) {
     font-size: 0.85rem;
+  }
+`;
+
+const NoPosterMessage = styled.p`
+  font: var(--subheadline);
+  color: var(--yellow);
+  font-size: 1.25rem;
+  text-align: center;
+  margin-top: 2rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
