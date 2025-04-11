@@ -13,9 +13,9 @@ export default function ParallaxBackground() {
   const y3 = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
   return (
     <BackgroundContainer>
-     <ParallaxImage style={{ y: y1 }} src="/images/background1.jpg" />
+     <ParallaxImage style={{ y: y1 }} src="/images/background2.jpg" />
      <ParallaxImage style={{ y: y2 }} src="/images/background-texture.jpg" />
-     <ParallaxImage style={{ y: y3 }} src="/images/background2.jpg" />
+     <ParallaxImage style={{ y: y3 }} src="/images/background1.jpg" />
     </BackgroundContainer>
   );
 }
