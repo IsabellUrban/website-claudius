@@ -233,28 +233,41 @@ const StyledHeadline = styled.p`
 
 const ButtonWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap; /* Ermöglicht das Umbrechen der Buttons */
-  justify-content: center; /* Zentriert die Buttons */
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 768px) {
+  padding: 0 1rem;
+  justify-content: space-between;
+  }
 `;
 
 const ButtonWrapperJobRole = styled.div`
   display: flex;
-  flex-wrap: wrap; /* Ermöglicht das Umbrechen der Buttons */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 0.5rem;
+
+  @media (min-width: 768px) {
+    width: 45%;
+  }
 `;
 
 const ButtonWrapperGenre = styled.div`
   display: flex;
-  flex-wrap: wrap; /* Ermöglicht das Umbrechen der Buttons */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 0.5rem;
+
+  @media (min-width: 768px) {
+    width: 45%;
+  }
 `;
 
 const StyledButton = styled.button`

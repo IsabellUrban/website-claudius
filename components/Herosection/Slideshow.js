@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-import { projects } from "@/lib/data-projects";
+import { projects } from "@/lib/data-projects-02";
 import { useState } from "react";
 import { useEffect } from "react";
 
