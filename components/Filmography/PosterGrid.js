@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export default function PosterGrid(sortedProjects) {
+export default function PosterGrid({sortedProjects}) {
 
     return (
       <PosterWrapper $posterCount={sortedProjects.length}>
