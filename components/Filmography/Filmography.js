@@ -27,6 +27,7 @@ export default function Filmography() {
   return (
     <FilmographySection>
       <StyledContainer>
+        <WrapperHeader>
         <Headline headline={"filmography"} />
         <FilterButtons
           selectedJobRole={selectedJobRole}
@@ -34,7 +35,7 @@ export default function Filmography() {
           selectedGenre={selectedGenre}
           setSelectedGenre={setSelectedGenre}
         />
-
+</WrapperHeader>
 
         {sortedProjects.length > 0 ? (
           <PosterGrid sortedProjects={sortedProjects} />
@@ -56,10 +57,19 @@ const StyledContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: var(--black);
-  min-height: 500px;
+  min-height: 550px;
+`;
+
+const WrapperHeader = styled.div`
+position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0rem;
 `;
 
 const NoPosterMessage = styled.p`

@@ -7,7 +7,9 @@ export default function Herosection() {
   return (
     <HeroContainer>
       <Slideshow />
-      <Textanimation />
+      <TextWrapper>
+        <Textanimation />
+      </TextWrapper>
     </HeroContainer>
   );
 }
@@ -27,4 +29,13 @@ const HeroContainer = styled.div`
   @media (min-width: 768px) {
     height: 100vh;
   }
+`;
+
+const TextWrapper = styled.div`
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
 `;
