@@ -116,11 +116,14 @@ padding-top: 1rem;
 `;
 
 const ContentContainer = styled.div`
-width: 60%;
+width: 90%;
 display: flex;
 flex-direction: column;
 align-items: center;
-max-width: 1200px;
+
+@media (min-width: 768px) {
+width: 60%;
+ }
 
 @media (min-width: 1200px) {
 width: 1200px;

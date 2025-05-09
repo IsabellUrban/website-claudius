@@ -28,9 +28,11 @@ export default createGlobalStyle`
     --black: #000;
     --white: #fff;
     --grey: #f0f0f0;
+    --grey-transparent: rgba(240, 240, 240, 0.5);
 
     --bodytext: 500 0.75rem ${roboto.style.fontFamily}, system-ui;
     --subheadline: 700 0.9rem ${antonio.style.fontFamily}, system-ui;
+    --button: 700 0.4rem ${antonio.style.fontFamily}, system-ui;
   }
 
   body {
