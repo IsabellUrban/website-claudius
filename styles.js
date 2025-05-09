@@ -45,4 +45,8 @@ export default createGlobalStyle`
   input, select, button {
   font-family: inherit;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 `;

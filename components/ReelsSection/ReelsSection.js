@@ -44,7 +44,7 @@ export default function ReelsSection() {
   
   return (
     <>
-      <SectionWrapper>
+      <SectionWrapper id="reels">
         <StyledContainer ref={containerRef}>
           <Headline headline={"reels"} />
           <ReelsContent>

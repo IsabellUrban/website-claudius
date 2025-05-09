@@ -35,9 +35,9 @@ export default function CV() {
 
   return (
     <>
-      <CVSection>
+      <CVSection id="cv">
         <StyledContainer ref={containerRef}>
-          <Headline headline={"cv"}/>
+          <Headline headline={"cv"} />
           {isActiveSection && (
             <Overlay
               onClick={handleClose}

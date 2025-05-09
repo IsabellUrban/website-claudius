@@ -25,17 +25,17 @@ export default function Filmography() {
   );
 
   return (
-    <FilmographySection>
+    <FilmographySection id="filmography">
       <StyledContainer>
         <WrapperHeader>
-        <Headline headline={"filmography"} />
-        <FilterButtons
-          selectedJobRole={selectedJobRole}
-          setSelectedJobRole={setSelectedJobRole}
-          selectedGenre={selectedGenre}
-          setSelectedGenre={setSelectedGenre}
-        />
-</WrapperHeader>
+          <Headline headline={"filmography"} />
+          <FilterButtons
+            selectedJobRole={selectedJobRole}
+            setSelectedJobRole={setSelectedJobRole}
+            selectedGenre={selectedGenre}
+            setSelectedGenre={setSelectedGenre}
+          />
+        </WrapperHeader>
 
         {sortedProjects.length > 0 ? (
           <PosterGrid sortedProjects={sortedProjects} />

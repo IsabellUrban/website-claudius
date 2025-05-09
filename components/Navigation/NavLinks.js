@@ -19,22 +19,22 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
         role="navigation"
         aria-label="Main navigation"
       >
-        <StyledLink href="" onClick={handleLinkClick} role="menuitem">
+        <StyledLink href="#" onClick={handleLinkClick} role="menuitem">
           HOME
         </StyledLink>
-        <StyledLink href="" onClick={handleLinkClick} role="menuitem">
+        <StyledLink href="#about" onClick={handleLinkClick} role="menuitem">
           ABOUT
         </StyledLink>
-        <StyledLink href="" onClick={handleLinkClick} role="menuitem">
+        <StyledLink href="#cv" onClick={handleLinkClick} role="menuitem">
           CV
         </StyledLink>
-        <StyledLink href="" onClick={handleLinkClick} role="menuitem">
+        <StyledLink href="#reels" onClick={handleLinkClick} role="menuitem">
           REELS
         </StyledLink>
-        <StyledLink href="" onClick={handleLinkClick} role="menuitem">
+        <StyledLink href="#filmography" onClick={handleLinkClick} role="menuitem">
           FILMOGRAPHY
         </StyledLink>
-        <StyledLink href="" onClick={handleLinkClick} role="menuitem">
+        <StyledLink href="#contact" onClick={handleLinkClick} role="menuitem">
           CONTACT
         </StyledLink>
       </StyledNavLinks>

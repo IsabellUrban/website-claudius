@@ -8,7 +8,7 @@ import Vimeo from "@/public/icons/vimeo.svg";
 
 export default function Contact() {
   return (
-    <ContactSection>
+    <ContactSection id="contact">
       <StyledContainer>
         <Headline headline={"contact"} />
         <ContactWrapper>
@@ -29,7 +29,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <StyledItemWrapper href="https://www.linkedin.com/in/isabell-urban/">
+            <StyledItemWrapper href="https://www.linkedin.com/in/claudius-urban-30a0011/">
               <ImageWrapper>
                 <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
               </ImageWrapper>
@@ -41,7 +41,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <StyledItemWrapper href="https://github.com/IsabellUrban">
+            <StyledItemWrapper href="https://www.imdb.com/de/name/nm1381907/">
               <ImageWrapper>
                 <Imdb alt="Imdb Icon" width="100%" height="100%" />
               </ImageWrapper>
@@ -52,7 +52,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <StyledItemWrapper href="https://github.com/IsabellUrban">
+            <StyledItemWrapper href="https://vimeo.com/user12349902">
               <ImageWrapper>
                 <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
               </ImageWrapper>
@@ -75,6 +75,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 40vh;
 `;
 
 const StyledText = styled.a`

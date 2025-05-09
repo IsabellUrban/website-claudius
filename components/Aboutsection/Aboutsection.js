@@ -6,7 +6,7 @@ import Headline from "@/components/Headline/Headline";
 
 export default function Aboutsection() {
     return (
-      <AboutSection>
+      <AboutSection id="about">
         <StyledContainer>
           <Headline headline={"about"} />
 
