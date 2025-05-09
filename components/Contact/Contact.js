@@ -1,25 +1,152 @@
 import styled from "styled-components";
 import Headline from "../Headline/Headline";
+import { motion } from "framer-motion";
+import Mail from "@/public/icons/Mail.svg";
+import Linkedin from "@/public/icons/Linkedin.svg";
+import Imdb from "@/public/icons/imdb.svg";
+import Vimeo from "@/public/icons/vimeo.svg";
 
 export default function Contact() {
   return (
     <ContactSection>
       <StyledContainer>
         <Headline headline={"contact"} />
-        </StyledContainer>
-        </ContactSection>
-    );
- };   
+        <ContactWrapper>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <StyledItemWrapper href="mailto:mail@claudiusurban.com">
+              <ImageWrapper>
+                <Mail alt="Mail Icon" width="100%" height="100%" />
+              </ImageWrapper>
+            </StyledItemWrapper>
+          </motion.div>
 
-  const ContactSection = styled.section`
-      background-color: transparent;
-      padding: 4rem 0rem 4rem 0rem;
-      width: 100%;
-    `;
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <StyledItemWrapper href="https://www.linkedin.com/in/isabell-urban/">
+              <ImageWrapper>
+                <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
+              </ImageWrapper>
+            </StyledItemWrapper>
+          </motion.div>
 
-    const StyledContainer = styled.div`
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    `;
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <StyledItemWrapper href="https://github.com/IsabellUrban">
+              <ImageWrapper>
+                <Imdb alt="Imdb Icon" width="100%" height="100%" />
+              </ImageWrapper>
+            </StyledItemWrapper>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <StyledItemWrapper href="https://github.com/IsabellUrban">
+              <ImageWrapper>
+                <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
+              </ImageWrapper>
+            </StyledItemWrapper>
+          </motion.div>
+        </ContactWrapper>
+      </StyledContainer>
+    </ContactSection>
+  );
+}
+
+const ContactSection = styled.section`
+  background-color: transparent;
+  padding: 4rem 0rem 4rem 0rem;
+  width: 100%;
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledText = styled.a`
+  font: var(--subheadline);
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+`;
+
+const ContactWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  `;	
+
+
+const StyledItemWrapper = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  width: 50px;
+  height: 50px;
+  background-color: var(--yellow);
+  color: var(--black);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+
+    ${StyledText} {
+      color: var(--yellow);
+    }
+  }
+  @media (min-width: 768px) {
+    
+  }
+`;
+
+
+
+const ImageWrapper = styled.div`
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 20px;
+  height: 20px;
+
+  @media (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+
+  @media (min-width: 768px) {
+    max-width: 800px;
+    padding: 1rem;
+  }
+`;
+
