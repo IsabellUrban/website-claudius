@@ -42,7 +42,7 @@ text-align: left;
 `;
 
 const StyledText = styled(motion.h3)`
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 200;
   color: var(--white);
   text-transform: uppercase;
