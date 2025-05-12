@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function NavLinks({ isMenuOpen, handleLinkClick }) {
+export default function NavLinks({ isMenuOpen, handleLinkClick, activeLink, handleSetActiveLink }) {
+  
+
+  function handleLinkClickAndSetActive(link) {
+    handleSetActiveLink(link);
+    handleLinkClick();
+  }
+
   return (
     <>
       <StyledBackground
@@ -19,22 +26,52 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
         role="navigation"
         aria-label="Main navigation"
       >
-        <StyledLink href="#" onClick={handleLinkClick} role="menuitem">
+        <StyledLink
+          href="#"
+          onClick={() => handleLinkClickAndSetActive("/#")}
+          role="menuitem"
+          $isActive={activeLink === "/#"}
+        >
           HOME
         </StyledLink>
-        <StyledLink href="#about" onClick={handleLinkClick} role="menuitem">
+        <StyledLink
+          href="/#about"
+          onClick={() => handleLinkClickAndSetActive("/#about")}
+          role="menuitem"
+          $isActive={activeLink === "/#about"}
+        >
           ABOUT
         </StyledLink>
-        <StyledLink href="#cv" onClick={handleLinkClick} role="menuitem">
+        <StyledLink
+          href="/#cv"
+          onClick={() => handleLinkClickAndSetActive("/#cv")}
+          role="menuitem"
+          $isActive={activeLink === "/#cv"}
+        >
           CV
         </StyledLink>
-        <StyledLink href="#reels" onClick={handleLinkClick} role="menuitem">
+        <StyledLink
+          href="/#reels"
+          onClick={() => handleLinkClickAndSetActive("/#reels")}
+          role="menuitem"
+          $isActive={activeLink === "/#reels"}
+        >
           REELS
         </StyledLink>
-        <StyledLink href="#filmography" onClick={handleLinkClick} role="menuitem">
+        <StyledLink
+          href="/#filmography"
+          onClick={() => handleLinkClickAndSetActive("/#filmography")}
+          role="menuitem"
+          $isActive={activeLink === "/#filmography"}
+        >
           FILMOGRAPHY
         </StyledLink>
-        <StyledLink href="#contact" onClick={handleLinkClick} role="menuitem">
+        <StyledLink
+          href="/#contact"
+          onClick={() => handleLinkClickAndSetActive("/#contact")}
+          role="menuitem"
+          $isActive={activeLink === "/#contact"}
+        >
           CONTACT
         </StyledLink>
       </StyledNavLinks>
@@ -95,9 +132,12 @@ const StyledLink = styled(Link)`
       transform: scale(1.02);
     }
 
-    &:active {
-      text-decoration: underline 0.2rem var(--yellow);
-    }
+    ${({ $isActive }) =>
+      $isActive &&
+      `
+    text-decoration: underline 0.2rem var(--yellow); 
+    font-weight: bold;
+  `}
   }
 `;
 

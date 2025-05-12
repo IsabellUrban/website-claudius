@@ -48,7 +48,7 @@ const WrapperLinks = styled.nav`
 `;
 
 const StyledFooterText = styled.p`
-  font: var(--sub-headline);
+  font: var(--subheadline);
   font-size: 0.75rem;
   margin: 0;
   flex-grow: 1;
@@ -61,7 +61,7 @@ const StyledFooterText = styled.p`
 `;
 
 const StyledLink = styled(Link)`
-  font: var(--text);
+  font: var(--subheadline);
   font-size: 0.75rem;
   color: var(--white);
   text-decoration: none;

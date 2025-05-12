@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import ParallaxBackground from "../ParallaxBackground/ParallaxBackground";
 import Image from "next/image";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-export default function Layout({ children, isActiveSection, handleCloseActiveSection }) {
+export default function Layout({ children, activeLink, handleSetActiveLink }) {
   return (
     <LayoutWrapper>
+      <Header
+        activeLink={activeLink}
+        handleSetActiveLink={handleSetActiveLink}
+      />
       <StyledBackgroundImage
         src="/images/background2.jpg"
         alt="Background Image"
@@ -13,6 +19,7 @@ export default function Layout({ children, isActiveSection, handleCloseActiveSec
       />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
+      <Footer />
     </LayoutWrapper>
   );
 }

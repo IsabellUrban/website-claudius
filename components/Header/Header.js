@@ -6,7 +6,7 @@ import NavLinks from "../Navigation/NavLinks.js";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({activeLink, handleSetActiveLink}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleMenuToggle() {
@@ -20,7 +20,6 @@ export default function Header() {
   return (
     <>
       <StyledHeader role="banner">
-
         <LogoWrapper>
           <StyledLink href="/">
             <StyledLogo />
@@ -32,7 +31,12 @@ export default function Header() {
         ) : (
           <MenuIcon onClick={handleMenuToggle} />
         )}
-        <NavLinks isMenuOpen={isMenuOpen} handleLinkClick={handleLinkClick} />
+        <NavLinks
+          isMenuOpen={isMenuOpen}
+          handleLinkClick={handleLinkClick}
+          activeLink={activeLink}
+          handleSetActiveLink={handleSetActiveLink}
+        />
       </StyledHeader>
 
       <HiddenHeadline>Claudius Urban</HiddenHeadline>
