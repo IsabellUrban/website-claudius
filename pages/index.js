@@ -6,6 +6,7 @@ import CV from "@/components/CV/CV";
 import ReelsSection from "@/components/ReelsSection/ReelsSection";
 import Filmography from "@/components/Filmography/Filmography";
 import Contact from "@/components/Contact/Contact";
+import Footer from "@/components/Footer/Footer";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <ReelsSection />
       <Filmography />
       <Contact />
+      <Footer />
     </>
   );
 };
