@@ -26,6 +26,7 @@ export default createGlobalStyle`
 :root {
     --yellow: #FFD700;
     --black: #000;
+    --black-transparent: rgba(0, 0, 0, 0.8);
     --white: #fff;
     --grey: #f0f0f0;
     --grey-transparent: rgba(240, 240, 240, 0.5);
@@ -44,5 +45,9 @@ export default createGlobalStyle`
 
   input, select, button {
   font-family: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 `;

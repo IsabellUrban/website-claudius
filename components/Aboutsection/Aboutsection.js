@@ -6,7 +6,7 @@ import Headline from "@/components/Headline/Headline";
 
 export default function Aboutsection() {
     return (
-      <AboutSection>
+      <AboutSection id="about">
         <StyledContainer>
           <Headline headline={"about"} />
 
@@ -69,6 +69,7 @@ export default function Aboutsection() {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding-top: 40px;
     `;
 
     const AboutContent = styled.div`

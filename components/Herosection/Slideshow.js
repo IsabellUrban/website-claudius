@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ArrowLeft from "@/public/icons/Arrow-left.svg";
 import ArrowRight from "@/public/icons/Arrow-right.svg";
+import Textanimation from "./Textanimation";
 
 export default function Slideshow () {
 
@@ -53,6 +54,7 @@ function handleClickPrev () {
           <ButtonWrapper onClick={handleClickPrev}>
             <ArrowLeft />
           </ButtonWrapper>
+          <Textanimation />
           <ButtonWrapper onClick={handleClickNext}>
             <ArrowRight />
           </ButtonWrapper>
@@ -79,13 +81,20 @@ object-fit: cover;
 
 const ButtonContainer = styled.div`
   position: absolute;
-  bottom: 42%;
+  bottom: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
+
+  @media (min-width: 768px) {
+    bottom: 42%;
+    left: 50%;
+    padding: 0 20px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -96,12 +105,17 @@ const ButtonWrapper = styled.div`
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   padding: 5px;
 
   &:hover {
     background-color: var(--yellow);
     color: var(--black);
+  }
+
+  @media (min-width: 768px) {
+    width: 40px;
+    height: 40px;
   }
 `;

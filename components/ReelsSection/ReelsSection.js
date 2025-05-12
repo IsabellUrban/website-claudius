@@ -44,7 +44,7 @@ export default function ReelsSection() {
   
   return (
     <>
-      <SectionWrapper>
+      <SectionWrapper id="reels">
         <StyledContainer ref={containerRef}>
           <Headline headline={"reels"} />
           <ReelsContent>
@@ -100,10 +100,12 @@ width: 100%;
 
 const StyledContainer = styled.div`
 display: flex;
+position: relative;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100%;
+padding-top: 40px;
 `;
 
 const ReelsContent = styled.div`

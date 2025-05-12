@@ -22,22 +22,22 @@ export default function CV() {
   function handleClose() {
     handleCloseActiveSection();
     handleToggleSection(null);
-    
-     setTimeout(() => {
-       if (containerRef.current) {
-         containerRef.current.scrollIntoView({
-           behavior: "smooth",
-           block: "start",
-         });
-       }
-     }, 600);
+
+    setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 600);
   }
 
   return (
     <>
-      <CVSection>
+      <CVSection id="cv">
         <StyledContainer ref={containerRef}>
-          <Headline headline={"cv"}/>
+          <Headline headline={"cv"} />
           {isActiveSection && (
             <Overlay
               onClick={handleClose}
@@ -61,6 +61,7 @@ const CVSection = styled.section`
   padding: 4rem 0rem;
   width: 100%;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledContainer = styled.div`
@@ -69,12 +70,13 @@ const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  padding-top: 40px;
 `;
 
 const Overlay = styled.div`
   position: fixed;
   inset: 0;
-  background-color: transparent;
   z-index: 5;
   cursor: pointer;
   pointer-events: all;
