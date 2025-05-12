@@ -61,7 +61,6 @@ const CVSection = styled.section`
   padding: 4rem 0rem;
   width: 100%;
   position: relative;
-  min-height: 100vh;
   overflow: hidden;
 `;
 

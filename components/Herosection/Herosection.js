@@ -33,9 +33,16 @@ const HeroContainer = styled.div`
 
 const TextWrapper = styled.div`
   position: absolute;
-  top: 52%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
   text-align: center;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
