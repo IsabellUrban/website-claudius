@@ -80,7 +80,7 @@ const ContactSection = styled.section`
   background-color: transparent;
   padding: 0rem 0rem 4rem 0rem;
   width: 100%;
-  height: 100vh;
+  
 `;
 
 const StyledContainer = styled.div`
@@ -89,6 +89,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 40vh;
+  height: 100vh;
 `;
 
 const StyledText = styled.a`

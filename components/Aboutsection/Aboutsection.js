@@ -69,6 +69,7 @@ export default function Aboutsection() {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding-top: 40px;
     `;
 
     const AboutContent = styled.div`

@@ -100,10 +100,12 @@ width: 100%;
 
 const StyledContainer = styled.div`
 display: flex;
+position: relative;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100%;
+padding-top: 40px;
 `;
 
 const ReelsContent = styled.div`

@@ -60,6 +60,7 @@ const StyledContainer = styled.div`
   align-items: center;
   background-color: var(--black-transparent);
   min-height: 550px;
+  padding-top: 40px;
 `;
 
 const WrapperHeader = styled.div`

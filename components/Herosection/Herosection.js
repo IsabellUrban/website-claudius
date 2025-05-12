@@ -33,7 +33,7 @@ const HeroContainer = styled.div`
 
 const TextWrapper = styled.div`
   position: absolute;
-  top: 85%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;

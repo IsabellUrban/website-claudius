@@ -72,6 +72,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-top: 40px;
 `;
 
 const Overlay = styled.div`
