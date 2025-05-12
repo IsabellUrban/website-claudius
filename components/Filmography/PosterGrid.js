@@ -31,7 +31,7 @@ const PosterWrapper = styled.div`
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: start;
-  padding: 0 20px;
+  padding: 0 20px 40px 20px;
   width: 100%;
   min-height: 30vh;
 

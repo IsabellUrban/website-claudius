@@ -29,7 +29,11 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <StyledItemWrapper href="https://www.linkedin.com/in/claudius-urban-30a0011/">
+            <StyledItemWrapper
+              href="https://www.linkedin.com/in/claudius-urban-30a0011/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ImageWrapper>
                 <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
               </ImageWrapper>
@@ -41,7 +45,11 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <StyledItemWrapper href="https://www.imdb.com/de/name/nm1381907/">
+            <StyledItemWrapper
+              href="https://www.imdb.com/de/name/nm1381907/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ImageWrapper>
                 <Imdb alt="Imdb Icon" width="100%" height="100%" />
               </ImageWrapper>
@@ -52,7 +60,11 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <StyledItemWrapper href="https://vimeo.com/user12349902">
+            <StyledItemWrapper
+              href="https://vimeo.com/user12349902"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ImageWrapper>
                 <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
               </ImageWrapper>
@@ -66,8 +78,9 @@ export default function Contact() {
 
 const ContactSection = styled.section`
   background-color: transparent;
-  padding: 4rem 0rem 4rem 0rem;
+  padding: 0rem 0rem 4rem 0rem;
   width: 100%;
+  height: 100vh;
 `;
 
 const StyledContainer = styled.div`

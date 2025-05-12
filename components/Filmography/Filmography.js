@@ -48,7 +48,7 @@ export default function Filmography() {
 }
 
 const FilmographySection = styled.section`
-  padding: 4rem 0rem;
+  padding: 2rem 0rem;
   width: 100%;
   position: relative;
 `;
@@ -58,7 +58,7 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--black);
+  background-color: var(--black-transparent);
   min-height: 550px;
 `;
 

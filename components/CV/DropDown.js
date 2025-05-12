@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data-projects-02";
 import { experience } from "@/lib/data-experience";
@@ -29,6 +29,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
     setSelectedProject(filteredProjects);
     setIsModalOpen(true);
   }
+
   return (
     <>
       <Container>
@@ -43,10 +44,11 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
           </StyledButton>
         </TextWrapper>
         <StyledBackground
+          
           initial={{ height: 0, opacity: 0 }}
           animate={
             isActiveSection === "Professional Experience"
-              ? { height: "auto", opacity: 1 }
+              ? { height: 4100, opacity: 1 }
               : { height: 0, opacity: 0 }
           }
           exit={{ height: 0, opacity: 0 }}
@@ -76,6 +78,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
           </StyledButton>
         </TextWrapper>
         <StyledBackground
+          
           initial={{ height: 0, opacity: 0 }}
           animate={
             isActiveSection === "Education"
@@ -101,6 +104,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
           </StyledButton>
         </TextWrapper>
         <StyledBackground
+          
           initial={{ height: 0, opacity: 0 }}
           animate={
             isActiveSection === "Additional Information"
