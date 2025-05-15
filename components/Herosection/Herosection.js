@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Slideshow from "./Slideshow";
-import Textanimation from "./Textanimation";
 
 
 export default function Herosection() {
