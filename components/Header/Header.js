@@ -16,12 +16,17 @@ export default function Header({activeLink, handleSetActiveLink}) {
   function handleLinkClick() {
     setIsMenuOpen(false);
   }
+  
+  function handleLogoClick() {
+    handleSetActiveLink("/#"); // Setze activeLink auf die Startseite
+    setIsMenuOpen(false); // Schließe das Menü, falls es geöffnet ist
+  }
 
   return (
     <>
       <StyledHeader role="banner">
         <LogoWrapper>
-          <StyledLink href="/">
+          <StyledLink href="/#" onClick={handleLogoClick}>
             <StyledLogo />
           </StyledLink>
         </LogoWrapper>
@@ -82,6 +87,11 @@ const StyledLogo = styled(Logo)`
   width: 14vh;
   height: auto;
   color: var(--white);
+
+ &:hover {
+    transform: scale(1.02);
+    color: var(--yellow);
+  }
 
   @media (min-width: 768px) {
     width: 16vh;

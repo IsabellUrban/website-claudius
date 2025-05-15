@@ -1,7 +1,28 @@
 import styled from "styled-components";
 import Link from "next/link";
+import ImprintModal from "../ImprintModal/ImprintModal";
+import { useState } from "react";
+import PrivacyPolicyModal from "../PrivacyPolicyModal/PrivacyPolicyModal";
 
 export default function Footer() {
+  const [isImprintOpen, setIsImprintOpen] = useState(false);
+  const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
+
+  function handleOpenImprintModal() {
+    setIsImprintOpen(true);
+    setIsPrivacyPolicyOpen(false);
+  }
+
+  function handleOpenPrivacyPolicyModal() {
+    setIsImprintOpen(false);
+    setIsPrivacyPolicyOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsImprintOpen(false);
+    setIsPrivacyPolicyOpen(false);
+  }
+
   return (
     <FooterWrapper role="contentinfo">
       <WrapperLogoCopywrite>
@@ -11,9 +32,11 @@ export default function Footer() {
         </StyledLink>
       </WrapperLogoCopywrite>
       <WrapperLinks>
-        <StyledLink href="/imprint">Imprint</StyledLink>
-        <StyledLink href="/privacypolicy">Privacy Policy</StyledLink>
+        <StyledButton onClick={handleOpenImprintModal}>Imprint</StyledButton>
+        <StyledButton onClick={handleOpenPrivacyPolicyModal}>Privacy Policy</StyledButton>
       </WrapperLinks>
+      <ImprintModal isOpen={isImprintOpen} onClose={handleCloseModal} />
+      <PrivacyPolicyModal isOpen={isPrivacyPolicyOpen} onClose={handleCloseModal} />
     </FooterWrapper>
   );
 }
@@ -64,7 +87,28 @@ const StyledLink = styled(Link)`
   font: var(--subheadline);
   font-size: 0.75rem;
   color: var(--white);
-  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    text-decoration: underline 0.2rem var(--yellow);
+    transform: scale(1.02);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const StyledButton = styled.button`
+  font: var(--subheadline);
+  font-size: 0.75rem;
+  color: var(--white);
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: transform 0.2s ease;
 
   &:hover {

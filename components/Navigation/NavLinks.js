@@ -27,7 +27,7 @@ export default function NavLinks({ isMenuOpen, handleLinkClick, activeLink, hand
         aria-label="Main navigation"
       >
         <StyledLink
-          href="#"
+          href="/#"
           onClick={() => handleLinkClickAndSetActive("/#")}
           role="menuitem"
           $isActive={activeLink === "/#"}
