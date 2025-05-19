@@ -27,7 +27,7 @@ export default function ImprintModal({ onClose, isOpen }) {
             <TextWrapper>
               <StyledSubheadline>Claudius Urban</StyledSubheadline>
               <StyledText>
-                Kopenhagener Straße 48, <br />
+                Kopenhagener Straße 48 <br />
                 10437 Berlin <br />
                 Germany <br />
               </StyledText>

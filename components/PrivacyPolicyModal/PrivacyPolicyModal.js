@@ -39,7 +39,7 @@ export default function PrivacyPolicyModal({ onClose, isOpen }) {
                 <br /> The responsible party for data processing on this website
                 is: <br />
                 <br /> Claudius Urban <br />
-                Kopenhagener Straße 48,
+                Kopenhagener Straße 48
                 <br /> 10437 Berlin, Germany <br />
                 <br /> Email: mail@claudiusurban.com
                 <br />

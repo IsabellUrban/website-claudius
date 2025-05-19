@@ -14,7 +14,8 @@ export default function Contact() {
         <ContactWrapper>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <StyledItemWrapper href="mailto:mail@claudiusurban.com">
@@ -26,7 +27,8 @@ export default function Contact() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <StyledItemWrapper
@@ -42,7 +44,8 @@ export default function Contact() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <StyledItemWrapper
@@ -57,8 +60,9 @@ export default function Contact() {
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
           >
             <StyledItemWrapper
               href="https://vimeo.com/user12349902"
