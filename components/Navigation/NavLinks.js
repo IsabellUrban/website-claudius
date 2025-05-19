@@ -27,10 +27,10 @@ export default function NavLinks({ isMenuOpen, handleLinkClick, activeLink, hand
         aria-label="Main navigation"
       >
         <StyledLink
-          href="/#"
-          onClick={() => handleLinkClickAndSetActive("/#")}
+          href="/#home"
+          onClick={() => handleLinkClickAndSetActive("/#home")}
           role="menuitem"
-          $isActive={activeLink === "/#"}
+          $isActive={activeLink === "/#home"} // <-- hier geändert
         >
           HOME
         </StyledLink>

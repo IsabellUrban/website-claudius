@@ -89,6 +89,7 @@ const StyledLink = styled(Link)`
   color: var(--white);
   background: none;
   border: none;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease;
 

@@ -11,12 +11,7 @@ export default function Layout({ children, activeLink, handleSetActiveLink }) {
         activeLink={activeLink}
         handleSetActiveLink={handleSetActiveLink}
       />
-      <StyledBackgroundImage
-        src="/images/background2.jpg"
-        alt="Background Image"
-        fill
-        priority
-      />
+      <MobileBackground />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
       <Footer />
@@ -44,14 +39,34 @@ position: relative;
 z-index: 1;
 `;
 
-const StyledBackgroundImage = styled(Image)`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: contain; 
-background-repeat: repeat;
-z-index: -1; 
+const MobileBackground = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/images/background-texture.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    z-index: -1;
+  }
 `;
+
+/* const StyledBackgroundImage = styled(Image)`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    background-repeat: repeat;
+    z-index: -1; 
+  }
+`; */
 

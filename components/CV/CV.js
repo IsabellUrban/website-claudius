@@ -35,8 +35,8 @@ export default function CV() {
 
   return (
     <>
-      <CVSection id="cv">
-        <StyledContainer ref={containerRef}>
+      <CVSection>
+        <StyledContainer ref={containerRef} id="cv">
           <Headline headline={"cv"} />
           {isActiveSection && (
             <Overlay
@@ -58,20 +58,28 @@ export default function CV() {
 
 const CVSection = styled.section`
   background-color: transparent;
-  padding: 4rem 0rem;
+  padding: 4rem 0rem 4rem 0rem;
   width: 100%;
   position: relative;
   overflow: hidden;
+  height: 50vh;
+
+  @media (min-width: 768px) {
+    height: 100vh;
+  }
 `;
 
 const StyledContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-top: 40px;
+
+  @media (min-width: 768px) {
+    padding-top: 105px;
+    
+  }
 `;
 
 const Overlay = styled.div`

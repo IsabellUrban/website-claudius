@@ -1,31 +1,22 @@
 import Layout from "@/components/Layout/Layout";
 import GlobalStyle from "../styles";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+
 
 export default function App({ Component, pageProps }) {
-  const [activeLink, setActiveLink] = useState("#");
-  const router = useRouter();
+  const [activeLink, setActiveLink] = useState("/#home");
 
   useEffect(() => {
-    const path = router.asPath.split("#")[0];
-    setActiveLink(
-      path +
-        (router.asPath.includes("#") ? `#${router.asPath.split("#")[1]}` : "")
-    );
-  }, [router.asPath]);
-
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-    
+    const sections = document.querySelectorAll("[id]");
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            setActiveLink(`/${id ? `#${id}` : ""}`);
-          }
-        });
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const id = visible.target.getAttribute("id");
+          setActiveLink(`/${id ? `#${id}` : ""}`);
+        }
       },
       { threshold: 0.1 }
     );

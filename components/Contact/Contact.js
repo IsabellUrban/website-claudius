@@ -8,8 +8,8 @@ import Vimeo from "@/public/icons/vimeo.svg";
 
 export default function Contact() {
   return (
-    <ContactSection id="contact">
-      <StyledContainer>
+    <ContactSection>
+      <StyledContainer id="contact">
         <Headline headline={"contact"} />
         <ContactWrapper>
           <motion.div
@@ -89,7 +89,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 40vh;
-  height: 100vh;
+  height: 60vh;
 `;
 
 const StyledText = styled.a`
