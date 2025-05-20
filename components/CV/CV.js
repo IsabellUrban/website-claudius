@@ -35,8 +35,8 @@ export default function CV() {
 
   return (
     <>
-      <CVSection>
-        <StyledContainer ref={containerRef} id="cv">
+      <CVSection id="cv">
+        <StyledContainer ref={containerRef}>
           <Headline headline={"cv"} />
           {isActiveSection && (
             <Overlay
@@ -62,11 +62,6 @@ const CVSection = styled.section`
   width: 100%;
   position: relative;
   overflow: hidden;
-  height: 50vh;
-
-  @media (min-width: 768px) {
-    height: 100vh;
-  }
 `;
 
 const StyledContainer = styled.div`

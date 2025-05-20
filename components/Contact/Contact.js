@@ -8,8 +8,8 @@ import Vimeo from "@/public/icons/vimeo.svg";
 
 export default function Contact() {
   return (
-    <ContactSection>
-      <StyledContainer id="contact">
+    <ContactSection id="contact">
+      <StyledContainer>
         <Headline headline={"contact"} />
         <ContactWrapper>
           <motion.div
@@ -45,7 +45,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.75 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <StyledItemWrapper
@@ -61,7 +61,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <StyledItemWrapper
@@ -84,8 +84,12 @@ const ContactSection = styled.section`
   background-color: transparent;
   padding: 0rem 0rem 4rem 0rem;
   width: 100%;
-  
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
 
 const StyledContainer = styled.div`
   display: flex;

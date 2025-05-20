@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Logo from "@/public/Logo.svg";
 import MenuIcon from "../Navigation/MenuIcon.js";
 import CloseIcon from "../Navigation/CloseIcon.js";
-import NavLinks from "../Navigation/NavLinks.js";
+import NavLinks from "../Navigation/NavLinks02.js";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,8 +18,8 @@ export default function Header({activeLink, handleSetActiveLink}) {
   }
   
   function handleLogoClick() {
-    handleSetActiveLink("/#"); // Setze activeLink auf die Startseite
-    setIsMenuOpen(false); // Schließe das Menü, falls es geöffnet ist
+    /* handleSetActiveLink("/#"); */ 
+    setIsMenuOpen(false); 
   }
 
   return (
@@ -39,8 +39,8 @@ export default function Header({activeLink, handleSetActiveLink}) {
         <NavLinks
           isMenuOpen={isMenuOpen}
           handleLinkClick={handleLinkClick}
-          activeLink={activeLink}
-          handleSetActiveLink={handleSetActiveLink}
+          /* activeLink={activeLink}
+          handleSetActiveLink={handleSetActiveLink} */
         />
       </StyledHeader>
 

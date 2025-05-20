@@ -4,12 +4,12 @@ import Image from "next/image";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-export default function Layout({ children, activeLink, handleSetActiveLink }) {
+export default function Layout({ children, /* activeLink, handleSetActiveLink */ }) {
   return (
     <LayoutWrapper>
       <Header
-        activeLink={activeLink}
-        handleSetActiveLink={handleSetActiveLink}
+/*         activeLink={activeLink}
+        handleSetActiveLink={handleSetActiveLink} */
       />
       <MobileBackground />
       <ParallaxBackground />
