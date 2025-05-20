@@ -1,13 +1,10 @@
 import styled from "styled-components";
 import Link from "next/link";
+import useScrollSpy from "@/components/ScrollSpy/ScrollSpy.js";
 
-export default function NavLinks({ isMenuOpen, handleLinkClick, activeLink, handleSetActiveLink }) {
-  
-
-  function handleLinkClickAndSetActive(link) {
-    handleSetActiveLink(link);
-    handleLinkClick();
-  }
+export default function NavLinks({ isMenuOpen, handleLinkClick }) {
+  const sectionIds = ["home", "about", "cv", "reels", "filmography", "contact"];
+  const activeLink = useScrollSpy(sectionIds);
 
   return (
     <>
@@ -26,54 +23,17 @@ export default function NavLinks({ isMenuOpen, handleLinkClick, activeLink, hand
         role="navigation"
         aria-label="Main navigation"
       >
-        <StyledLink
-          href="/#home"
-          onClick={() => handleLinkClickAndSetActive("/#home")}
-          role="menuitem"
-          $isActive={activeLink === "/#home"} // <-- hier geändert
-        >
-          HOME
-        </StyledLink>
-        <StyledLink
-          href="/#about"
-          onClick={() => handleLinkClickAndSetActive("/#about")}
-          role="menuitem"
-          $isActive={activeLink === "/#about"}
-        >
-          ABOUT
-        </StyledLink>
-        <StyledLink
-          href="/#cv"
-          onClick={() => handleLinkClickAndSetActive("/#cv")}
-          role="menuitem"
-          $isActive={activeLink === "/#cv"}
-        >
-          CV
-        </StyledLink>
-        <StyledLink
-          href="/#reels"
-          onClick={() => handleLinkClickAndSetActive("/#reels")}
-          role="menuitem"
-          $isActive={activeLink === "/#reels"}
-        >
-          REELS
-        </StyledLink>
-        <StyledLink
-          href="/#filmography"
-          onClick={() => handleLinkClickAndSetActive("/#filmography")}
-          role="menuitem"
-          $isActive={activeLink === "/#filmography"}
-        >
-          FILMOGRAPHY
-        </StyledLink>
-        <StyledLink
-          href="/#contact"
-          onClick={() => handleLinkClickAndSetActive("/#contact")}
-          role="menuitem"
-          $isActive={activeLink === "/#contact"}
-        >
-          CONTACT
-        </StyledLink>
+        {sectionIds.map((id) => (
+          <StyledLink
+            key={id}
+            href={`/#${id}`}
+            onClick={handleLinkClick}
+            role="menuitem"
+            $isActive={activeLink === `#${id}`}
+          >
+            {id.toUpperCase()}
+          </StyledLink>
+        ))}
       </StyledNavLinks>
     </>
   );
