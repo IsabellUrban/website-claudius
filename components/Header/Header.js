@@ -2,11 +2,11 @@ import styled from "styled-components";
 import Logo from "@/public/Logo.svg";
 import MenuIcon from "../Navigation/MenuIcon.js";
 import CloseIcon from "../Navigation/CloseIcon.js";
-import NavLinks from "../Navigation/NavLinks02.js";
+import NavLinks from "../Navigation/NavLinks.js";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Header({activeLink, handleSetActiveLink}) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleMenuToggle() {
@@ -16,17 +16,13 @@ export default function Header({activeLink, handleSetActiveLink}) {
   function handleLinkClick() {
     setIsMenuOpen(false);
   }
-  
-  function handleLogoClick() {
-    /* handleSetActiveLink("/#"); */ 
-    setIsMenuOpen(false); 
-  }
 
   return (
     <>
       <StyledHeader role="banner">
+
         <LogoWrapper>
-          <StyledLink href="/#" onClick={handleLogoClick}>
+          <StyledLink href="/">
             <StyledLogo />
           </StyledLink>
         </LogoWrapper>
@@ -36,12 +32,7 @@ export default function Header({activeLink, handleSetActiveLink}) {
         ) : (
           <MenuIcon onClick={handleMenuToggle} />
         )}
-        <NavLinks
-          isMenuOpen={isMenuOpen}
-          handleLinkClick={handleLinkClick}
-          /* activeLink={activeLink}
-          handleSetActiveLink={handleSetActiveLink} */
-        />
+        <NavLinks isMenuOpen={isMenuOpen} handleLinkClick={handleLinkClick} />
       </StyledHeader>
 
       <HiddenHeadline>Claudius Urban</HiddenHeadline>
@@ -87,11 +78,6 @@ const StyledLogo = styled(Logo)`
   width: 14vh;
   height: auto;
   color: var(--white);
-
- &:hover {
-    transform: scale(1.02);
-    color: var(--yellow);
-  }
 
   @media (min-width: 768px) {
     width: 16vh;

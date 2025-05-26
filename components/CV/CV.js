@@ -58,7 +58,7 @@ export default function CV() {
 
 const CVSection = styled.section`
   background-color: transparent;
-  padding: 4rem 0rem 4rem 0rem;
+  padding: 4rem 0rem;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -68,13 +68,10 @@ const StyledContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
-
-  @media (min-width: 768px) {
-    padding-top: 105px;
-    
-  }
+  padding-top: 40px;
 `;
 
 const Overlay = styled.div`
