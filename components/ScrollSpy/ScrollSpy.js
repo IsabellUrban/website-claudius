@@ -5,19 +5,19 @@ export default function useScrollSpy(sectionIds, offset = 100) {
 
   useEffect(() => {
     function onScroll() {
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sectionIds[i]);
+      for (let index = sectionIds.length - 1; index >= 0; index--) {
+        const section = document.getElementById(sectionIds[index]);
         if (section) {
           const { top } = section.getBoundingClientRect();
           if (top <= offset) {
-            setActiveId(`#${sectionIds[i]}`);
+            setActiveId(`#${sectionIds[index]}`);
             break;
           }
         }
       }
     }
 
-    // Sicherstellen, dass window verfügbar ist
+
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", onScroll);
       onScroll();
