@@ -5,12 +5,6 @@ import Image from "next/image";
 export default function Layout({ children, isActiveSection, handleCloseActiveSection }) {
   return (
     <LayoutWrapper>
-      <StyledBackgroundImage
-        src="/images/background2.jpg"
-        alt="Background Image"
-        fill
-        priority
-      />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
     </LayoutWrapper>
