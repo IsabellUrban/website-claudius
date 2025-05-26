@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import Slideshow from "./Slideshow";
-import { motion } from "framer-motion";
+import Textanimation from "./Textanimation";
+
 
 export default function Herosection() {
   return (
-    
-      <HeroContainer id="home">
-        <Slideshow />
-      </HeroContainer>
-    
+    <HeroContainer>
+      <Slideshow />
+    </HeroContainer>
   );
 }
 
-const HeroContainer = styled.section`
+const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
