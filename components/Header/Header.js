@@ -6,7 +6,7 @@ import NavLinks from "../Navigation/NavLinks02.js";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Header({activeLink, handleSetActiveLink}) {
+export default function Header({ activeLink, handleSetActiveLink }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleMenuToggle() {
@@ -16,17 +16,17 @@ export default function Header({activeLink, handleSetActiveLink}) {
   function handleLinkClick() {
     setIsMenuOpen(false);
   }
-  
+
   function handleLogoClick() {
-    /* handleSetActiveLink("/#"); */ 
-    setIsMenuOpen(false); 
+    /* handleSetActiveLink("/#"); */
+    setIsMenuOpen(false);
   }
 
   return (
     <>
       <StyledHeader role="banner">
         <LogoWrapper>
-          <StyledLink href="/#home" onClick={handleLogoClick}>
+          <StyledLink href="/#" onClick={handleLogoClick}>
             <StyledLogo />
           </StyledLink>
         </LogoWrapper>
@@ -88,7 +88,7 @@ const StyledLogo = styled(Logo)`
   height: auto;
   color: var(--white);
 
- &:hover {
+  &:hover {
     transform: scale(1.02);
     color: var(--yellow);
   }
@@ -98,7 +98,6 @@ const StyledLogo = styled(Logo)`
     height: auto;
   }
 `;
-
 
 const HiddenHeadline = styled.h1`
   position: fixed;
