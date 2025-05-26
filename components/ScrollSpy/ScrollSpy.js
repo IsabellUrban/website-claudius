@@ -17,10 +17,13 @@ export default function useScrollSpy(sectionIds, offset = 100) {
       }
     }
 
-    window.addEventListener("scroll", onScroll);
-    onScroll();
+    // Sicherstellen, dass window verfügbar ist
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", onScroll);
+      onScroll();
 
-    return () => window.removeEventListener("scroll", onScroll);
+      return () => window.removeEventListener("scroll", onScroll);
+    }
   }, [sectionIds, offset]);
 
   return activeId;
