@@ -61,7 +61,7 @@ const ModalContent = styled.div`
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  margin-top: 2rem;
+  margin-top: 10rem;
   z-index: 10000;
 
   @media (min-width: 768px) {

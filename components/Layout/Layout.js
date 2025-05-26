@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import ParallaxBackground from "../ParallaxBackground/ParallaxBackground";
 import Image from "next/image";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-export default function Layout({ children, isActiveSection, handleCloseActiveSection }) {
+export default function Layout({ children, /* activeLink, handleSetActiveLink */ }) {
   return (
     <LayoutWrapper>
+      <Header
+/*         activeLink={activeLink}
+        handleSetActiveLink={handleSetActiveLink} */
+      />
+      <MobileBackground />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
+      <Footer />
     </LayoutWrapper>
   );
 }
@@ -31,14 +39,34 @@ position: relative;
 z-index: 1;
 `;
 
-const StyledBackgroundImage = styled(Image)`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: contain; 
-background-repeat: repeat;
-z-index: -1; 
+const MobileBackground = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/images/background-texture.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    z-index: -1;
+  }
 `;
+
+/* const StyledBackgroundImage = styled(Image)`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    background-repeat: repeat;
+    z-index: -1; 
+  }
+`; */
 
