@@ -10,32 +10,16 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
 
   const spyActiveId = useScrollSpy(sectionIds, scrollOffset);
 
-  // Lokaler State für den aktiven Link
   const [activeLink, setActiveLink] = useState("");
-  // Flag, ob ein Link geklickt wurde
-  const [clickedLink, setClickedLink] = useState(null);
 
-useEffect(() => {
-  // Wenn gerade kein Link geklickt ist, update activeLink vom ScrollSpy-Hook
-  if (!clickedLink) {
+  useEffect(() => {
     setActiveLink(spyActiveId);
+  }, [spyActiveId]);
+
+  function onLinkClick(id) {
+    handleLinkClick();
+    setActiveLink(`#${id}`); // Aktiven Link sofort setzen
   }
-}, [spyActiveId, clickedLink]);
-
-// Beim Klick auf Link
-function onLinkClick(id) {
-  handleLinkClick();
-
-  setActiveLink(`#${id}`); // Aktiven Link setzen
-
-  setClickedLink(`#${id}`); // Klick-Flag setzen
-
-  // Nach 1 Sekunde Klick-Flag zurücksetzen,
-  // damit Scroll wieder den aktiven Link setzen kann
-  setTimeout(() => {
-    setClickedLink(null);
-  }, 1000);
-}
 
   return (
     <>
@@ -58,13 +42,14 @@ function onLinkClick(id) {
           <StyledLink
             key={id}
             href={`/#${id}`}
-            onClick={onLinkClick}
+            onClick={() => onLinkClick(id)}
             role="menuitem"
             $isActive={activeLink === `#${id}`}
           >
             {id.toUpperCase()}
           </StyledLink>
         ))}
+
       </StyledNavLinks>
     </>
   );

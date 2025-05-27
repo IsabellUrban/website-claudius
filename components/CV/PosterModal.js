@@ -11,33 +11,35 @@ const sortedProjects = [...filteredProjects].sort(
 );
 
     return (
-      <ModalOverlay onClick={onClose}>
-        <ModalContent
-          onClick={(event) => event.stopPropagation()}
-          $postersCount={sortedProjects.length}
-        >
-          <IconWrapper onClick={onClose}>
-            <StyledCloseIcon />
-          </IconWrapper>
-          <Wrapper $postersCount={sortedProjects.length}>
-            {sortedProjects.map((project) => (
-              <StyledGallery key={project.id}>
-                <ImageWrapper>
-                  <StyledPoster
-                    src={project.poster}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </ImageWrapper>
-                <StyledTitle>
-                  {project.title} ({project.releasedate})
-                </StyledTitle>
-              </StyledGallery>
-            ))}
-          </Wrapper>
-        </ModalContent>
-      </ModalOverlay>
+      <>
+        <ModalOverlay onClick={onClose}>
+          <ModalContent
+            onClick={(event) => event.stopPropagation()}
+            $postersCount={sortedProjects.length}
+          >
+            <IconWrapper onClick={onClose}>
+              <StyledCloseIcon />
+            </IconWrapper>
+            <Wrapper $postersCount={sortedProjects.length}>
+              {sortedProjects.map((project) => (
+                <StyledGallery key={project.id}>
+                  <ImageWrapper>
+                    <StyledPoster
+                      src={project.poster}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </ImageWrapper>
+                  <StyledTitle>
+                    {project.title} ({project.releasedate})
+                  </StyledTitle>
+                </StyledGallery>
+              ))}
+            </Wrapper>
+          </ModalContent>
+        </ModalOverlay>
+      </>
     );
     };
 
@@ -47,7 +49,7 @@ const ModalOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(43, 43, 43, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +75,7 @@ const ModalContent = styled.div`
 
 @media (min-width: 1024px) {
     width: ${({ $postersCount }) =>
-      $postersCount === 1 ? "18%" : $postersCount === 2 ? "22%" : $postersCount === 3 ? "45%" : $postersCount === 4 ? "66%" : "80%"};
+      $postersCount === 1 ? "18%" : $postersCount === 2 ? "30%" : $postersCount === 3 ? "45%" : $postersCount === 4 ? "66%" : "80%"};
       max-width: 900px;
       padding: 0rem 1rem;
   }
