@@ -46,7 +46,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
 
         <AnimatePresence
           initial={false}
-          mode="wait"
+          mode="sync"
           onExitComplete={() => {
             onSectionClose();
           }}
@@ -57,7 +57,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.7 }}
             >
               <ExperienceSection
                 experience={experience}
@@ -87,7 +87,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
         </TextWrapper>
         <AnimatePresence
           initial={false}
-          mode="wait"
+          mode="sync"
           onExitComplete={() => {
             onSectionClose();
           }}
@@ -98,7 +98,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6 }}
             >
               <EducationSection />
             </StyledBackground>
@@ -119,7 +119,7 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
         </TextWrapper>
         <AnimatePresence
           initial={false}
-          mode="wait"
+          mode="sync"
           onExitComplete={() => {
             onSectionClose();
           }}
@@ -145,6 +145,7 @@ const Container = styled.div`
   position: relative;
   width: 80%;
   background-color: var(--black);
+  z-index: 10;
 
   @media (min-width: 768px) {
     width: 60%;
@@ -178,8 +179,8 @@ const StyledButton = styled.button`
   color: var(--white);
   border: none;
   text-transform: uppercase;
-  pointer-events: ${({ $isOverlayActive }) =>
-    $isOverlayActive ? "none" : "auto"};
+ /*  pointer-events: ${({ $isOverlayActive }) =>
+    $isOverlayActive ? "none" : "auto"}; */
 
   &:hover {
     cursor: pointer;
@@ -194,7 +195,6 @@ const StyledButton = styled.button`
 
 const StyledBackground = styled(motion.div)`
   position: relative;
-  /* top: 100%; */
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -203,4 +203,3 @@ const StyledBackground = styled(motion.div)`
   z-index: 10;
   padding: 0rem 2rem;
 `;
-

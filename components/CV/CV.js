@@ -5,29 +5,25 @@ import { useState, useRef, useEffect} from "react";
 
 export default function CV() {
   const [isActiveSection, setIsActiveSection] = useState(null);
-  const [wasActiveSection, setWasActiveSection] = useState(false);
   const headlineRef = useRef(null);
 
   function handleToggleSection(section) {
-    setWasActiveSection(isActiveSection !== null);
     setIsActiveSection((prevSection) =>
       prevSection === section ? null : section
     );
   }
 
   useEffect(() => {
-    if (!isActiveSection && wasActiveSection) {
+    if (!isActiveSection) {
       const timeout = setTimeout(() => {
         headlineRef.current?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-      }, 600);
-
+      }, 150);
       return () => clearTimeout(timeout);
     }
-  }, [isActiveSection, wasActiveSection]);
-
+  }, [isActiveSection]);
   
   function handleClose() {
     setIsActiveSection(null);
@@ -44,9 +40,16 @@ export default function CV() {
 
   return (
     <>
-      <CVSection id="cv">
-        <StyledContainer ref={headlineRef}>
+      <CVSection id="cv" ref={headlineRef}>
+        <StyledContainer>
           <Headline headline={"cv"} />
+
+          <DropDown
+            onToggleSection={handleToggleSection}
+            isActiveSection={isActiveSection}
+            isOverlayActive={!!isActiveSection}
+            onSectionClose={handleScrollToHeadline}
+          />
           {isActiveSection && (
             <Overlay
               onClick={handleClose}
@@ -54,12 +57,6 @@ export default function CV() {
               role="button"
             />
           )}
-          <DropDown
-            onToggleSection={handleToggleSection}
-            isActiveSection={isActiveSection}
-            isOverlayActive={!!isActiveSection}
-            onSectionClose={handleScrollToHeadline}
-          />
         </StyledContainer>
       </CVSection>
     </>
@@ -80,11 +77,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-
-  @media (min-width: 768px) {
-    padding-top: 105px;
-    
-  }
+  padding-top: 40px;
 `;
 
 const Overlay = styled.div`
@@ -93,4 +86,6 @@ const Overlay = styled.div`
   z-index: 5;
   cursor: pointer;
   pointer-events: all;
+  background-color: var(--white);
+  opacity: 0.25;
 `;
