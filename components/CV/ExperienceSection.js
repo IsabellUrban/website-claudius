@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export default function ExperienceSection({ experience, onProjectClick }) {
   return (
-    <>
+  
+    <ExperienceGrid>
       {experience.map((experienceItem, experienceIndex) => (
-        <div key={experienceIndex}>
+        <ExperienceItem key={experienceIndex}>
           <StyledYear>{experienceItem.year}</StyledYear>
           <StyledPosition
             onClick={() =>
@@ -18,11 +19,26 @@ export default function ExperienceSection({ experience, onProjectClick }) {
               <li key={detailIndex}>{detail}</li>
             ))}
           </StyledList>
-        </div>
+        </ExperienceItem>
       ))}
-    </>
+    </ExperienceGrid>
   );
 }
+
+const ExperienceGrid = styled.div`
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 5rem;
+  }
+`;
+
+const ExperienceItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledYear = styled.p`
   font: var(--subheadline);
