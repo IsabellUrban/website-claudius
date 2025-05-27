@@ -1,42 +1,51 @@
 import styled from "styled-components";
 import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
-import { useState, useRef} from "react";
+import { useState, useRef, useEffect} from "react";
 
 export default function CV() {
   const [isActiveSection, setIsActiveSection] = useState(null);
-  const containerRef = useRef(null);
+  const [wasActiveSection, setWasActiveSection] = useState(false);
+  const headlineRef = useRef(null);
 
   function handleToggleSection(section) {
-    setIsActiveSection((prevSection) => {
-      const newSection = prevSection === section ? null : section;
-      return newSection;
-    });
+    setWasActiveSection(isActiveSection !== null);
+    setIsActiveSection((prevSection) =>
+      prevSection === section ? null : section
+    );
   }
 
-  function handleCloseActiveSection() {
-    console.log("Closing active section:", isActiveSection);
-    setIsActiveSection(null);
-  }
-
-  function handleClose() {
-    handleCloseActiveSection();
-    handleToggleSection(null);
-
-    setTimeout(() => {
-      if (containerRef.current) {
-        containerRef.current.scrollIntoView({
+  useEffect(() => {
+    if (!isActiveSection && wasActiveSection) {
+      const timeout = setTimeout(() => {
+        headlineRef.current?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-      }
-    }, 600);
+      }, 600);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isActiveSection, wasActiveSection]);
+
+  
+  function handleClose() {
+    setIsActiveSection(null);
+  }
+
+  function handleScrollToHeadline() {
+    if (headlineRef.current) {
+      headlineRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   }
 
   return (
     <>
       <CVSection id="cv">
-        <StyledContainer ref={containerRef}>
+        <StyledContainer ref={headlineRef}>
           <Headline headline={"cv"} />
           {isActiveSection && (
             <Overlay
@@ -49,6 +58,7 @@ export default function CV() {
             onToggleSection={handleToggleSection}
             isActiveSection={isActiveSection}
             isOverlayActive={!!isActiveSection}
+            onSectionClose={handleScrollToHeadline}
           />
         </StyledContainer>
       </CVSection>

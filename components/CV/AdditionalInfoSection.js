@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export default function AdditionalInfoSection() {
     return (
-      <>
+      <InfoGrid>
+        <InfoItem>
         <StyledYear>PUBLIC RELATION</StyledYear>
 
         <TextWrapperLink
@@ -25,40 +26,50 @@ export default function AdditionalInfoSection() {
             <li> Short interview with Claudius Urban</li>
           </StyledList>
         </TextWrapperLink>
+        </InfoItem>
 
-        <StyledText>2024</StyledText>
+        <InfoItem>
+        <StyledYear>2024</StyledYear>
         <StyledList>
           <li>
             Speaker at FMX Stuttgart, Germany: Animation & Mocap Pipeline
             Secrets by Xsens
           </li>
         </StyledList>
+        </InfoItem>
 
-        <StyledText>2023</StyledText>
+        <InfoItem>
+        <StyledYear>2023</StyledYear>
         <StyledList>
           <li>
             Speaker at FMX Stuttgart, Germany: The Marsupial, The Myth, The
             Legend
           </li>
         </StyledList>
+        </InfoItem>
 
-        <StyledText>2021</StyledText>
+        <InfoItem>
+        <StyledYear>2021</StyledYear>
         <StyledList>
           <li>
             Speaker at FMX Stuttgart, Germany: Hopping for the Best: Die
             Känguru-Chroniken
           </li>
         </StyledList>
+</InfoItem>
 
-        <StyledText>2021</StyledText>
+        <InfoItem>
+        <StyledYear>2021</StyledYear>
         <StyledList>
           <li>
             VES Award Nominee in the categorie Outstanding Animated Character in
             a Photoreal Feature for &quot;Die Känguru Chroniken&quot;
           </li>
         </StyledList>
+        </InfoItem>
 
-        <StyledText>2020</StyledText>
+        <InfoItem>
+        <StyledYear>2020</StyledYear>
         <StyledList>
           <li>
             Winner{" "}
@@ -67,23 +78,29 @@ export default function AdditionalInfoSection() {
             Känguru Chroniken&quot;
           </li>
         </StyledList>
+        </InfoItem>
 
-        <StyledText>2004-2006</StyledText>
+        <InfoItem>
+        <StyledYear>2004-2006</StyledYear>
         <StyledList>
           <li>
             Teaching children at the Kinderfilmhaus Ludwigsburg in animation and
             vfx
           </li>
         </StyledList>
+        </InfoItem>
 
-        <StyledText>2001</StyledText>
+        <InfoItem>
+        <StyledYear>2001</StyledYear>
         <StyledList>
           <li>
             Visiting lecture at the HFF Potsdam Babelsberg about interactive
             animation in games
           </li>
         </StyledList>
+        </InfoItem>
 
+        <InfoItem>
         <StyledYear>SKILLS</StyledYear>
         <StyledList>
           <li>ability to work collaboratively in a team environment</li>
@@ -100,7 +117,9 @@ export default function AdditionalInfoSection() {
             lipsync
           </li>
         </StyledList>
+        </InfoItem>
 
+        <InfoItem>
         <StyledYear>SOFTWARE</StyledYear>
         <StyledList>
           <li>Maya</li>
@@ -110,22 +129,42 @@ export default function AdditionalInfoSection() {
           <li>Photoshop</li>
           <li>Premiere</li>
         </StyledList>
+        </InfoItem>
 
+        <InfoItem>
         <StyledYear>LANGUAGES</StyledYear>
         <StyledList>
           <li>German (native)</li>
           <li>English (fluent)</li>
         </StyledList>
+        </InfoItem>
 
+        <InfoItem>
         <StyledYear>INTERESTS</StyledYear>
         <StyledList>
           <li>Film</li>
           <li>Sports: martial arts, soccer, basketball </li>
           <li>Music: drums, guitar</li>
         </StyledList>
-      </>
+        </InfoItem>
+      </InfoGrid>
     );
 };
+
+const InfoGrid = styled.div`
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 5rem;
+  }
+`;
+
+const InfoItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledYear = styled.p`
   font: var(--subheadline);

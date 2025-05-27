@@ -3,9 +3,9 @@ import { education } from "@/lib/data-education";
 
 export default function EducationSection() {
     return (
-        <>
+        <EducationGrid>
         {education.map((educationItem, educationIndex) => (
-            <div key={educationIndex}>
+            <EducationItem key={educationIndex}>
             <StyledYear>{educationItem.year}</StyledYear>
             <StyledText>{educationItem.text}</StyledText>
             <StyledList>
@@ -13,24 +13,39 @@ export default function EducationSection() {
                 <li key={detailIndex}>{detail}</li>
                 ))}
             </StyledList>
-            </div>
+            </EducationItem>
         ))}
-        </>
+        </EducationGrid>
     );
     }
 
-    const StyledYear = styled.p`
-      font: var(--subheadline);
-      color: var(--yellow);
-      font-size: 0.85rem;
-      line-height: 1.5;
-      text-align: left;
-      padding-top: 1rem;
-    
-      @media (min-width: 768px) {
-        font-size: 1rem;
-      }
-    `;
+const EducationGrid = styled.div`
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 5rem;
+  }
+`;
+
+const EducationItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledYear = styled.p`
+  font: var(--subheadline);
+  color: var(--yellow);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: left;
+  padding-top: 1rem;
+  
+  @media (min-width: 768px) {
+  font-size: 1rem;
+  }
+`;
     
     const StyledText = styled.p`
       font: var(--subheadline);
