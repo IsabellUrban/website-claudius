@@ -86,6 +86,5 @@ const Overlay = styled.div`
   z-index: 5;
   cursor: pointer;
   pointer-events: all;
-  background-color: var(--white);
-  opacity: 0.25;
+  background: transparent;
 `;

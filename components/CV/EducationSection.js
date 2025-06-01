@@ -2,22 +2,31 @@ import styled from "styled-components";
 import { education } from "@/lib/data-education";
 
 export default function EducationSection() {
-    return (
-        <EducationGrid>
-        {education.map((educationItem, educationIndex) => (
-            <EducationItem key={educationIndex}>
+  return (
+    <EducationGrid>
+      {education.map((educationItem, index) => {
+        const isRightColumn = index % 2 === 1;
+        return (
+          <EducationItem
+            key={index}
+            style={{
+              gridColumn: isRightColumn ? "2" : "1",
+              marginTop: isRightColumn ? "4rem" : "0",
+            }}
+          >
             <StyledYear>{educationItem.year}</StyledYear>
             <StyledText>{educationItem.text}</StyledText>
             <StyledList>
-                {educationItem.details.map((detail, detailIndex) => (
+              {educationItem.details.map((detail, detailIndex) => (
                 <li key={detailIndex}>{detail}</li>
-                ))}
+              ))}
             </StyledList>
-            </EducationItem>
-        ))}
-        </EducationGrid>
-    );
-    }
+          </EducationItem>
+        );
+      })}
+    </EducationGrid>
+  );
+}
 
 const EducationGrid = styled.div`
   display: block;
@@ -25,7 +34,7 @@ const EducationGrid = styled.div`
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem 5rem;
+    gap: 2rem 5rem;
   }
 `;
 
