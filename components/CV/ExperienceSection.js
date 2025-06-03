@@ -2,27 +2,51 @@ import styled from "styled-components";
 
 export default function ExperienceSection({ experience, onProjectClick }) {
   return (
-    <>
-      {experience.map((experienceItem, experienceIndex) => (
-        <div key={experienceIndex}>
-          <StyledYear>{experienceItem.year}</StyledYear>
-          <StyledPosition
-            onClick={() =>
-              onProjectClick(experienceItem.company, experienceItem.role)
-            }
+    <ExperienceGrid>
+      {experience.map((experienceItem, experienceIndex) => {
+        const isRightColumn = experienceIndex % 2 === 1;
+        return (
+          <ExperienceItem
+            key={experienceIndex}
+            style={{
+              gridColumn: isRightColumn ? "2" : "1",
+              marginTop: isRightColumn ? "4rem" : "0",
+            }}
           >
-            {experienceItem.role} <br /> {experienceItem.company}
-          </StyledPosition>
-          <StyledList>
-            {experienceItem.details.map((detail, detailIndex) => (
-              <li key={detailIndex}>{detail}</li>
-            ))}
-          </StyledList>
-        </div>
-      ))}
-    </>
+            <StyledYear>{experienceItem.year}</StyledYear>
+            <StyledPosition
+              onClick={() =>
+                onProjectClick(experienceItem.company, experienceItem.role)
+              }
+            >
+              {experienceItem.role} <br /> {experienceItem.company}
+            </StyledPosition>
+            <StyledList>
+              {experienceItem.details.map((detail, detailIndex) => (
+                <li key={detailIndex}>{detail}</li>
+              ))}
+            </StyledList>
+          </ExperienceItem>
+        );
+      })}
+    </ExperienceGrid>
   );
 }
+
+const ExperienceGrid = styled.div`
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 5rem;
+  }
+`;
+
+const ExperienceItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledYear = styled.p`
   font: var(--subheadline);

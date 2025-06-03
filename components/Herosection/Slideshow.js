@@ -91,8 +91,6 @@ const ButtonContainer = styled.div`
   padding: 0 10px;
 
   @media (min-width: 768px) {
-    bottom: 42%;
-    left: 50%;
     padding: 0 20px;
   }
 `;

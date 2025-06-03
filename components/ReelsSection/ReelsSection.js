@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function ReelsSection() {
-
   const videoRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isActiveSection, setIsActiveSection] = useState(null);
 
   function handleJumpToTime(time) {
     if (videoRef.current) {
@@ -13,8 +14,6 @@ export default function ReelsSection() {
       videoRef.current.play();
     }
   }
-  const [isActiveSection, setIsActiveSection] = useState(null);
-  const containerRef = useRef(null);
 
   function handleToggleSection(section) {
     setIsActiveSection((prevSection) => {
@@ -28,7 +27,7 @@ export default function ReelsSection() {
     setIsActiveSection(null);
   }
 
-  function handleClose() {
+/*   function handleClose() {
     handleCloseActiveSection();
     handleToggleSection(null);
 
@@ -40,7 +39,28 @@ export default function ReelsSection() {
         });
       }
     }, 600);
-  }
+  } */
+
+    //NEU: funktioniert aber nicht wie gewünscht
+    function handleClose() {
+      handleCloseActiveSection();
+      handleToggleSection(null);
+
+      
+      const isFirstLoad =
+        sessionStorage.getItem("reelsSectionVisited") !== "true";
+      if (!isFirstLoad) {
+        setTimeout(() => {
+          if (containerRef.current) {
+            containerRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }, 600);
+      }
+      sessionStorage.setItem("reelsSectionVisited", "true");
+    }
   
   return (
     <>
@@ -114,7 +134,8 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 width: 100%;
-padding-top: 1rem;
+padding: 2rem 0rem 2rem 0rem;
+
 `;
 
 const ContentContainer = styled.div`
@@ -122,6 +143,10 @@ width: 90%;
 display: flex;
 flex-direction: column;
 align-items: center;
+border-style: solid;
+border-width: 10px 10px 40px 10px;
+border-color: var(--yellow);
+border-radius: 0px;
 
 @media (min-width: 768px) {
 width: 60%;
@@ -146,13 +171,13 @@ const StyledVideo = styled.video`
   border: none;
   aspect-ratio: 16/9;
 
-  @media (min-width: 768px) {
+/*   @media (min-width: 768px) {
     height: 400px;
   }
 
   @media (min-width: 1200px) {
     height: 675px;
-  }
+  } */
 `;
 
 const Overlay = styled.div`
