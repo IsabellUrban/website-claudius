@@ -24,7 +24,7 @@ export default function CV() {
       return () => clearTimeout(timeout);
     }
   }, [isActiveSection]);
-  
+
   function handleClose() {
     setIsActiveSection(null);
   }
@@ -38,12 +38,30 @@ export default function CV() {
     }
   }
 
+  //NEU: funktioniert aber nicht wie gewünscht
+  useEffect(() => {
+    const isFirstLoad = sessionStorage.getItem("cvSectionVisited") !== "true";
+
+    if (!isActiveSection && !isFirstLoad) {
+      const timeout = setTimeout(() => {
+        headlineRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 150);
+      return () => clearTimeout(timeout);
+    }
+    
+    if (!isFirstLoad) {
+      sessionStorage.setItem("cvSectionVisited", "true");
+    }
+  }, [isActiveSection]);
+
   return (
     <>
-      <CVSection id="cv" ref={headlineRef}>
-        <StyledContainer>
+      <CVSection id="cv">
+        <StyledContainer ref={headlineRef}>
           <Headline headline={"cv"} />
-
           <DropDown
             onToggleSection={handleToggleSection}
             isActiveSection={isActiveSection}

@@ -6,7 +6,7 @@ import NavLinks from "../Navigation/NavLinks02.js";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Header({ activeLink, handleSetActiveLink }) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleMenuToggle() {
@@ -18,7 +18,6 @@ export default function Header({ activeLink, handleSetActiveLink }) {
   }
 
   function handleLogoClick() {
-    /* handleSetActiveLink("/#"); */
     setIsMenuOpen(false);
   }
 
@@ -26,7 +25,7 @@ export default function Header({ activeLink, handleSetActiveLink }) {
     <>
       <StyledHeader role="banner">
         <LogoWrapper>
-          <StyledLink href="/#" onClick={handleLogoClick}>
+          <StyledLink href="/" onClick={handleLogoClick}>
             <StyledLogo />
           </StyledLink>
         </LogoWrapper>
@@ -39,8 +38,6 @@ export default function Header({ activeLink, handleSetActiveLink }) {
         <NavLinks
           isMenuOpen={isMenuOpen}
           handleLinkClick={handleLinkClick}
-          /* activeLink={activeLink}
-          handleSetActiveLink={handleSetActiveLink} */
         />
       </StyledHeader>
 

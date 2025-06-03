@@ -1,21 +1,31 @@
 import Layout from "@/components/Layout/Layout";
 import GlobalStyle from "../styles";
-import { useState } from "react";
-
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
-/*   const [activeLink, setActiveLink] = useState("/#home");
+  
+  //NEU: funktioniert aber nicht wie gewünscht
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
 
-  function handleSetActiveLink(link) {
-    setActiveLink(link);
-  } */
+      if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname);
+      }
+    }
+  }, []);
 
   return (
     <>
-      <Layout /* activeLink={activeLink} handleSetActiveLink={handleSetActiveLink} */>
+      <Layout>
         <GlobalStyle />
         <Component {...pageProps} />
       </Layout>
     </>
   );
 }
+

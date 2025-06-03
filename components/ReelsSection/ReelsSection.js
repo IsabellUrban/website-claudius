@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function ReelsSection() {
-
   const videoRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isActiveSection, setIsActiveSection] = useState(null);
 
   function handleJumpToTime(time) {
     if (videoRef.current) {
@@ -13,8 +14,6 @@ export default function ReelsSection() {
       videoRef.current.play();
     }
   }
-  const [isActiveSection, setIsActiveSection] = useState(null);
-  const containerRef = useRef(null);
 
   function handleToggleSection(section) {
     setIsActiveSection((prevSection) => {
@@ -28,7 +27,7 @@ export default function ReelsSection() {
     setIsActiveSection(null);
   }
 
-  function handleClose() {
+/*   function handleClose() {
     handleCloseActiveSection();
     handleToggleSection(null);
 
@@ -40,7 +39,28 @@ export default function ReelsSection() {
         });
       }
     }, 600);
-  }
+  } */
+
+    //NEU: funktioniert aber nicht wie gewünscht
+    function handleClose() {
+      handleCloseActiveSection();
+      handleToggleSection(null);
+
+      
+      const isFirstLoad =
+        sessionStorage.getItem("reelsSectionVisited") !== "true";
+      if (!isFirstLoad) {
+        setTimeout(() => {
+          if (containerRef.current) {
+            containerRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }, 600);
+      }
+      sessionStorage.setItem("reelsSectionVisited", "true");
+    }
   
   return (
     <>

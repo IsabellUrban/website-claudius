@@ -4,13 +4,10 @@ import Image from "next/image";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-export default function Layout({ children, /* activeLink, handleSetActiveLink */ }) {
+export default function Layout({ children}) {
   return (
     <LayoutWrapper>
-      <Header
-/*         activeLink={activeLink}
-        handleSetActiveLink={handleSetActiveLink} */
-      />
+      <Header />
       <MobileBackground />
       <ParallaxBackground />
       <MainContent>{children}</MainContent>
@@ -54,19 +51,4 @@ const MobileBackground = styled.div`
     z-index: -1;
   }
 `;
-
-/* const StyledBackgroundImage = styled(Image)`
-  display: none;
-  @media (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    background-repeat: repeat;
-    z-index: -1; 
-  }
-`; */
 

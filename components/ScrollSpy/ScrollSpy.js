@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function useScrollSpy(sectionIds, offset = 100) {
   const [activeId, setActiveId] = useState("");
 
+
   useEffect(() => {
     function onScroll() {
       for (let i = sectionIds.length - 1; i >= 0; i--) {
