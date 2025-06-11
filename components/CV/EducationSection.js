@@ -9,10 +9,7 @@ export default function EducationSection() {
         return (
           <EducationItem
             key={index}
-            style={{
-              gridColumn: isRightColumn ? "2" : "1",
-              marginTop: isRightColumn ? "4rem" : "0",
-            }}
+            isRightColumn={isRightColumn}
           >
             <StyledYear>{educationItem.year}</StyledYear>
             <StyledText>{educationItem.text}</StyledText>
@@ -41,6 +38,11 @@ const EducationGrid = styled.div`
 const EducationItem = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1024px) {
+    grid-column: ${(props) => (props.isRightColumn ? "2" : "1")};
+    margin-top: ${(props) => (props.isRightColumn ? "4rem" : "0")};
+  }
 `;
 
 const StyledYear = styled.p`

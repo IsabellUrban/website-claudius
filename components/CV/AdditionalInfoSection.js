@@ -28,7 +28,7 @@ export default function AdditionalInfoSection() {
           </TextWrapperLink>
         </InfoItem>
 
-        <InfoItem style={{ marginTop: "4rem" }}>
+        <InfoItem isRightColumn>
           <StyledYear>2024</StyledYear>
           <StyledList>
             <li>
@@ -48,7 +48,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem style={{ marginTop: "4rem" }}>
+        <InfoItem isRightColumn>
           <StyledYear>2021</StyledYear>
           <StyledList>
             <li>
@@ -68,7 +68,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem style={{ marginTop: "4rem" }}>
+        <InfoItem isRightColumn>
           <StyledYear>2020</StyledYear>
           <StyledList>
             <li>
@@ -90,7 +90,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem style={{ marginTop: "4rem" }}>
+        <InfoItem isRightColumn>
           <StyledYear>2001</StyledYear>
           <StyledList>
             <li>
@@ -119,7 +119,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem style={{ marginTop: "4rem" }}>
+        <InfoItem isRightColumn>
           <StyledYear>SOFTWARE</StyledYear>
           <StyledList>
             <li>Maya</li>
@@ -139,7 +139,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem style={{ marginTop: "4rem" }}>
+        <InfoItem isRightColumn>
           <StyledYear>INTERESTS</StyledYear>
           <StyledList>
             <li>Film</li>
@@ -164,6 +164,10 @@ const InfoGrid = styled.div`
 const InfoItem = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1024px) {
+    margin-top: ${(props) => (props.isRightColumn ? "4rem" : "0")};
+  }
 `;
 
 const StyledYear = styled.p`

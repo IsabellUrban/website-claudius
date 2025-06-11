@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Link from "next/link";
 import useScrollSpy from "@/components/ScrollSpy/ScrollSpy.js";
 import { useEffect, useState } from "react";
 
@@ -57,16 +56,6 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
           >
             {id.toUpperCase()}
           </StyledLink>
-
-          /*           <StyledLink
-            key={id}
-            href={`/#${id}`}
-            onClick={() => onLinkClick(id)}
-            role="menuitem"
-            $isActive={activeLink === `#${id}`}
-          >
-            {id.toUpperCase()}
-          </StyledLink> */
         ))}
       </StyledNavLinks>
     </>
