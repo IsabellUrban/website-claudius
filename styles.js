@@ -49,5 +49,6 @@ export default createGlobalStyle`
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 `;

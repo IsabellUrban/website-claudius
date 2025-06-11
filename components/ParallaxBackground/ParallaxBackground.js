@@ -32,7 +32,7 @@ const BackgroundContainer = styled.div`
 `;
 
 const ParallaxImage = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -41,4 +41,5 @@ const ParallaxImage = styled(motion.div)`
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${(props) => props.src});
+  will-change: transform;
 `;

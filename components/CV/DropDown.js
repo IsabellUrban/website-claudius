@@ -179,8 +179,6 @@ const StyledButton = styled.button`
   color: var(--white);
   border: none;
   text-transform: uppercase;
- /*  pointer-events: ${({ $isOverlayActive }) =>
-    $isOverlayActive ? "none" : "auto"}; */
 
   &:hover {
     cursor: pointer;
@@ -202,4 +200,6 @@ const StyledBackground = styled(motion.div)`
   opacity: 0;
   z-index: 10;
   padding: 0rem 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
 `;
