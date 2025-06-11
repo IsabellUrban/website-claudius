@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ParallaxBackground from "../ParallaxBackground/ParallaxBackground";
-import Image from "next/image";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 

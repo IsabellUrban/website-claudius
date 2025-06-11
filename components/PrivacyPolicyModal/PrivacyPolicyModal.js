@@ -2,11 +2,13 @@ import styled from "styled-components";
 import X from "@/public/icons/X.svg";
 import { motion } from "framer-motion";
 import Headline from "@/components/Headline/Headline";
+import Portal from "../Portal/Portal";
 
 export default function PrivacyPolicyModal({ onClose, isOpen }) {
   if (!isOpen) return null;
 
   return (
+    <Portal>
     <ModalOverlay onClick={onClose}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -127,6 +129,7 @@ export default function PrivacyPolicyModal({ onClose, isOpen }) {
         </StyledContainer>
       </motion.div>
     </ModalOverlay>
+    </Portal>
   );
 }
 
@@ -136,7 +139,7 @@ const ModalOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(43, 43, 43, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;

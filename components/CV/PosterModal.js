@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import X from "@/public/icons/X.svg";
+import Portal from "@/components/Portal/Portal";
 
 export default function PosterModal({ project, onClose, isOpen }) {
 if (!isOpen || !project) return null;
@@ -11,7 +12,7 @@ const sortedProjects = [...filteredProjects].sort(
 );
 
     return (
-      <>
+      <Portal>
         <ModalOverlay onClick={onClose}>
           <ModalContent
             onClick={(event) => event.stopPropagation()}
@@ -39,7 +40,7 @@ const sortedProjects = [...filteredProjects].sort(
             </Wrapper>
           </ModalContent>
         </ModalOverlay>
-      </>
+      </Portal>
     );
     };
 
@@ -60,10 +61,10 @@ const ModalContent = styled.div`
   background: var(--black);
   width: 55%;
   height: auto;
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-y: auto;
   position: relative;
-  margin-top: 10rem;
+  margin-top: 5rem;
   z-index: 10000;
 
   @media (min-width: 768px) {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useScrollSpy from "@/components/ScrollSpy/ScrollSpy.js";
+import useScrollSpy from "@/hooks/useScrollSpy.js";
 import { useEffect, useState } from "react";
 
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {
@@ -17,7 +17,7 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
 
   function onLinkClick(id) {
     handleLinkClick();
-    setActiveLink(`#${id}`); // Aktiven Link sofort setzen
+    setActiveLink(`#${id}`);
   }
 
   return (
@@ -47,9 +47,9 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
               const section = document.getElementById(id);
               if (section) {
                 section.scrollIntoView({ behavior: "smooth", block: "start" });
-                history.replaceState(null, "", window.location.pathname); // hash aus URL entfernen
+                history.replaceState(null, "", window.location.pathname);
               }
-              onLinkClick(id); // Menü schließen + activeLink setzen
+              onLinkClick(id);
             }}
             role="menuitem"
             $isActive={activeLink === `#${id}`}
