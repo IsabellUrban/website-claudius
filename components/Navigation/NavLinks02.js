@@ -40,6 +40,25 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
       >
         {sectionIds.map((id) => (
           <StyledLink
+          key={id}
+            as="a"
+            href="#"
+            onClick={(event) => {
+              event.preventDefault();
+              const section = document.getElementById(id);
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+                history.replaceState(null, "", window.location.pathname); // hash aus URL entfernen
+              }
+              onLinkClick(id); // Menü schließen + activeLink setzen
+            }}
+            role="menuitem"
+            $isActive={activeLink === `#${id}`}
+          >
+            {id.toUpperCase()}
+          </StyledLink>
+
+          /*           <StyledLink
             key={id}
             href={`/#${id}`}
             onClick={() => onLinkClick(id)}
@@ -47,9 +66,8 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
             $isActive={activeLink === `#${id}`}
           >
             {id.toUpperCase()}
-          </StyledLink>
+          </StyledLink> */
         ))}
-
       </StyledNavLinks>
     </>
   );
@@ -88,7 +106,7 @@ const StyledNavLinks = styled.nav`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   text-decoration: none;
   color: var(--white);
   text-align: center;

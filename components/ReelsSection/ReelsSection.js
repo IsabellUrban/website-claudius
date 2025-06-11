@@ -27,41 +27,11 @@ export default function ReelsSection() {
     setIsActiveSection(null);
   }
 
-/*   function handleClose() {
+  function handleClose() {
     handleCloseActiveSection();
     handleToggleSection(null);
+  }
 
-    setTimeout(() => {
-      if (containerRef.current) {
-        containerRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 600);
-  } */
-
-    //NEU: funktioniert aber nicht wie gewünscht
-    function handleClose() {
-      handleCloseActiveSection();
-      handleToggleSection(null);
-
-      
-      const isFirstLoad =
-        sessionStorage.getItem("reelsSectionVisited") !== "true";
-      if (!isFirstLoad) {
-        setTimeout(() => {
-          if (containerRef.current) {
-            containerRef.current.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        }, 600);
-      }
-      sessionStorage.setItem("reelsSectionVisited", "true");
-    }
-  
   return (
     <>
       <SectionWrapper id="reels">
