@@ -6,7 +6,7 @@ export default function ExperienceSection({ experience, onProjectClick }) {
       {experience.map((experienceItem, experienceIndex) => {
         const isRightColumn = experienceIndex % 2 === 1;
         return (
-          <ExperienceItem key={experienceIndex} isRightColumn={isRightColumn}>
+          <ExperienceItem key={experienceIndex} $isRightColumn={isRightColumn}>
             <StyledYear>{experienceItem.year}</StyledYear>
             <StyledPosition
               onClick={() =>
@@ -42,8 +42,8 @@ const ExperienceItem = styled.div`
   flex-direction: column;
 
   @media (min-width: 1024px) {
-    grid-column: ${(props) => (props.isRightColumn ? "2" : "1")};
-    margin-top: ${(props) => (props.isRightColumn ? "4rem" : "0")};
+    grid-column: ${({ $isRightColumn }) => ($isRightColumn ? "2" : "1")};
+    margin-top: ${({ $isRightColumn }) => ($isRightColumn ? "4rem" : "0")};
   }
 `;
 

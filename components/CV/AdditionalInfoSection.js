@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function AdditionalInfoSection() {
+  const isRightColumn = true;
+  
     return (
       <InfoGrid>
         <InfoItem>
@@ -28,7 +30,7 @@ export default function AdditionalInfoSection() {
           </TextWrapperLink>
         </InfoItem>
 
-        <InfoItem isRightColumn>
+        <InfoItem $isRightColumn={isRightColumn}>
           <StyledYear>2024</StyledYear>
           <StyledList>
             <li>
@@ -48,7 +50,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem isRightColumn>
+        <InfoItem $isRightColumn={isRightColumn}>
           <StyledYear>2021</StyledYear>
           <StyledList>
             <li>
@@ -68,7 +70,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem isRightColumn>
+        <InfoItem $isRightColumn={isRightColumn}>
           <StyledYear>2020</StyledYear>
           <StyledList>
             <li>
@@ -90,7 +92,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem isRightColumn>
+        <InfoItem $isRightColumn={isRightColumn}>
           <StyledYear>2001</StyledYear>
           <StyledList>
             <li>
@@ -119,7 +121,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem isRightColumn>
+        <InfoItem $isRightColumn={isRightColumn}>
           <StyledYear>SOFTWARE</StyledYear>
           <StyledList>
             <li>Maya</li>
@@ -139,7 +141,7 @@ export default function AdditionalInfoSection() {
           </StyledList>
         </InfoItem>
 
-        <InfoItem isRightColumn>
+        <InfoItem $isRightColumn={isRightColumn}>
           <StyledYear>INTERESTS</StyledYear>
           <StyledList>
             <li>Film</li>
@@ -166,7 +168,7 @@ const InfoItem = styled.div`
   flex-direction: column;
 
   @media (min-width: 1024px) {
-    margin-top: ${(props) => (props.isRightColumn ? "4rem" : "0")};
+    margin-top: ${({$isRightColumn}) => ($isRightColumn ? "4rem" : "0")};
   }
 `;
 
