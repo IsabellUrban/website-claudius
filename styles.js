@@ -29,7 +29,7 @@ export default createGlobalStyle`
     --black-transparent: rgba(0, 0, 0, 0.8);
     --white: #fff;
     --grey: #f0f0f0;
-    --grey-transparent: rgba(240, 240, 240, 0.5);
+    --grey-transparent: rgba(43, 43, 43, 0.8);
 
     --bodytext: 500 0.75rem ${roboto.style.fontFamily}, system-ui;
     --subheadline: 700 0.9rem ${antonio.style.fontFamily}, system-ui;

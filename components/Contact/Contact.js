@@ -5,11 +5,12 @@ import Mail from "@/public/icons/Mail.svg";
 import Linkedin from "@/public/icons/Linkedin.svg";
 import Imdb from "@/public/icons/imdb.svg";
 import Vimeo from "@/public/icons/vimeo.svg";
+import { StyledContainer } from "@/styledComponents";
 
 export default function Contact() {
   return (
     <ContactSection id="contact">
-      <StyledContainer>
+      <StyledContactContainer>
         <Headline headline={"contact"} />
         <ContactWrapper>
           <motion.div
@@ -75,7 +76,7 @@ export default function Contact() {
             </StyledItemWrapper>
           </motion.div>
         </ContactWrapper>
-      </StyledContainer>
+      </StyledContactContainer>
     </ContactSection>
   );
 }
@@ -90,13 +91,11 @@ const ContactSection = styled.section`
   justify-content: center;
 `;
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const StyledContactContainer = styled(StyledContainer)`
   min-height: 40vh;
   height: 60vh;
+  justify-content: center;
+  padding-top: 0px;
 `;
 
 const StyledText = styled.a`
@@ -153,17 +152,5 @@ const ImageWrapper = styled.div`
   @media (min-width: 768px) {
     width: 30px;
     height: 30px;
-  }
-`;
-
-const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-
-  @media (min-width: 768px) {
-    max-width: 800px;
-    padding: 1rem;
   }
 `;

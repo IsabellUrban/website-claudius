@@ -1,27 +1,34 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function PosterGrid({sortedProjects}) {
 
     return (
-      <PosterWrapper $posterCount={sortedProjects.length}>
-        {sortedProjects.map((project) => (
-          <StyledGallery key={project.id}>
-            <ImageWrapper>
-              <StyledPoster
-                src={project.poster}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </ImageWrapper>
-            <StyledTitle>
-              {project.title} ({project.releasedate})
-            </StyledTitle>
-            <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
-          </StyledGallery>
-        ))}
-      </PosterWrapper>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <PosterWrapper $posterCount={sortedProjects.length}>
+          {sortedProjects.map((project) => (
+            <StyledGallery key={project.id}>
+              <ImageWrapper>
+                <StyledPoster
+                  src={project.poster}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </ImageWrapper>
+              <StyledTitle>
+                {project.title} ({project.releasedate})
+              </StyledTitle>
+              <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
+            </StyledGallery>
+          ))}
+        </PosterWrapper>
+      </motion.div>
     );
 
 };

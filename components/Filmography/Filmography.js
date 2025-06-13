@@ -4,6 +4,8 @@ import FilterButtons from "@/components/Filmography/FilterButtons";
 import PosterGrid from "@/components/Filmography/PosterGrid";
 import { projects } from "@/lib/data-projects-02";
 import { useState } from "react";
+import { StyledSection } from "@/styledComponents";
+import { motion } from "framer-motion";
 
 export default function Filmography() {
   const [selectedJobRole, setSelectedJobRole] = useState([]);
@@ -27,7 +29,12 @@ export default function Filmography() {
   return (
     <FilmographySection id="filmography">
       <StyledContainer>
-        <WrapperHeader>
+        <WrapperHeader
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <Headline headline={"filmography"} />
           <FilterButtons
             selectedJobRole={selectedJobRole}
@@ -47,10 +54,8 @@ export default function Filmography() {
   );
 }
 
-const FilmographySection = styled.section`
+const FilmographySection = styled(StyledSection)`
   padding: 2rem 0rem;
-  width: 100%;
-  position: relative;
 `;
 
 const StyledContainer = styled.div`
@@ -58,12 +63,13 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 40px;
   background-color: var(--black-transparent);
   min-height: 550px;
-  padding-top: 40px;
+
 `;
 
-const WrapperHeader = styled.div`
+const WrapperHeader = styled(motion.div)`
 position: relative;
   display: flex;
   flex-direction: column;
