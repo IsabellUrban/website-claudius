@@ -49,5 +49,31 @@ export default createGlobalStyle`
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
+
+/* Globaler Scrollbar-Style (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--black);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    border-radius: 4px;
+    border: 4px solid var(--black);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #ffd600;
+  }
+
+  /* Firefox Support */
+  * {
+    scrollbar-color: var(--yellow) var(--black);
+    scrollbar-width: thin;
+  }
 `;

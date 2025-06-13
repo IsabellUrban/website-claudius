@@ -1,7 +1,25 @@
 import styled from "styled-components";
-import Link from "next/link";
+import useScrollSpy from "@/hooks/useScrollSpy.js";
+import { useEffect, useState } from "react";
 
 export default function NavLinks({ isMenuOpen, handleLinkClick }) {
+  const sectionIds = ["home", "about", "cv", "reels", "filmography", "contact"];
+  const scrollOffset =
+    typeof window !== "undefined" ? window.innerHeight / 2 : 0;
+
+  const spyActiveId = useScrollSpy(sectionIds, scrollOffset);
+
+  const [activeLink, setActiveLink] = useState("");
+
+  useEffect(() => {
+    setActiveLink(spyActiveId);
+  }, [spyActiveId]);
+
+  function onLinkClick(id) {
+    handleLinkClick();
+    setActiveLink(`#${id}`);
+  }
+
   return (
     <>
       <StyledBackground
@@ -19,24 +37,26 @@ export default function NavLinks({ isMenuOpen, handleLinkClick }) {
         role="navigation"
         aria-label="Main navigation"
       >
-        <StyledLink href="#" onClick={handleLinkClick} role="menuitem">
-          HOME
-        </StyledLink>
-        <StyledLink href="#about" onClick={handleLinkClick} role="menuitem">
-          ABOUT
-        </StyledLink>
-        <StyledLink href="#cv" onClick={handleLinkClick} role="menuitem">
-          CV
-        </StyledLink>
-        <StyledLink href="#reels" onClick={handleLinkClick} role="menuitem">
-          REELS
-        </StyledLink>
-        <StyledLink href="#filmography" onClick={handleLinkClick} role="menuitem">
-          FILMOGRAPHY
-        </StyledLink>
-        <StyledLink href="#contact" onClick={handleLinkClick} role="menuitem">
-          CONTACT
-        </StyledLink>
+        {sectionIds.map((id) => (
+          <StyledLink
+          key={id}
+            as="a"
+            href="#"
+            onClick={(event) => {
+              event.preventDefault();
+              const section = document.getElementById(id);
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+                history.replaceState(null, "", window.location.pathname);
+              }
+              onLinkClick(id);
+            }}
+            role="menuitem"
+            $isActive={activeLink === `#${id}`}
+          >
+            {id.toUpperCase()}
+          </StyledLink>
+        ))}
       </StyledNavLinks>
     </>
   );
@@ -75,7 +95,7 @@ const StyledNavLinks = styled.nav`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   text-decoration: none;
   color: var(--white);
   text-align: center;
@@ -95,9 +115,12 @@ const StyledLink = styled(Link)`
       transform: scale(1.02);
     }
 
-    &:active {
-      text-decoration: underline 0.2rem var(--yellow);
-    }
+    ${({ $isActive }) =>
+      $isActive &&
+      `
+    text-decoration: underline 0.2rem var(--yellow); 
+    font-weight: bold;
+  `}
   }
 `;
 

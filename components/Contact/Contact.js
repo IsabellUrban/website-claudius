@@ -14,7 +14,8 @@ export default function Contact() {
         <ContactWrapper>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <StyledItemWrapper href="mailto:mail@claudiusurban.com">
@@ -26,7 +27,8 @@ export default function Contact() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <StyledItemWrapper
@@ -42,7 +44,8 @@ export default function Contact() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.75 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <StyledItemWrapper
@@ -57,8 +60,9 @@ export default function Contact() {
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
           >
             <StyledItemWrapper
               href="https://vimeo.com/user12349902"
@@ -80,7 +84,10 @@ const ContactSection = styled.section`
   background-color: transparent;
   padding: 0rem 0rem 4rem 0rem;
   width: 100%;
-  
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledContainer = styled.div`
@@ -89,7 +96,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 40vh;
-  height: 100vh;
+  height: 60vh;
 `;
 
 const StyledText = styled.a`
@@ -109,8 +116,7 @@ const ContactWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  `;	
-
+`;
 
 const StyledItemWrapper = styled.a`
   display: flex;
@@ -133,11 +139,8 @@ const StyledItemWrapper = styled.a`
     }
   }
   @media (min-width: 768px) {
-    
   }
 `;
-
-
 
 const ImageWrapper = styled.div`
   flex-shrink: 0;
@@ -164,4 +167,3 @@ const TextWrapper = styled.div`
     padding: 1rem;
   }
 `;
-

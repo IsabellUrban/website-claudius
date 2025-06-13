@@ -1,24 +1,23 @@
 import styled from "styled-components";
 import Slideshow from "./Slideshow";
-import Textanimation from "./Textanimation";
 
 
 export default function Herosection() {
-  return (
-    <HeroContainer>
+ return (
+    <HeroContainer id="home">
       <Slideshow />
     </HeroContainer>
   );
 }
 
-const HeroContainer = styled.div`
+const HeroContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   overflow: hidden;
   background-color: var(--black);
   padding-top: 12vh;

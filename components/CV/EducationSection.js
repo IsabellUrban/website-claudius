@@ -2,35 +2,61 @@ import styled from "styled-components";
 import { education } from "@/lib/data-education";
 
 export default function EducationSection() {
-    return (
-        <>
-        {education.map((educationItem, educationIndex) => (
-            <div key={educationIndex}>
+  return (
+    <EducationGrid>
+      {education.map((educationItem, index) => {
+        const isRightColumn = index % 2 === 1;
+        return (
+          <EducationItem
+            key={index}
+            $isRightColumn={isRightColumn}
+          >
             <StyledYear>{educationItem.year}</StyledYear>
             <StyledText>{educationItem.text}</StyledText>
             <StyledList>
-                {educationItem.details.map((detail, detailIndex) => (
+              {educationItem.details.map((detail, detailIndex) => (
                 <li key={detailIndex}>{detail}</li>
-                ))}
+              ))}
             </StyledList>
-            </div>
-        ))}
-        </>
-    );
-    }
+          </EducationItem>
+        );
+      })}
+    </EducationGrid>
+  );
+}
 
-    const StyledYear = styled.p`
-      font: var(--subheadline);
-      color: var(--yellow);
-      font-size: 0.85rem;
-      line-height: 1.5;
-      text-align: left;
-      padding-top: 1rem;
-    
-      @media (min-width: 768px) {
-        font-size: 1rem;
-      }
-    `;
+const EducationGrid = styled.div`
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 5rem;
+  }
+`;
+
+const EducationItem = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1024px) {
+    grid-column: ${({ $isRightColumn }) => ($isRightColumn ? "2" : "1")};
+    margin-top: ${({ $isRightColumn }) => ($isRightColumn ? "4rem" : "0")};
+  }
+`;
+
+const StyledYear = styled.p`
+  font: var(--subheadline);
+  color: var(--yellow);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: left;
+  padding-top: 1rem;
+  
+  @media (min-width: 768px) {
+  font-size: 1rem;
+  }
+`;
     
     const StyledText = styled.p`
       font: var(--subheadline);

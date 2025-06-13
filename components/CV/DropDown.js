@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data-projects-02";
 import { experience } from "@/lib/data-experience";
 import ExperienceSection from "./ExperienceSection";
@@ -8,7 +8,7 @@ import PosterModal from "./PosterModal";
 import EducationSection from "./EducationSection";
 import AdditionalInfoSection from "./AdditionalInfoSection";
 
-export default function DropDown({ onToggleSection, isActiveSection, isOverlayActive }) {
+export default function DropDown({ onToggleSection, isActiveSection, isOverlayActive, onSectionClose }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,22 +43,30 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
             Professional experience
           </StyledButton>
         </TextWrapper>
-        <StyledBackground
-          
-          initial={{ height: 0, opacity: 0 }}
-          animate={
-            isActiveSection === "Professional Experience"
-              ? { height: 4100, opacity: 1 }
-              : { height: 0, opacity: 0 }
-          }
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+
+        <AnimatePresence
+          initial={false}
+          mode="sync"
+          onExitComplete={() => {
+            onSectionClose();
+          }}
         >
-          <ExperienceSection
-            experience={experience}
-            onProjectClick={handleProjectClick}
-          />
-        </StyledBackground>
+          {isActiveSection === "Professional Experience" && (
+            <StyledBackground
+              key="professional"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.7 }}
+            >
+              <ExperienceSection
+                experience={experience}
+                onProjectClick={handleProjectClick}
+              />
+            </StyledBackground>
+          )}
+        </AnimatePresence>
+
         <PosterModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
@@ -77,19 +85,25 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
             Education
           </StyledButton>
         </TextWrapper>
-        <StyledBackground
-          
-          initial={{ height: 0, opacity: 0 }}
-          animate={
-            isActiveSection === "Education"
-              ? { height: "auto", opacity: 1 }
-              : { height: 0, opacity: 0 }
-          }
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+        <AnimatePresence
+          initial={false}
+          mode="sync"
+          onExitComplete={() => {
+            onSectionClose();
+          }}
         >
-          <EducationSection />
-        </StyledBackground>
+          {isActiveSection === "Education" && (
+            <StyledBackground
+              key="education"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.6 }}
+            >
+              <EducationSection />
+            </StyledBackground>
+          )}
+        </AnimatePresence>
       </Container>
 
       <Container>
@@ -103,19 +117,25 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
             Additional Information
           </StyledButton>
         </TextWrapper>
-        <StyledBackground
-          
-          initial={{ height: 0, opacity: 0 }}
-          animate={
-            isActiveSection === "Additional Information"
-              ? { height: "auto", opacity: 1 }
-              : { height: 0, opacity: 0 }
-          }
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+        <AnimatePresence
+          initial={false}
+          mode="sync"
+          onExitComplete={() => {
+            onSectionClose();
+          }}
         >
-          <AdditionalInfoSection />
-        </StyledBackground>
+          {isActiveSection === "Additional Information" && (
+            <StyledBackground
+              key="additional"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <AdditionalInfoSection />
+            </StyledBackground>
+          )}
+        </AnimatePresence>
       </Container>
     </>
   );
@@ -123,8 +143,17 @@ export default function DropDown({ onToggleSection, isActiveSection, isOverlayAc
 
 const Container = styled.div`
   position: relative;
-  width: 50%;
+  width: 80%;
   background-color: var(--black);
+  z-index: 10;
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 60%;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -150,8 +179,6 @@ const StyledButton = styled.button`
   color: var(--white);
   border: none;
   text-transform: uppercase;
-  pointer-events: ${({ $isOverlayActive }) =>
-    $isOverlayActive ? "none" : "auto"};
 
   &:hover {
     cursor: pointer;
@@ -166,7 +193,6 @@ const StyledButton = styled.button`
 
 const StyledBackground = styled(motion.div)`
   position: relative;
-  top: 100%;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -174,5 +200,6 @@ const StyledBackground = styled(motion.div)`
   opacity: 0;
   z-index: 10;
   padding: 0rem 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
 `;
-

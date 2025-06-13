@@ -101,6 +101,8 @@ const StyledBackground = styled(motion.div)`
   background-color: var(--black);
   opacity: 0;
   z-index: 3;
+  max-height: 40vh;
+  overflow-y: auto;
 
   @media (min-width: 768px) {
     padding: 0rem 1rem;
