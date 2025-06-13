@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
-import { useState, useRef, useEffect } from "react";
+import VideoPlayer from "./VideoPlayer";
+import { useState, useRef } from "react";
 
 export default function ReelsSection() {
   const videoRef = useRef(null);
@@ -39,15 +40,10 @@ export default function ReelsSection() {
           <Headline headline={"reels"} />
           <ReelsContent>
             <ContentContainer>
-              <VideoWrapper>
-                <StyledVideo ref={videoRef} controls loop>
-                  <source
-                    src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </StyledVideo>
-              </VideoWrapper>
+              <VideoPlayer
+                src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
+                videoRef={videoRef}
+              />
 
               <Shotbreakdown
                 onToggleSection={handleToggleSection}
@@ -66,15 +62,7 @@ export default function ReelsSection() {
 
           <ReelsContent>
             <ContentContainer>
-              <VideoWrapper>
-                <StyledVideo controls loop>
-                  <source
-                    src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4"
-                    type="video/mp4"
-                  />
-                  Dein Browser unterstützt kein Video-Tag.
-                </StyledVideo>
-              </VideoWrapper>
+              <VideoPlayer src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4" />
             </ContentContainer>
           </ReelsContent>
         </StyledContainer>
@@ -125,21 +113,6 @@ width: 60%;
 @media (min-width: 1200px) {
 width: 1200px;
  }
-`;
-
-const VideoWrapper = styled.div`
-position: relative;
-width: 100%;
-height: auto;
-margin-bottom: 0;
-display: block;
-`;
-
-const StyledVideo = styled.video`
-  width: 100%;
-  display: block;
-  border: none;
-  aspect-ratio: 16/9;
 `;
 
 const Overlay = styled.div`
