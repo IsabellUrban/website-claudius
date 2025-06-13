@@ -114,7 +114,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 border-style: solid;
-border-width: 10px 10px 40px 10px;
+border-width: 8px 8px 24px 8px;
 border-color: var(--yellow);
 border-radius: 0px;
 
@@ -140,14 +140,6 @@ const StyledVideo = styled.video`
   display: block;
   border: none;
   aspect-ratio: 16/9;
-
-/*   @media (min-width: 768px) {
-    height: 400px;
-  }
-
-  @media (min-width: 1200px) {
-    height: 675px;
-  } */
 `;
 
 const Overlay = styled.div`
