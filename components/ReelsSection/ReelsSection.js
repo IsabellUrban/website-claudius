@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import Headline from "@/components/Headline/Headline";
 import Shotbreakdown from "@/components/ReelsSection/Shotbreakdown";
-import { useState, useRef, useEffect } from "react";
+import VideoPlayer from "./VideoPlayer";
+import { useState, useRef } from "react";
+import { StyledContainer } from "@/styledComponents";
+import { motion } from "framer-motion";
 
 export default function ReelsSection() {
   const videoRef = useRef(null);
@@ -37,46 +40,47 @@ export default function ReelsSection() {
       <SectionWrapper id="reels">
         <StyledContainer ref={containerRef}>
           <Headline headline={"reels"} />
-          <ReelsContent>
-            <ContentContainer>
-              <VideoWrapper>
-                <StyledVideo ref={videoRef} controls loop>
-                  <source
-                    src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </StyledVideo>
-              </VideoWrapper>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <ReelsContent>
+              <ContentContainer>
+                <VideoPlayer
+                  src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
+                  videoRef={videoRef}
+                />
 
-              <Shotbreakdown
-                onToggleSection={handleToggleSection}
-                isActiveSection={isActiveSection}
-                handleJumpToTime={handleJumpToTime}
-              />
-            </ContentContainer>
-            {isActiveSection && (
-              <Overlay
-                onClick={handleClose}
-                aria-label="Close Section"
-                role="button"
-              />
-            )}
-          </ReelsContent>
+                <Shotbreakdown
+                  onToggleSection={handleToggleSection}
+                  isActiveSection={isActiveSection}
+                  handleJumpToTime={handleJumpToTime}
+                />
+              </ContentContainer>
+              {isActiveSection && (
+                <Overlay
+                  onClick={handleClose}
+                  aria-label="Close Section"
+                  role="button"
+                />
+              )}
+            </ReelsContent>
+          </motion.div>
 
-          <ReelsContent>
-            <ContentContainer>
-              <VideoWrapper>
-                <StyledVideo controls loop>
-                  <source
-                    src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4"
-                    type="video/mp4"
-                  />
-                  Dein Browser unterstützt kein Video-Tag.
-                </StyledVideo>
-              </VideoWrapper>
-            </ContentContainer>
-          </ReelsContent>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <ReelsContent>
+              <ContentContainer>
+                <VideoPlayer src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4" />
+              </ContentContainer>
+            </ReelsContent>
+          </motion.div>
         </StyledContainer>
       </SectionWrapper>
     </>
@@ -88,15 +92,6 @@ padding: 4rem 0rem 4rem 0rem;
 width: 100%;
 `;
 
-const StyledContainer = styled.div`
-display: flex;
-position: relative;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 100%;
-padding-top: 40px;
-`;
 
 const ReelsContent = styled.div`
 display: flex;
@@ -114,7 +109,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 border-style: solid;
-border-width: 10px 10px 40px 10px;
+border-width: 6px 6px 18px 6px;
 border-color: var(--yellow);
 border-radius: 0px;
 
@@ -125,29 +120,6 @@ width: 60%;
 @media (min-width: 1200px) {
 width: 1200px;
  }
-`;
-
-const VideoWrapper = styled.div`
-position: relative;
-width: 100%;
-height: auto;
-margin-bottom: 0;
-display: block;
-`;
-
-const StyledVideo = styled.video`
-  width: 100%;
-  display: block;
-  border: none;
-  aspect-ratio: 16/9;
-
-/*   @media (min-width: 768px) {
-    height: 400px;
-  }
-
-  @media (min-width: 1200px) {
-    height: 675px;
-  } */
 `;
 
 const Overlay = styled.div`
