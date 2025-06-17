@@ -3,6 +3,7 @@ import Image from "next/image";
 import X from "@/public/icons/X.svg";
 import Modal from "@/components/Modal/Modal.js";
 import { motion } from "framer-motion";
+import { IconWrapper, StyledCloseIcon } from "@/styledComponents";
 
 export default function PosterModal({ project, onClose, isOpen }) {
 if (!isOpen || !project) return null;
@@ -72,22 +73,6 @@ const PosterModalContent = styled(motion.div)`
       max-width: 900px;
       padding: 0rem 1rem;
   }
-`;
-
-const IconWrapper = styled.div`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  z-index: 10;
-`;
-
-const StyledCloseIcon = styled(X)`
-  display: flex;
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-  fill: var(--yellow);
 `;
 
 const Wrapper = styled.div`

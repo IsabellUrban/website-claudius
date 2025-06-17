@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Claudius_500x500 from "@/public/images/Claudius_500x500.jpg";
 import Headline from "@/components/Headline/Headline";
-import { StyledContainer, StyledText, StyledSection} from "@/styledComponents";
+import { StyledContainer, StyledSection} from "@/styledComponents";
 
 export default function Aboutsection() {
   return (
@@ -137,7 +137,10 @@ const StyledQuote = styled.h3`
   }
 `;
 
-const StyledAboutText = styled(StyledText)`
+const StyledAboutText = styled.p`
+  font: var(--bodytext);
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--black);
   padding: 1rem 0rem;
 

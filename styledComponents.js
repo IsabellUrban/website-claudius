@@ -19,30 +19,6 @@ export const StyledCloseIcon = styled(X)`
   fill: var(--yellow);
 `;
 
-export const StyledSubheadline = styled.h3`
-  font: var(--bodytext);
-  font-weight: 700;
-  color: var(--white);
-  margin: 0;
-  margin-top: 0.75rem;
-  flex-grow: 1;
-  overflow: hidden;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-export const StyledText = styled.p`
-  font: var(--bodytext);
-  text-align: left;
-  line-height: 1.5;
-
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-  }
-`;
-
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,4 +59,81 @@ export const ModalContainer = styled.div`
   margin-bottom: 5rem;
   padding: 2rem 1rem;
   z-index: 10000;
+`;
+
+export const CVGrid = styled.div`
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 5rem;
+  }
+`;
+
+export const StyledList = styled.ul`
+  font: var(--bodytext);
+  color: var(--white);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: left;
+  padding-top: 1rem;
+  list-style-type: disc;
+  margin-left: 1rem;
+  margin-bottom: 1.75rem;
+
+  @media (min-width: 768px) {
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+  }
+`;
+
+export const StyledYear = styled.p`
+  font: var(--subheadline);
+  color: var(--yellow);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: left;
+  padding-top: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export const StyledSubheadlineModal = styled.h3`
+  font: var(--bodytext);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  margin-top: 0.75rem;
+  flex-grow: 1;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export const StyledTextModal = styled.p`
+  font: var(--bodytext);
+  color: var(--white);
+  text-align: left;
+
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+  }
+`;
+
+export const TextWrapperModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+
+  @media (min-width: 768px) {
+    max-width: 800px;
+    padding: 1.5rem 3rem;
+  }
 `;
