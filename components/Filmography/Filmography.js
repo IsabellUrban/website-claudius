@@ -30,10 +30,10 @@ export default function Filmography() {
     <FilmographySection id="filmography">
       <StyledContainer>
         <WrapperHeader
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Headline headline={"filmography"} />
           <FilterButtons

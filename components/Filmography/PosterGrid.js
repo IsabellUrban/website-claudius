@@ -1,18 +1,51 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function PosterGrid({sortedProjects}) {
+  const gridVariants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.18,
+      },
+    },
+    hidden: {},
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 80, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "tween",
+        stiffness: 30,
+        damping: 12,
+      },
+    },
+    exit: { opacity: 0, y: 80, scale: 0.95, transition: { duration: 0.2, ease: "linear" } },
+  };
 
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        initial="hidden"
+        animate="visible"
+        variants={gridVariants}
+        style={{ width: "100%" }}
       >
         <PosterWrapper $posterCount={sortedProjects.length}>
+          <AnimatePresence>
           {sortedProjects.map((project) => (
-            <StyledGallery key={project.id}>
+            <StyledGallery
+              as={motion.div}
+              key={project.id}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              layout
+              >
               <ImageWrapper>
                 <StyledPoster
                   src={project.poster}
@@ -27,6 +60,7 @@ export default function PosterGrid({sortedProjects}) {
               <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
             </StyledGallery>
           ))}
+          </AnimatePresence>
         </PosterWrapper>
       </motion.div>
     );

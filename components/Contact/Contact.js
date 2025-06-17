@@ -10,73 +10,80 @@ import { StyledContainer } from "@/styledComponents";
 export default function Contact() {
   return (
     <ContactSection id="contact">
-      <StyledContactContainer>
-        <Headline headline={"contact"} />
-        <ContactWrapper>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <StyledItemWrapper href="mailto:mail@claudiusurban.com">
-              <ImageWrapper>
-                <Mail alt="Mail Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <StyledContactContainer>
+          <Headline headline={"contact"} />
+          <ContactWrapper>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <StyledItemWrapper href="mailto:mail@claudiusurban.com">
+                <ImageWrapper>
+                  <Mail alt="Mail Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <StyledItemWrapper
-              href="https://www.linkedin.com/in/claudius-urban-30a0011/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <ImageWrapper>
-                <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
+              <StyledItemWrapper
+                href="https://www.linkedin.com/in/claudius-urban-30a0011/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImageWrapper>
+                  <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.75 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <StyledItemWrapper
-              href="https://www.imdb.com/de/name/nm1381907/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.75 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <ImageWrapper>
-                <Imdb alt="Imdb Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <StyledItemWrapper
-              href="https://vimeo.com/user12349902"
-              target="_blank"
-              rel="noopener noreferrer"
+              <StyledItemWrapper
+                href="https://www.imdb.com/de/name/nm1381907/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImageWrapper>
+                  <Imdb alt="Imdb Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <ImageWrapper>
-                <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
-        </ContactWrapper>
-      </StyledContactContainer>
+              <StyledItemWrapper
+                href="https://vimeo.com/user12349902"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImageWrapper>
+                  <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
+          </ContactWrapper>
+        </StyledContactContainer>
+      </motion.div>
     </ContactSection>
   );
 }

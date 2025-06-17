@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { CVGrid, StyledList, StyledYear } from "@/styledComponents";
+import { motion } from "framer-motion";
 
 export default function ExperienceSection({ experience, onProjectClick }) {
+  const listVariants = {
+    visible: { transition: { staggerChildren: 0.15 } },
+    hidden: {},
+  };
+
   return (
     <CVGrid>
       {experience.map((experienceItem, experienceIndex) => {
@@ -18,7 +24,9 @@ export default function ExperienceSection({ experience, onProjectClick }) {
             </StyledPosition>
             <StyledList>
               {experienceItem.details.map((detail, detailIndex) => (
-                <li key={detailIndex}>{detail}</li>
+                <li key={detailIndex}>
+                  {detail}
+                </li>
               ))}
             </StyledList>
           </ExperienceItem>

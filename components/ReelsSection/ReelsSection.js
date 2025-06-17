@@ -5,6 +5,7 @@ import VideoPlayer from "./VideoPlayer";
 import { useState, useRef } from "react";
 import { StyledContainer } from "@/styledComponents";
 import { Overlay } from "@/styledComponents";
+import { motion } from "framer-motion";
 
 export default function ReelsSection() {
   const videoRef = useRef(null);
@@ -28,36 +29,43 @@ export default function ReelsSection() {
   return (
     <>
       <SectionWrapper id="reels">
-        <StyledContainer ref={containerRef}>
-          <Headline headline={"reels"} />
-          <ReelsContent>
-            <ContentContainer>
-              <VideoPlayer
-                src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
-                videoRef={videoRef}
-              />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <StyledContainer ref={containerRef}>
+            <Headline headline={"reels"} />
+            <ReelsContent>
+              <ContentContainer>
+                <VideoPlayer
+                  src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
+                  videoRef={videoRef}
+                />
 
-              <Shotbreakdown
-                onToggleSection={handleToggleSection}
-                isActiveSection={isActiveSection}
-                handleJumpToTime={handleJumpToTime}
-              />
-            </ContentContainer>
-            {isActiveSection && (
-              <Overlay
-                onClick={() => handleToggleSection(null)}
-                aria-label="Close Section"
-                role="button"
-              />
-            )}
-          </ReelsContent>
+                <Shotbreakdown
+                  onToggleSection={handleToggleSection}
+                  isActiveSection={isActiveSection}
+                  handleJumpToTime={handleJumpToTime}
+                />
+              </ContentContainer>
+              {isActiveSection && (
+                <Overlay
+                  onClick={() => handleToggleSection(null)}
+                  aria-label="Close Section"
+                  role="button"
+                />
+              )}
+            </ReelsContent>
 
-          <ReelsContent>
-            <ContentContainer>
-              <VideoPlayer src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4" />
-            </ContentContainer>
-          </ReelsContent>
-        </StyledContainer>
+            <ReelsContent>
+              <ContentContainer>
+                <VideoPlayer src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4" />
+              </ContentContainer>
+            </ReelsContent>
+          </StyledContainer>
+        </motion.div>
       </SectionWrapper>
     </>
   );
