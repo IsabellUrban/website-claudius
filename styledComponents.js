@@ -137,3 +137,12 @@ export const TextWrapperModal = styled.div`
     padding: 1.5rem 3rem;
   }
 `;
+
+export const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: all;
+`;

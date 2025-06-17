@@ -2,7 +2,7 @@ import styled from "styled-components";
 import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
 import { useState, useRef} from "react";
-import { StyledContainer, StyledSection } from "@/styledComponents";
+import { StyledContainer, StyledSection, Overlay } from "@/styledComponents";
 
 export default function CV() {
   const [isActiveSection, setIsActiveSection] = useState(null);
@@ -56,13 +56,3 @@ export default function CV() {
     </>
   );
 }
-
-
-const Overlay = styled.div`
-  position: fixed;
-  inset: 0;
-  z-index: 5;
-  cursor: pointer;
-  pointer-events: all;
-  background: transparent;
-`;

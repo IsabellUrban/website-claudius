@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { animation } from "@/lib/data-shotbreakdown";
 import Link from "next/link";
+import { StyledList } from "@/styledComponents";
 
 export default function Shotbreakdown({onToggleSection, isActiveSection, handleJumpToTime}) {
 
@@ -37,9 +38,9 @@ export default function Shotbreakdown({onToggleSection, isActiveSection, handleJ
                     handleJumpToTime(animationItem.timecode);
                   }}
                 >
-                  <StyledList>
+                  <StyledBreakdownList>
                     <li>{animationItem.owntask}</li>
-                  </StyledList>
+                  </StyledBreakdownList>
                 </TimecodeLink>
               </div>
             ))}
@@ -128,18 +129,7 @@ const TimecodeLink = styled(Link)`
     font-weight: 900;
   }
 `;
-const StyledList = styled.ul`
-font: var(--bodytext);
-color: var(--white);
-font-size: 0.75rem;
-line-height: 1.5;
-text-align: left;
-padding: 0.5rem 1.5rem;
-list-style-type: disc;
-
-
-@media (min-width: 768px) {
-font-size: 0.8rem;
-padding: 0.5rem 2rem;
-}
+const StyledBreakdownList = styled(StyledList)`
+  padding: 0.5rem 0rem 0rem 0.75rem;
+  line-height: 0.5;
 `;
