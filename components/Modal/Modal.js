@@ -13,6 +13,8 @@ export default function Modal({
     <Portal>
       <AnimatePresence>
         <ModalOverlay
+          role="dialog"
+          aria-modal="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
