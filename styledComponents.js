@@ -34,10 +34,14 @@ export const TextWrapper = styled.div`
 
 export const StyledSection = styled.section`
   background-color: transparent;
-  padding: 4rem 0rem 4rem 0rem;
+  padding: 1rem 0rem 1rem 0rem;
   width: 100%;
   position: relative;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 4rem 0rem 4rem 0rem;
+  }
 `;
 
 export const StyledContainer = styled(motion.div)`

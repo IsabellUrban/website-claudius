@@ -129,7 +129,20 @@ const TimecodeLink = styled(Link)`
     font-weight: 900;
   }
 `;
-const StyledBreakdownList = styled(StyledList)`
-  padding: 0.5rem 0rem 0rem 0.75rem;
-  line-height: 0.5;
+const StyledBreakdownList = styled.ul`
+  font: var(--bodytext);
+  color: var(--white);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: left;
+  padding: 0.25rem 0rem 0rem 0.75rem;
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: 1024px) {
+    font-size: 0.8rem;
+    line-height: 0.5;
+    margin-bottom: 1.75rem;
+  }
 `;

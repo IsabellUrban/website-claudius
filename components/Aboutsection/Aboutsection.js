@@ -82,16 +82,20 @@ const StyledBackground = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  background-color: var(--yellow);
 
   @media (min-width: 768px) {
     width: 50%;
-    background-color: var(--yellow);
   }
 `;
 const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
   height: auto;
+
   padding: 1rem;
 
   @media (min-width: 768px) {

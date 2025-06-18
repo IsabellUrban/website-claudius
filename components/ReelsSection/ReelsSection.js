@@ -88,20 +88,22 @@ padding: 2rem 0rem 2rem 0rem;
 `;
 
 const ContentContainer = styled.div`
-width: 90%;
-display: flex;
-flex-direction: column;
-align-items: center;
-border-style: solid;
-border-width: 6px 6px 18px 6px;
-border-color: var(--yellow);
-border-radius: 0px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px 2px 12px 2px;
+  border-color: var(--yellow);
+  border-radius: 0px;
 
-@media (min-width: 768px) {
-width: 60%;
- }
+  @media (min-width: 768px) {
+    width: 60%;
+    border-width: 6px 6px 18px 6px;
+  }
 
-@media (min-width: 1200px) {
-width: 1200px;
- }
+  @media (min-width: 1200px) {
+    width: 1200px;
+    border-width: 6px 6px 18px 6px;
+  }
 `;
