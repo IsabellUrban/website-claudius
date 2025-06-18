@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import motion from "framer-motion";
 
 export default function FilterButtons({selectedJobRole, setSelectedJobRole, selectedGenre, setSelectedGenre}) {
 
@@ -141,10 +142,11 @@ const StyledButton = styled.button`
 
   &:hover {
     text-decoration: underline 0.2rem var(--yellow);
-    transform: scale(1.02);
+    transform: scale(1.08);
   }
 
   @media (min-width: 768px) {
     font-size: 1rem;
   }
 `;
+

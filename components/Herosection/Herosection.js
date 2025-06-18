@@ -17,7 +17,7 @@ const HeroContainer = styled.section`
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
   background-color: var(--black);
   padding-top: 12vh;
