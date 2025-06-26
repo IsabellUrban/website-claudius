@@ -103,7 +103,7 @@ const StyledLink = styled.a`
   transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.08);
     color: var(--white);
   }
 

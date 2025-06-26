@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Image from "next/image";
 import X from "@/public/icons/X.svg";
-import Portal from "@/components/Portal/Portal";
+import Modal from "@/components/Modal/Modal.js";
+import { motion } from "framer-motion";
+import { IconWrapper, StyledCloseIcon } from "@/styledComponents";
 
 export default function PosterModal({ project, onClose, isOpen }) {
 if (!isOpen || !project) return null;
@@ -12,52 +14,43 @@ const sortedProjects = [...filteredProjects].sort(
 );
 
     return (
-      <Portal>
-        <ModalOverlay onClick={onClose}>
-          <ModalContent
-            onClick={(event) => event.stopPropagation()}
-            $postersCount={sortedProjects.length}
-          >
-            <IconWrapper onClick={onClose}>
-              <StyledCloseIcon />
-            </IconWrapper>
-            <Wrapper $postersCount={sortedProjects.length}>
-              {sortedProjects.map((project) => (
-                <StyledGallery key={project.id}>
-                  <ImageWrapper>
-                    <StyledPoster
-                      src={project.poster}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </ImageWrapper>
-                  <StyledTitle>
-                    {project.title} ({project.releasedate})
-                  </StyledTitle>
-                </StyledGallery>
-              ))}
-            </Wrapper>
-          </ModalContent>
-        </ModalOverlay>
-      </Portal>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <PosterModalContent
+          $postersCount={sortedProjects.length}
+          onClick={(event) => event.stopPropagation()}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <IconWrapper onClick={onClose}>
+            <StyledCloseIcon />
+          </IconWrapper>
+          <Wrapper $postersCount={sortedProjects.length}>
+            {sortedProjects.map((project) => (
+              <StyledGallery key={project.id}>
+                <ImageWrapper>
+                  <StyledPoster
+                    src={project.poster}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </ImageWrapper>
+                <StyledTitle>
+                  {project.title} ({project.releasedate})
+                </StyledTitle>
+              </StyledGallery>
+            ))}
+          </Wrapper>
+        </PosterModalContent>
+      </Modal>
     );
     };
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(43, 43, 43, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-`;
 
-const ModalContent = styled.div`
+
+const PosterModalContent = styled(motion.div)`
   background: var(--black);
   width: 55%;
   height: auto;
@@ -74,28 +67,12 @@ const ModalContent = styled.div`
       padding: 0rem 1rem;
   }
 
-@media (min-width: 1024px) {
+  @media (min-width: 1024px) {
     width: ${({ $postersCount }) =>
       $postersCount === 1 ? "18%" : $postersCount === 2 ? "30%" : $postersCount === 3 ? "45%" : $postersCount === 4 ? "66%" : "80%"};
       max-width: 900px;
       padding: 0rem 1rem;
   }
-`;
-
-const IconWrapper = styled.div`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  z-index: 10;
-`;
-
-const StyledCloseIcon = styled(X)`
-  display: flex;
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-  fill: var(--yellow);
 `;
 
 const Wrapper = styled.div`

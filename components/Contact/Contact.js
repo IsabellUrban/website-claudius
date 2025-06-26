@@ -5,77 +5,85 @@ import Mail from "@/public/icons/Mail.svg";
 import Linkedin from "@/public/icons/Linkedin.svg";
 import Imdb from "@/public/icons/imdb.svg";
 import Vimeo from "@/public/icons/vimeo.svg";
+import { StyledContainer } from "@/styledComponents";
 
 export default function Contact() {
   return (
     <ContactSection id="contact">
-      <StyledContainer>
-        <Headline headline={"contact"} />
-        <ContactWrapper>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <StyledItemWrapper href="mailto:mail@claudiusurban.com">
-              <ImageWrapper>
-                <Mail alt="Mail Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <StyledContactContainer>
+          <Headline headline={"contact"} />
+          <ContactWrapper>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <StyledItemWrapper href="mailto:mail@claudiusurban.com">
+                <ImageWrapper>
+                  <Mail alt="Mail Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <StyledItemWrapper
-              href="https://www.linkedin.com/in/claudius-urban-30a0011/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <ImageWrapper>
-                <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
+              <StyledItemWrapper
+                href="https://www.linkedin.com/in/claudius-urban-30a0011/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImageWrapper>
+                  <Linkedin alt="Linkedin Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.75 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <StyledItemWrapper
-              href="https://www.imdb.com/de/name/nm1381907/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.75 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <ImageWrapper>
-                <Imdb alt="Imdb Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <StyledItemWrapper
-              href="https://vimeo.com/user12349902"
-              target="_blank"
-              rel="noopener noreferrer"
+              <StyledItemWrapper
+                href="https://www.imdb.com/de/name/nm1381907/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImageWrapper>
+                  <Imdb alt="Imdb Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <ImageWrapper>
-                <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
-              </ImageWrapper>
-            </StyledItemWrapper>
-          </motion.div>
-        </ContactWrapper>
-      </StyledContainer>
+              <StyledItemWrapper
+                href="https://vimeo.com/user12349902"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImageWrapper>
+                  <Vimeo alt="Vimeo Icon" width="100%" height="100%" />
+                </ImageWrapper>
+              </StyledItemWrapper>
+            </motion.div>
+          </ContactWrapper>
+        </StyledContactContainer>
+      </motion.div>
     </ContactSection>
   );
 }
@@ -90,13 +98,11 @@ const ContactSection = styled.section`
   justify-content: center;
 `;
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const StyledContactContainer = styled(StyledContainer)`
   min-height: 40vh;
   height: 60vh;
+  justify-content: center;
+  padding-top: 0px;
 `;
 
 const StyledText = styled.a`
@@ -153,17 +159,5 @@ const ImageWrapper = styled.div`
   @media (min-width: 768px) {
     width: 30px;
     height: 30px;
-  }
-`;
-
-const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-
-  @media (min-width: 768px) {
-    max-width: 800px;
-    padding: 1rem;
   }
 `;

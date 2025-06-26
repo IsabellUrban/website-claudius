@@ -1,27 +1,68 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function PosterGrid({sortedProjects}) {
+  const gridVariants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.18,
+      },
+    },
+    hidden: {},
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 80, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "tween",
+        stiffness: 30,
+        damping: 12,
+      },
+    },
+    exit: { opacity: 0, y: 80, scale: 0.95, transition: { duration: 0.2, ease: "linear" } },
+  };
 
     return (
-      <PosterWrapper $posterCount={sortedProjects.length}>
-        {sortedProjects.map((project) => (
-          <StyledGallery key={project.id}>
-            <ImageWrapper>
-              <StyledPoster
-                src={project.poster}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </ImageWrapper>
-            <StyledTitle>
-              {project.title} ({project.releasedate})
-            </StyledTitle>
-            <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
-          </StyledGallery>
-        ))}
-      </PosterWrapper>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={gridVariants}
+        style={{ width: "100%" }}
+      >
+        <PosterWrapper $posterCount={sortedProjects.length}>
+          <AnimatePresence>
+          {sortedProjects.map((project) => (
+            <StyledGallery
+              as={motion.div}
+              key={project.id}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              layout
+              >
+              <ImageWrapper>
+                <StyledPoster
+                  src={project.poster}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </ImageWrapper>
+              <StyledTitle>
+                {project.title} ({project.releasedate})
+              </StyledTitle>
+              <StyledJobtitle>{project.jobrole.role}</StyledJobtitle>
+            </StyledGallery>
+          ))}
+          </AnimatePresence>
+        </PosterWrapper>
+      </motion.div>
     );
 
 };

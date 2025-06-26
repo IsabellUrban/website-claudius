@@ -1,21 +1,25 @@
-import styled from "styled-components";
-import X from "@/public/icons/X.svg";
 import { motion } from "framer-motion";
 import Headline from "@/components/Headline/Headline";
-import Portal from "@/components/Portal/Portal";
+import Modal from "@/components/Modal/Modal";
+import {
+  ModalContainer,
+  IconWrapper,
+  StyledCloseIcon,
+  StyledSubheadlineModal,
+  StyledTextModal,
+  TextWrapperModal,
+} from "@/styledComponents";
 
 export default function ImprintModal({ onClose, isOpen }) {
-  if (!isOpen) return null;
 
   return (
-    <Portal>
-    <ModalOverlay onClick={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <StyledContainer onClick={(event) => event.stopPropagation()}>
+        <ModalContainer onClick={(event) => event.stopPropagation()}>
           <IconWrapper onClick={onClose}>
             <StyledCloseIcon />
           </IconWrapper>
@@ -26,34 +30,34 @@ export default function ImprintModal({ onClose, isOpen }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <TextWrapper>
-              <StyledSubheadline>Claudius Urban</StyledSubheadline>
-              <StyledText>
+            <TextWrapperModal>
+              <StyledSubheadlineModal>Claudius Urban</StyledSubheadlineModal>
+              <StyledTextModal>
                 Kopenhagener Straße 48 <br />
                 10437 Berlin <br />
                 Germany <br />
-              </StyledText>
-              <StyledSubheadline>Contact</StyledSubheadline>
-              <StyledText>E-Mail: mail@claudiusurban.com</StyledText>
-              <StyledSubheadline>
+              </StyledTextModal>
+              <StyledSubheadlineModal>Contact</StyledSubheadlineModal>
+              <StyledTextModal>E-Mail: mail@claudiusurban.com</StyledTextModal>
+              <StyledSubheadlineModal>
                 EU Online Dispute Resolution
-              </StyledSubheadline>
-              <StyledText>
+              </StyledSubheadlineModal>
+              <StyledTextModal>
                 The European Commission provides a platform for online dispute
                 resolution (ODR): https://ec.europa.eu/consumers/odr/. Our email
                 address can be found above in the imprint.
-              </StyledText>
-              <StyledSubheadline>
+              </StyledTextModal>
+              <StyledSubheadlineModal>
                 Consumer Dispute Resolution/Universal Arbitration Body
-              </StyledSubheadline>
-              <StyledText>
+              </StyledSubheadlineModal>
+              <StyledTextModal>
                 We are not willing or obliged to participate in dispute
                 resolution proceedings before a consumer arbitration body.
-              </StyledText>
-              <StyledSubheadline>
+              </StyledTextModal>
+              <StyledSubheadlineModal>
                 Disclaimer: Liability for Content
-              </StyledSubheadline>
-              <StyledText>
+              </StyledSubheadlineModal>
+              <StyledTextModal>
                 The content on my website has been created with the utmost care.
                 However, I cannot guarantee the accuracy, completeness, or
                 timeliness of the information provided. I am responsible for my
@@ -67,90 +71,11 @@ export default function ImprintModal({ onClose, isOpen }) {
                 content can only arise once I have knowledge of a specific
                 infringement. If I become aware of any such violations, I will
                 promptly remove the content in question.
-              </StyledText>
-            </TextWrapper>
+              </StyledTextModal>
+            </TextWrapperModal>
           </motion.div>
-        </StyledContainer>
+        </ModalContainer>
       </motion.div>
-    </ModalOverlay>
-    </Portal>
+    </Modal>
   );
 };
-
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(43, 43, 43, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-`;
-
-const StyledContainer = styled.div`
-  background: var(--black);
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-  padding: 2rem 1rem;
-  z-index: 10000;
-`;
-
-const IconWrapper = styled.div`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  z-index: 10;
-`;
-
-const StyledCloseIcon = styled(X)`
-  display: flex;
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-  fill: var(--yellow);
-`;
-
-const StyledSubheadline = styled.h3`
-  font: var(--bodytext);
-  font-weight: 700;
-  color: var(--white);
-  margin: 0;
-  margin-top: 0.75rem;
-  flex-grow: 1;
-  overflow: hidden;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const StyledText = styled.p`
-  font: var(--bodytext);
-  color: var(--white);
-  text-align: left;
-
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-
-  @media (min-width: 768px) {
-    max-width: 800px;
-    padding: 1.5rem 3rem;
-  }
-`;

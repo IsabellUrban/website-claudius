@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import DropDown from "./DropDown";
 import Headline from "@/components/Headline/Headline";
-import { useState, useRef, useEffect} from "react";
+import { useState, useRef} from "react";
+import { StyledContainer, StyledSection, Overlay } from "@/styledComponents";
 
 export default function CV() {
   const [isActiveSection, setIsActiveSection] = useState(null);
@@ -29,8 +30,13 @@ export default function CV() {
 
   return (
     <>
-      <CVSection id="cv" ref={headlineRef}>
-        <StyledContainer>
+      <StyledSection id="cv" ref={headlineRef}>
+        <StyledContainer
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Headline headline={"cv"} />
           <DropDown
             onToggleSection={handleToggleSection}
@@ -46,33 +52,7 @@ export default function CV() {
             />
           )}
         </StyledContainer>
-      </CVSection>
+      </StyledSection>
     </>
   );
 }
-
-const CVSection = styled.section`
-  background-color: transparent;
-  padding: 4rem 0rem 4rem 0rem;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-`;
-
-const StyledContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 40px;
-`;
-
-const Overlay = styled.div`
-  position: fixed;
-  inset: 0;
-  z-index: 5;
-  cursor: pointer;
-  pointer-events: all;
-  background: transparent;
-`;

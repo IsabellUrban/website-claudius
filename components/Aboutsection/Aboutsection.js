@@ -2,11 +2,17 @@ import styled from "styled-components";
 import Image from "next/image";
 import Claudius_500x500 from "@/public/images/Claudius_500x500.jpg";
 import Headline from "@/components/Headline/Headline";
+import { StyledContainer, StyledSection} from "@/styledComponents";
 
 export default function Aboutsection() {
   return (
-    <AboutSection id="about">
-      <StyledContainer>
+    <StyledSection id="about">
+      <StyledContainer
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <Headline headline={"about"} />
 
         <AboutContent>
@@ -25,7 +31,7 @@ export default function Aboutsection() {
               “Great stories are what inspire me to deliver stand-out
               animation.”
             </StyledQuote>
-            <StyledText>
+            <StyledAboutText>
               From overseeing the animation team to pipeline, previsualization
               and motion capture acting, Claudius Urban’s role within the
               animation industry is extremely wide-ranging - he thrives on every
@@ -49,27 +55,14 @@ export default function Aboutsection() {
               way to tell stories as living pictures, to breathe life into my
               thoughts. I love that my profession has given me a way of
               channeling that creativity.”
-            </StyledText>
+            </StyledAboutText>
           </TextWrapper>
         </AboutContent>
       </StyledContainer>
-    </AboutSection>
+    </StyledSection>
   );
 }
 
-const AboutSection = styled.section`
-  background-color: transparent;
-  padding: 4rem 0rem 4rem 0rem;
-  width: 100%;
-`;
-
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-`;
 
 const AboutContent = styled.div`
   display: flex;
@@ -89,16 +82,20 @@ const StyledBackground = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  background-color: var(--yellow);
 
   @media (min-width: 768px) {
     width: 50%;
-    background-color: var(--yellow);
   }
 `;
 const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
   height: auto;
+
   padding: 1rem;
 
   @media (min-width: 768px) {
@@ -144,11 +141,11 @@ const StyledQuote = styled.h3`
   }
 `;
 
-const StyledText = styled.p`
+const StyledAboutText = styled.p`
   font: var(--bodytext);
-  color: var(--black);
+  font-size: 0.85rem;
   line-height: 1.5;
-  text-align: left;
+  color: var(--black);
   padding: 1rem 0rem;
 
   @media (min-width: 768px) {
