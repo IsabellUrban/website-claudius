@@ -40,7 +40,7 @@ export default function ReelsSection() {
             <ReelsContent>
               <ContentContainer>
                 <VideoPlayer
-                  src="https://www.claudiusurban.com/reels/claudius_urban_showreel.mp4"
+                  src="https://videos.claudiusurban.com/claudius_urban_showreel.mp4"
                   videoRef={videoRef}
                 />
 
@@ -61,7 +61,7 @@ export default function ReelsSection() {
 
             <ReelsContent>
               <ContentContainer>
-                <VideoPlayer src="https://www.claudiusurban.com/reels/claudius_urban_animation_supervisor_reel.mp4" />
+                <VideoPlayer src="https://videos.claudiusurban.com/claudius_urban_animation_supervisor_reel.mp4" />
               </ContentContainer>
             </ReelsContent>
           </StyledContainer>
