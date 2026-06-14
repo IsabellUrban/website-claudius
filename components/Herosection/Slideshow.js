@@ -11,37 +11,45 @@ export default function Slideshow () {
 
 const [index, setIndex] = useState(0);
 const [isManual, setIsManual] = useState(false);
-const projectsWithStills = projects.filter (project => project.still )
+
+const slideshowImages = projects.flatMap((project) =>
+  project.stills.map((still, stillIndex) => ({
+    id: `${project.id}-${stillIndex}`,
+    title: project.title,
+    still,
+  }))
+);
 
 useEffect (() => {
 const interval = setInterval(() => {
 setIsManual(false);  
-setIndex((prevIndex) => (prevIndex + 1) % projectsWithStills.length);
+setIndex((prevIndex) => (prevIndex + 1) % slideshowImages.length);
 }, 8000);
 
 return () => 
 clearInterval(interval);
-}, [projectsWithStills.length]);
+}, [slideshowImages.length]);
 
 function handleClickNext () {
 setIsManual(true);
-setIndex((prevIndex) => (prevIndex + 1) % projectsWithStills.length);
+setIndex((prevIndex) => (prevIndex + 1) % slideshowImages.length);
 };
 
 function handleClickPrev () {
  setIsManual(true);
- setIndex((prevIndex) => prevIndex === 0 ? projectsWithStills.length - 1 : prevIndex - 1);
+ setIndex((prevIndex) => prevIndex === 0 ? slideshowImages.length - 1 : prevIndex - 1);
 };
 
+console.log(slideshowImages);
 
     return (
       <SlideshowContainer>
         <AnimatePresence initial={false}>
-          {projectsWithStills.length > 0 && (
+          {slideshowImages.length > 0 && (
             <StyledImage
-              key={projectsWithStills[index].id}
-              src={projectsWithStills[index].still}
-              alt={projectsWithStills[index].title}
+              key={slideshowImages[index].id}
+              src={slideshowImages[index].still}
+              alt={slideshowImages[index].title}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
