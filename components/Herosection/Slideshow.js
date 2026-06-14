@@ -40,7 +40,6 @@ function handleClickPrev () {
  setIndex((prevIndex) => prevIndex === 0 ? slideshowImages.length - 1 : prevIndex - 1);
 };
 
-console.log(slideshowImages);
 
     return (
       <SlideshowContainer>
